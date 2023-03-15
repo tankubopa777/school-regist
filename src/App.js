@@ -1,9 +1,16 @@
 import './App.css';
-import Login from './Login.js';
-import Student from './Student.js' 
+import Login_page from './page/Login.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home_page from './page/Home.js';
+import Registered_page from './page/Registered.js';
+//import Student from './Student.js' 
 
 function App() {
-  
+    return (
+    <div>
+        <Registered_page />
+    </div>
+    );
 }
 
 export default App;
