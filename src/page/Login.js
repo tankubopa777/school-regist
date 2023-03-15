@@ -1,15 +1,22 @@
-import TextLinkExample from "../components/Navbar";
+import { Container } from "react-bootstrap";
 import Home_page from "./Home";
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 function Login_page() {
     return (
         <div>
+          <Container className=" bg-secondary position-absolute top-50 start-50 translate-middle">
+            <Row>
+              <Col> </Col>
+              <Col> 
+              <Container>
             <form>
                 <h3>Sign In</h3>
             <div className="mb-3">
-          <label>Email address</label>
+          <label>ID Student</label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             placeholder="Enter email"
           />
@@ -18,20 +25,13 @@ function Login_page() {
           <label>Password</label>
           <input
             type="password"
-            className="form-control"
+            className="form-control" 
             placeholder="Enter password"
           />
         </div>
         <div className="mb-3">
           <div className="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customCheck1"
-            />
-            <label className="custom-control-label" htmlFor="customCheck1">
-              Remember me
-            </label>
+            
           </div>
         </div>
         <div className="d-grid">
@@ -43,7 +43,11 @@ function Login_page() {
           Forgot <a href="#">password?</a>
         </p>
       </form>
+      </Container>              
+              </Col>
+            </Row>
             
+      </Container>
         </div>
     );
   }

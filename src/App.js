@@ -8,7 +8,7 @@ import Registered_page from './page/Registered.js';
 function App() {
     return (
     <div>
-        <Registered_page />
+        <Login_page />
     </div>
     );
 }
