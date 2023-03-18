@@ -1,11 +1,22 @@
 import Block_subject from '../components/Block_Subject';
-import Navbar_component from '../components/Navbar';
+import Navbar from '../components/Navbar';
 
 function Home_page() {
     return (
         <div>
-            <Navbar_component/>
-            <Block_subject/>
+            <Navbar/>
+            <div className="grid grid-cols-2 gap-4">
+
+
+
+
+
+
+
+
+
+                
+            </div>
         </div>
     )
   }
