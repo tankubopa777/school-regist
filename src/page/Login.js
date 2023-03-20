@@ -5,6 +5,27 @@
 
 import React, { useState } from 'react';
 import Home_page from './Home';
+import { hookUser } from '../dataFetch.js'
+
+const callUser = async () => {
+  let data = await hookUser()
+  return data;
+}
+
+function checkLogin(e){
+  e.preventDefault();
+  let username = e.target.form.username.value;
+  let passw = e.target.form.password.value;
+  callUser().then((response) => {
+    if(!(username in response) || response[username].PASSW != passw){
+      console.log("failed");
+    }
+    else{
+      console.log("pass");
+    }
+    
+  });
+}
 
 function Login_page() {
   const [username, setUsername] = useState('');
