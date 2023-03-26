@@ -2,23 +2,33 @@ import Block_subject from '../components/Block_Subject';
 import Navbar from '../components/Navbar';
 import React from 'react';
 import Block_DetailStd from '../components/Block_DetailStd';
+import Std1 from '../components/std1';
+import Desc1 from '../components/desc1'
+import './style.css'
 
-function Home_page() {
+export default function Home_page() {
     return (
         <div>
-            <Navbar/>
-            <div class="flex">
-                <div class="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">
-                    <Block_subject/>
-                    <Block_subject/>
+            <Navbar />
+                <div class="hidden tablet:block fixed right-0">
+                    <Block_DetailStd />
                 </div>
 
-                <div class="flex-2 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">
-                     <Block_DetailStd/>
+                <div id="home">
+                    <Std1 />
+                    <Desc1 />
+                    <Std1 />
+                    <Desc1 />
+                    <Std1 />
+                    <Desc1 />
+                    <Std1 />
+                    <Desc1 />
+                    <Std1 />
+                    <Desc1 />
+                    <Std1 />
+                    <Desc1 />
                 </div>
             </div>
 
-        </div>
     );
-  }
-    export default Home_page;
+}
