@@ -8,13 +8,14 @@ import Block_subject from './components/Block_Subject';
 
 //import Student from './Student.js' 
 
-function App(){
+function App() {
 
-  return(
+  return (
     <div>
-      
+
       <Home_page />
     </div>
 
   );
+}
 export default App;
