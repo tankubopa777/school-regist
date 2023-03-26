@@ -9,12 +9,11 @@ function Home_page() {
             <Navbar/>
             <div class="flex">
                 <div class="flex-1 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">
-                    <Block_subject/>
-                    <Block_subject/>
+                    
                 </div>
 
                 <div class="flex-2 text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">
-                     <Block_DetailStd/>
+                     
                 </div>
             </div>
 
