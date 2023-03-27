@@ -123,7 +123,7 @@ function Table() {
                                             <div class="absolute  bg-white shadow-md rounded px-5 pt-4 pb-5 mb-4">
                                                 <ul>
                                                     <li className="hover:bg-slate-300 text-left p-3"> Edit</li>
-                                                    <li className="hover:bg-slate-300 text-left p-3"> Detail</li>
+                                                    <li className="hover:bg-slate-300 text-left p-3"> Grade</li>
                                                 </ul>
 
                                             </div>
