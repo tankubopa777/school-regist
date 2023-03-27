@@ -1,3 +1,4 @@
+import './App.css';
 import Login_page from './page/Login.js';
 import Home from './page/Home';
 import { useState, useEffect } from 'react'
@@ -33,3 +34,4 @@ export default function App() {
     );
 
 }
+export default App;

@@ -1,20 +1,13 @@
-import { Container } from "react-bootstrap";
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 
 function Block_subject() {
     return (
-        <div>
-            <Container className="bg-warning rounded-pill">
-                <Row>
-                    <Col className="p-3">CN210</Col>
-                    <Col className="p-3">Computer Configuration</Col>
-                    <Col className="p-3">760001</Col>
-                    <Col className="p-3">Prof.Pao</Col>
-                    <Col className="p-3">Quota</Col>
-                    <Col className="p-3">checkbox</Col>
-                </Row>
-            </Container>
+        <div className="">
+            <div className="inline-block rounded-lg bg-stone-300 p-3">
+                <span className="text-sm font-blod pl-2">CN210</span>
+                <span className="text-sm font-normal pl-2">Computer Configuretion</span>
+                <span className="text-sm font-normal pl-2">760001</span>
+                <span className="text-sm font-normal pl-2">Pro.f Pao</span>
+            </div>
         </div>
     );
 }
