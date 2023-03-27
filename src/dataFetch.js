@@ -40,7 +40,7 @@ export function checkLogin(username, passw) {
         if (!(username in response) || response[username].PASSW != passw) {
             return false;
         } else {
-            return true;
+            return [true,response[username]];
         }
     });
 }

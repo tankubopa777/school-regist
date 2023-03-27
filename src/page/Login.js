@@ -18,9 +18,9 @@ export const Login_page = (props) => {
     
     const success = await checkLogin(username,passw);
 
-    if(success){
+    if(success[0]){
       props.updateIsLoggedIn(true);
-      props.updateUser(username);
+      props.updateUser(success[1]);
     } 
   }
 

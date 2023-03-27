@@ -1,22 +1,11 @@
 import Login_page from './page/Login.js';
 import Home from './page/Home';
 import { useState, useEffect } from 'react'
-import { username } from './page/Login.js'
-import { hookUser } from './dataFetch.js'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// const callUser = async () => {
-//     let data = await hookUser()
-//     return data;
-//   }
 
 export default function App() {
 
-    
-
-    // callUser().then((response) => {
-    //     setUser(response["40527"])
-    // });
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
 
