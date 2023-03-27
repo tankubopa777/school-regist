@@ -3,7 +3,6 @@ import Home from './page/Home';
 import { useState, useEffect } from 'react'
 import { username } from './page/Login.js'
 import { hookUser } from './dataFetch.js'
-import { page } from './store.js';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // const callUser = async () => {
