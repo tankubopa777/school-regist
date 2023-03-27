@@ -1,4 +1,4 @@
-import Navbar_component from '../components/Navbar';
+import Navbar_component from '../components/navbar';
 
 function Registered_page() {
     return (
