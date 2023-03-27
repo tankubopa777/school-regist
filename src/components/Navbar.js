@@ -1,4 +1,17 @@
-function Navbar(){
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import { redirect, useNavigate, useHistory } from 'react-router-dom';
+
+function Navbar_component(props){
+  const navigate = useNavigate();
+
+  const logout =  ()  => {
+    props.updateIsLoggedIn(false)
+    props.updateUser(null)
+    navigate("/")
+  }
+
+
   return (
     <nav class="flex items-center justify-between flex-wrap bg-green-700 pb-4">
   <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -34,6 +47,8 @@ function Navbar(){
       <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white ml-4">
         Log out
       </a>
+      Signed in as: <button onClick={logout}>{props.user.FNAME} {props.user.LNAME}</button>
+      
       </div>
       
     </div>
@@ -42,4 +57,4 @@ function Navbar(){
   );
 }
 
-export default Navbar;
+export default Navbar_component;

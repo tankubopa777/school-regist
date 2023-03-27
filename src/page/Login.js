@@ -1,40 +1,36 @@
-// import { Container } from "react-bootstrap";
-// import Home_page from "./Home";
-// import Row from 'react-bootstrap/Row'
-// import Col from 'react-bootstrap/Col'
+import { Container } from "react-bootstrap";
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import { redirect, useNavigate, useHistory } from 'react-router-dom';
+import { checkLogin } from '../dataFetch.js'
+import { useState, useEffect } from 'react'
 
-import React, { useState } from 'react';
-import Home_page from './Home';
-import { hookUser } from '../dataFetch.js'
+// export const username = document.getElementById('username');
 
-const callUser = async () => {
-  let data = await hookUser()
-  return data;
-}
+export const Login_page = (props) => {
 
-function checkLogin(e){
-  e.preventDefault();
-  let username = e.target.form.username.value;
-  let passw = e.target.form.password.value;
-  callUser().then((response) => {
-    if(!(username in response) || response[username].PASSW != passw){
-      console.log("failed");
-    }
-    else{
-      console.log("pass");
-    }
+  const navigate = useNavigate();
+
+  const Login = async (e)  => {
+    e.preventDefault();
+    let username = e.target.form.username.value;
+    let passw = e.target.form.password.value;
     
-  });
-}
+    const success = await checkLogin(username,passw);
 
-function Login_page() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+    if(success[0]){
+      props.updateIsLoggedIn(true);
+      props.updateUser(success[1]);
+    } 
+  }
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    console.log(`Logged in as ${username} with password ${password}`);
-  };
+  if (props.isLoggedIn) {
+    navigate("/Home");
+    
+  }
+  else{
+    navigate("/");
+  }
 
   return (
     <div className="min-h-screen flex justify-center items-center">
@@ -50,6 +46,7 @@ function Login_page() {
             Username
           </label>
           <div className="mt-1">
+          
             <input
               id="username"
               name="username"
@@ -60,6 +57,7 @@ function Login_page() {
               required
               className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
+            
           </div>
         </div>
         <div>
@@ -70,6 +68,7 @@ function Login_page() {
             Password
           </label>
           <div className="mt-1">
+          
             <input
               id="password"
               name="password"
@@ -80,12 +79,14 @@ function Login_page() {
               required
               className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
+            
           </div>
         </div>
         <div>
 
           <button
             type="submit"
+            onClick={Login()}
             className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             <span className="absolute left-0 inset-y-0 flex items-center pl-3">
