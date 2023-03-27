@@ -4,7 +4,6 @@ import Home from './page/Home';
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
 export default function App() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);

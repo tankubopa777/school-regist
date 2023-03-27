@@ -1,18 +1,27 @@
 import Block_subject from '../components/Block_Subject';
-import Navbar_component from '../components/Navbar';
+import Navbar from '../components/Navbar';
 import React from 'react';
 import Block_DetailStd from '../components/Block_DetailStd';
-import { redirect, useNavigate, useHistory } from 'react-router-dom';
+import Std1 from '../components/std1';
+import Desc1 from '../components/desc1'
+import './style.css'
 
-function Home_page(props) {
-   
+export default function Home_page(props) {
     return (
         <div>
-            <Navbar_component
-                user={props.user} updateUser={props.updateUser}
-                isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn}/>
-            <Block_subject/>
+            <div class=""><Navbar 
+                            user={props.user} updateUser={props.updateUser}
+                            isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn}/></div>
+            <div class="relative top-20">
+                <div class="hidden tablet:block fixed right-0">
+                    <Block_DetailStd />
+                </div>
+
+                <div id="home" class="">
+                    <Std1 />
+                </div>
+            </div>
         </div>
+
     );
-  }
-    export default Home_page;
+}

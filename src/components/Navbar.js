@@ -1,8 +1,13 @@
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+import Logo from '../assets/pks.png';
 import { redirect, useNavigate, useHistory } from 'react-router-dom';
 
-function Navbar_component(props){
+function navToggle() {
+  document.getElementById('mobile-nav').classList.toggle('hidden');
+  document.getElementById('btn-on').classList.toggle('hidden');
+  document.getElementById('btn').classList.toggle('hidden');
+}
+
+function Navbar_component(props) {
   const navigate = useNavigate();
 
   const logout =  ()  => {
@@ -13,47 +18,101 @@ function Navbar_component(props){
 
 
   return (
-    <nav class="flex items-center justify-between flex-wrap bg-green-700 pb-4">
-  <div class="flex items-center flex-shrink-0 text-white mr-6">
-    <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
-    <span class="font-semibold text-xl tracking-tight">LOGO</span>
-  </div>
-  <div class="block">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" ><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-    </button>
-  </div >
+    <nav>
+      <div class="fixed top-0 left-0 z-50 w-full shadow-xl">
+        <div class="flex justify-between bg-green-500">
 
-  
-    
-  {/* <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-    <div class="text-sm lg:flex-grow">
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        วิชาเสรี
-      </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        วิชาชุมนุม
-      </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-        วิชาที่ลงทะเบียนเเล้ว
-      </a>
-    </div>
+          <div class="flex">
+            <div>
+              <img src={Logo} class="w-20" />
+            </div>
+            <div class="flex flex-col justify-center m-3">
+              <p class="">โรงเรียนเพชรพิทยาคม</p>
+            </div>
 
-    <div>
-      <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
-        ICON
-      </a>
+            <div class="hidden tablet:flex flex-row justify-center ">
+              <div class="flex flex-col justify-center m-3">
+                <a href="#responsive-header" class="">
+                  วิชาเสรี
+                </a>
+              </div>
+              <div class="flex flex-col justify-center m-3">
+                <a href="#responsive-header" class="">
+                  วิชาชุมนุม
+                </a>
+              </div>
+              <div class="flex flex-col justify-center m-3">
+                <a href="#responsive-header" class="">
+                  วิชาที่ลงทะเบียนเเล้ว
+                </a>
+              </div>
+            </div>
+          </div>
 
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white ml-4">
-        Log out
-      </a>
-      Signed in as: <button onClick={logout}>{props.user.FNAME} {props.user.LNAME}</button>
-      
+          <div class="flex flex-col justify-center m-3">
+            <div class="hidden tablet:flex flex-row justify-center">
+              <div class="flex flex-col justify-center m-3">
+                <a href="#responsive-header" class="">
+                  icon
+                </a>
+              </div>
+              <div class="flex flex-col justify-center m-3">
+                <a href="#responsive-header" class="">
+                  SIGNED IN AS {props.user.FNAME} {props.user.LNAME}
+                </a>
+              </div>
+              <div class="flex flex-col justify-center m-3">
+                <button onClick={logout()}>
+                  Log out
+                </button>
+              </div>
+            </div>
+            <div>
+              <div class="flex tablet:hidden">
+                <button id="btn" onClick={navToggle} class="hidden flex-row justify-center m-3">
+                <div class="fixed">
+                    <div class="h-4 w-4 border-r-4 ml-1 -rotate-45" />
+                  </div>
+                  <div class="relative">
+                    <div class="h-4 w-4 border-r-4 ml-1 rotate-45 " />
+                  </div>
+                </button>
+                <button id="btn-on" onClick={navToggle} class="flex flex-row justify-center m-3">
+                  <div class="rotate-90">
+                    <span class="h-4 w-4 border-r-4 ml-1" />
+                    <span class="h-4 w-4 border-r-4 ml-1" />
+                    <span class="h-4 w-4 border-r-4 ml-1" />
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center bg-green-500">
+          <div id="mobile-nav" class="hidden flex-col justify-center m-3 tablet:hidden">
+            <div class="flex flex-row justify-center ">
+              <div class="flex flex-col justify-center m-3">
+                <a href="#responsive-header" class="">
+                  วิชาเสรี
+                </a>
+              </div>
+              <div class="flex flex-col justify-center m-3">
+                <a href="#responsive-header" class="">
+                  วิชาชุมนุม
+                </a>
+              </div>
+              <div class="flex flex-col justify-center m-3">
+                <a href="#responsive-header" class="">
+                  วิชาที่ลงทะเบียนเเล้ว
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      
-    </div>
-  </div> */}
-</nav>
+    </nav>
   );
 }
 
