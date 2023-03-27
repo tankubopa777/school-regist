@@ -1,4 +1,5 @@
 import Logo from '../assets/pks.png';
+import { redirect, useNavigate, useHistory } from 'react-router-dom';
 
 function navToggle() {
   document.getElementById('mobile-nav').classList.toggle('hidden');
@@ -6,7 +7,16 @@ function navToggle() {
   document.getElementById('btn').classList.toggle('hidden');
 }
 
-function Navbar() {
+function Navbar_component(props) {
+  const navigate = useNavigate();
+
+  const logout =  ()  => {
+    props.updateIsLoggedIn(false)
+    props.updateUser(null)
+    navigate("/")
+  }
+
+
   return (
     <nav>
       <div class="fixed top-0 left-0 z-50 w-full shadow-xl">
@@ -48,13 +58,13 @@ function Navbar() {
               </div>
               <div class="flex flex-col justify-center m-3">
                 <a href="#responsive-header" class="">
-                  Log out
+                  SIGNED IN AS {props.user.FNAME} {props.user.LNAME}
                 </a>
               </div>
               <div class="flex flex-col justify-center m-3">
-                <a href="#responsive-header" class="">
+                <button onClick={logout()}>
                   Log out
-                </a>
+                </button>
               </div>
             </div>
             <div>
@@ -106,4 +116,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbar_component;

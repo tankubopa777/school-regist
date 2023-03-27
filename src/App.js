@@ -1,21 +1,35 @@
 import './App.css';
 import Login_page from './page/Login.js';
-import Home_page from './page/Home.js';
-import Registered_page from './page/Registered.js';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Block_DetailStd from './components/Block_DetailStd';
-import Block_subject from './components/Block_Subject';
+import Home from './page/Home';
+import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-//import Student from './Student.js' 
+export default function App() {
 
-function App() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [user, setUser] = useState(null);
 
-  return (
-    <div>
+    const updateIsLoggedIn = (newValue) => {
+        setIsLoggedIn(newValue);
+    };
 
-      <Home_page />
-    </div>
+    const updateUser = (newValue) => {
+        setUser(newValue);
+    };
 
-  );
+    console.log(isLoggedIn)
+    console.log(user)
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Login_page
+                    user={user} updateUser={updateUser}
+                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn} />} />
+                <Route path="/Home" element={<Home
+                    user={user} updateUser={updateUser}
+                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn} />} />
+            </Routes>
+        </Router>
+    );
+
 }
-export default App;

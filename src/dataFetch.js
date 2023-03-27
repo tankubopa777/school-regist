@@ -1,5 +1,5 @@
-export async function hookUser(){
-    const url = 'https://script.google.com/macros/s/AKfycbzk_oFoKGv9lt78QRxxRIHwb1YjcW2yHg6ha-msNZwRAslRW4ja0Xok4WsHClAfpdfNNw/exec';
+export async function hookUser() {
+    const url = 'https://script.google.com/macros/s/AKfycbwCe11s89bwSy3g6qedTBktt6j7gwou3Wc7bItonos8PoSEZryJ1ODjXIDkLJb5L_52Pg/exec';
     const action = 'getUsers';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction);
@@ -7,8 +7,8 @@ export async function hookUser(){
     return result;
 }
 
-export async function hookSubjet(){
-    const url = '';
+export async function hookSubjet() {
+    const url = 'https://script.google.com/macros/s/AKfycbwCe11s89bwSy3g6qedTBktt6j7gwou3Wc7bItonos8PoSEZryJ1ODjXIDkLJb5L_52Pg/exec';
     const action = 'getSubjects';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction);
@@ -16,10 +16,33 @@ export async function hookSubjet(){
     return result;
 }
 
-export function getUserDataById(id,data){
-    for(let i=0;i<data.length;i++){
-        console.log(data[i]);
-    }
+const callUser = async () => {
+    let data = await hookUser()
+    return data;
+}
+
+// export function checkLogin(username,passw) {
+//     callUser().then((response) => {
+//         if (!(username in response) || response[username].PASSW != passw) {
+//             console.log("failed")
+//             return false
+//         }
+//         else {
+//             console.log("pass")
+//             return true
+//         }
+//     });
+
+// }
+
+export function checkLogin(username, passw) {
+    return callUser().then((response) => {
+        if (!(username in response) || response[username].PASSW != passw) {
+            return false;
+        } else {
+            return [true,response[username]];
+        }
+    });
 }
 
 
