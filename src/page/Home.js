@@ -9,19 +9,12 @@ import './style.css'
 export default function Home_page(props) {
     return (
         <div>
-            <div class=""><Navbar 
-                            user={props.user} updateUser={props.updateUser}
-                            isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn}/></div>
-            <div class="relative top-20">
-                <div class="hidden tablet:block fixed right-0">
-                    <Block_DetailStd />
-                </div>
-
-                <div id="home" class="">
-                    <Std1 />
-                </div>
-            </div>
-        </div>
+            <Navbar
+                user={props.user} updateUser={props.updateUser}
+                isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
+            <Block_DetailStd />
+            <Std1 />
+        </div >
 
     );
 }

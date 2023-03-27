@@ -18,6 +18,7 @@ function Navbar_component(props) {
 
 
   return (
+
     <nav>
       <div class="fixed top-0 left-0 z-50 w-full shadow-xl">
         <div class="flex justify-between bg-green-500">
@@ -61,27 +62,27 @@ function Navbar_component(props) {
                   SIGNED IN AS {props.user.FNAME} {props.user.LNAME}
                 </a>
               </div>
-              <div class="flex flex-col justify-center m-3">
-                <button onClick={logout()}>
+              <div className="flex flex-col justify-center m-3">
+                <button onClick={logout}>
                   Log out
                 </button>
               </div>
             </div>
             <div>
-              <div class="flex tablet:hidden">
-                <button id="btn" onClick={navToggle} class="hidden flex-row justify-center m-3">
-                <div class="fixed">
-                    <div class="h-4 w-4 border-r-4 ml-1 -rotate-45" />
+              <div className="flex tablet:hidden">
+                <button id="btn" onClick={navToggle} className="hidden flex-row justify-center m-3">
+                <div className="fixed">
+                    <div className="h-4 w-4 border-r-4 ml-1 -rotate-45" />
                   </div>
-                  <div class="relative">
-                    <div class="h-4 w-4 border-r-4 ml-1 rotate-45 " />
+                  <div className="relative">
+                    <div className="h-4 w-4 border-r-4 ml-1 rotate-45 " />
                   </div>
                 </button>
-                <button id="btn-on" onClick={navToggle} class="flex flex-row justify-center m-3">
-                  <div class="rotate-90">
-                    <span class="h-4 w-4 border-r-4 ml-1" />
-                    <span class="h-4 w-4 border-r-4 ml-1" />
-                    <span class="h-4 w-4 border-r-4 ml-1" />
+                <button id="btn-on" onClick={navToggle} className="flex flex-row justify-center m-3">
+                  <div className="rotate-90">
+                    <span className="h-4 w-4 border-r-4 ml-1" />
+                    <span className="h-4 w-4 border-r-4 ml-1" />
+                    <span className="h-4 w-4 border-r-4 ml-1" />
                   </div>
                 </button>
               </div>
@@ -89,21 +90,21 @@ function Navbar_component(props) {
           </div>
         </div>
 
-        <div class="flex justify-center bg-green-500">
-          <div id="mobile-nav" class="hidden flex-col justify-center m-3 tablet:hidden">
-            <div class="flex flex-row justify-center ">
-              <div class="flex flex-col justify-center m-3">
-                <a href="#responsive-header" class="">
+        <div className="flex justify-center bg-green-500">
+          <div id="mobile-nav" className="hidden flex-col justify-center m-3 tablet:hidden">
+            <div className="flex flex-row justify-center ">
+              <div className="flex flex-col justify-center m-3">
+                <a href="#responsive-header" className="">
                   วิชาเสรี
                 </a>
               </div>
-              <div class="flex flex-col justify-center m-3">
-                <a href="#responsive-header" class="">
+              <div className="flex flex-col justify-center m-3">
+                <a href="#responsive-header" className="">
                   วิชาชุมนุม
                 </a>
               </div>
-              <div class="flex flex-col justify-center m-3">
-                <a href="#responsive-header" class="">
+              <div className="flex flex-col justify-center m-3">
+                <a href="#responsive-header" className="">
                   วิชาที่ลงทะเบียนเเล้ว
                 </a>
               </div>

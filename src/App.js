@@ -19,11 +19,12 @@ export default function App() {
 
     console.log(isLoggedIn)
     console.log(user)
+    
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Login_page
-                    user={user} updateUser={updateUser}
+                    updateUser={updateUser}
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn} />} />
                 <Route path="/Home" element={<Home
                     user={user} updateUser={updateUser}
