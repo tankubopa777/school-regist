@@ -8,6 +8,7 @@ export default function App() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
+    const [page, setPage] = useState('Login')
 
     const updateIsLoggedIn = (newValue) => {
         setIsLoggedIn(newValue);
@@ -24,7 +25,7 @@ export default function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<Login_page
-                    updateUser={updateUser}
+                    user={user} updateUser={updateUser}
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn} />} />
                 <Route path="/Home" element={<Home
                     user={user} updateUser={updateUser}

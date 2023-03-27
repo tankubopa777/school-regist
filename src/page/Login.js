@@ -25,8 +25,11 @@ export const Login_page = (props) => {
   }
 
   if (props.isLoggedIn) {
-    navigate("/Home");
-    
+    if(props.user.TYPE == 'STD'){
+      navigate("/Home");
+    }
+    if(props.user.TYPE == "PROF")
+    navigate("/PROF");
   }
 
   return (
