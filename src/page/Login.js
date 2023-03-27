@@ -5,12 +5,11 @@ import { redirect, useNavigate, useHistory } from 'react-router-dom';
 import { checkLogin } from '../dataFetch.js'
 import { useState, useEffect } from 'react'
 
-export const username = document.getElementById('username');
+// export const username = document.getElementById('username');
 
-export const Login_page = () => {
+export const Login_page = (props) => {
 
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const Login = async (e)  => {
     e.preventDefault();
@@ -20,13 +19,17 @@ export const Login_page = () => {
     const success = await checkLogin(username,passw);
 
     if(success){
-      setIsLoggedIn(true);
+      props.updateIsLoggedIn(true);
+      props.updateUser(username);
     } 
   }
 
-  if (isLoggedIn) {
-    console.log("pass navs")
+  if (props.isLoggedIn) {
     navigate("/Home");
+    
+  }
+  else{
+    navigate("/");
   }
 
   return (
