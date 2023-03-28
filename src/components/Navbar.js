@@ -33,7 +33,7 @@ function Navbar_component(props) {
 
     <nav>
       <div class="fixed top-0 left-0 z-50 w-full shadow-2xl">
-        <div class="flex justify-between bg-green-500 tablet:rounded-b-2xl">
+        <div class="flex justify-between bg-green-600 tablet:rounded-b-2xl">
 
           <div class="flex">
             <div>
@@ -49,17 +49,17 @@ function Navbar_component(props) {
 
             <div class="hidden tablet:flex flex-row justify-center ">
               <div class="flex flex-col justify-center m-1">
-                <a onClick={std1} class="hover:text-white hover:font-bold cursor-pointer">
+                <a onClick={std1} class="hover:text-white hover:underline cursor-pointer">
                   วิชาเสรี
                 </a>
               </div>
               <div class="flex flex-col justify-center m-1">
-                <a onClick={std2} class="hover:text-white hover:font-bold cursor-pointer">
+                <a onClick={std2} class="hover:text-white hover:underline cursor-pointer">
                   วิชาชุมนุม
                 </a>
               </div>
               <div class="flex flex-col justify-center m-1">
-                <a onClick={std3} class="hover:text-white hover:font-bold cursor-pointer">
+                <a onClick={std3} class="hover:text-white hover:underline cursor-pointer">
                   วิชาที่ลงทะเบียนเเล้ว
                 </a>
               </div>
@@ -69,12 +69,12 @@ function Navbar_component(props) {
           <div class="flex flex-col justify-center m-1">
             <div class="hidden tablet:flex flex-row justify-center">
               <div class="flex flex-col justify-center m-1">
-                <a href="#responsive-header" class="">
+                <p class="">
                   {props.user.ID} {props.user.FNAME}
-                </a>
+                </p>
               </div>
               <div className="flex flex-col justify-center m-1">
-                <button className="hover:text-white hover:font-bold" onClick={logout}>
+                <button className="hover:text-white hover:underline" onClick={logout}>
                   Log out
                 </button>
               </div>
@@ -101,7 +101,7 @@ function Navbar_component(props) {
           </div>
         </div>
 
-        <div className="flex justify-center bg-green-500 rounded-b-2xl">
+        <div className="flex justify-center bg-green-600 rounded-b-2xl">
           <div id="mobile-nav" className="hidden flex-col justify-center m-3 tablet:hidden">
             <div className="flex flex-col justify-center ">
               <div className="flex flex-row justify-center m-3">

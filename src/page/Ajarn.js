@@ -9,8 +9,12 @@ import EditComponents from "../components/EditComponents";
 function Ajarn_Page(props) {
   return (
     <div>
+      <div class="block tablet:hidden">
+        <p class="text-5xl">USE ON PC ONLY</p>
+      </div>
+    <div class="hidden tablet:block">
       <NavbarAJ />
-      XZczxc
+    </div>
       {/* <Table />  */}
       {/* <EditComponents /> */}
       {/*   */}

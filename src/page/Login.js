@@ -38,7 +38,7 @@ export const Login_page = (props) => {
   return (
     <div>
       {/* Under Tabblet Login Page */}
-      <div class="fixed flex tablet:hidden justify-center top-0 left-0 z-50 w-full h-10 shadow-2xl bg-green-500">
+      <div class="fixed flex tablet:hidden justify-center top-0 left-0 z-50 w-full h-10 shadow-2xl bg-green-600">
         <div class="relative flex flex-col top-20">
           <div class="">
             <p class="text-center font-bold text-xl">Welcome <br /> Petpittayakom School</p>
@@ -93,7 +93,7 @@ export const Login_page = (props) => {
               </div>
             </form>
           </div>
-          <div class="w-1/2 height-full bg-green-500 border-r-[50px] border-r-gray-300 border-t-[400px] border-t-transparent rounded-l-[50px]">
+          <div class="w-1/2 height-full bg-green-600 border-r-[50px] border-r-gray-300 border-t-[400px] border-t-transparent rounded-l-[50px]">
             <img src={Logo} class="absolute top-1/4 left-1/3 -translate-x-44 -translate-y-1"/>
           </div>
         </div>
