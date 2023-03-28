@@ -2,9 +2,9 @@ import Logo from '../assets/pks.png';
 import { redirect, useNavigate, useHistory } from 'react-router-dom';
 
 function navToggle() {
-  document.getElementById('mobile-nav').classList.toggle('hidden');
-  document.getElementById('btn-on').classList.toggle('hidden');
-  document.getElementById('btn').classList.toggle('hidden');
+  document.getElementById('mobile-nav').classNameList.toggle('hidden');
+  document.getElementById('btn-on').classNameList.toggle('hidden');
+  document.getElementById('btn').classNameList.toggle('hidden');
 }
 
 function Navbar_component(props) {
@@ -32,44 +32,44 @@ function Navbar_component(props) {
   return (
 
     <nav>
-      <div class="fixed top-0 left-0 z-50 w-full shadow-2xl">
-        <div class="flex justify-between bg-green-600 tablet:rounded-b-2xl">
+      <div className="fixed top-0 left-0 z-50 w-full shadow-2xl">
+        <div className="flex justify-between bg-green-600 tablet:rounded-b-2xl">
 
-          <div class="flex">
+          <div className="flex">
             <div>
-              <img src={Logo} class="w-20" />
+              <img src={Logo} className="w-20" />
             </div>
-            <div class="hidden tablet:flex flex-col justify-center m-3">
-              <p class="">โรงเรียนเพชรพิทยาคม</p>
-            </div>
-
-            <div class="flex tablet:hidden flex-col justify-center m-3">
-              <p class="">{props.user.ID} <br /> {props.user.FNAME}</p>
+            <div className="hidden tablet:flex flex-col justify-center m-3">
+              <p className="">โรงเรียนเพชรพิทยาคม</p>
             </div>
 
-            <div class="hidden tablet:flex flex-row justify-center ">
-              <div class="flex flex-col justify-center m-1">
-                <a onClick={std1} class="hover:text-white hover:underline cursor-pointer">
+            <div className="flex tablet:hidden flex-col justify-center m-3">
+              <p className="">{props.user.ID} <br /> {props.user.FNAME}</p>
+            </div>
+
+            <div className="hidden tablet:flex flex-row justify-center ">
+              <div className="flex flex-col justify-center m-1">
+                <a onClick={std1} className="hover:text-white hover:underline cursor-pointer">
                   วิชาเสรี
                 </a>
               </div>
-              <div class="flex flex-col justify-center m-1">
-                <a onClick={std2} class="hover:text-white hover:underline cursor-pointer">
+              <div className="flex flex-col justify-center m-1">
+                <a onClick={std2} className="hover:text-white hover:underline cursor-pointer">
                   วิชาชุมนุม
                 </a>
               </div>
-              <div class="flex flex-col justify-center m-1">
-                <a onClick={std3} class="hover:text-white hover:underline cursor-pointer">
+              <div className="flex flex-col justify-center m-1">
+                <a onClick={std3} className="hover:text-white hover:underline cursor-pointer">
                   วิชาที่ลงทะเบียนเเล้ว
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="flex flex-col justify-center m-1">
-            <div class="hidden tablet:flex flex-row justify-center">
-              <div class="flex flex-col justify-center m-1">
-                <p class="">
+          <div className="flex flex-col justify-center m-1">
+            <div className="hidden tablet:flex flex-row justify-center">
+              <div className="flex flex-col justify-center m-1">
+                <p className="">
                   {props.user.ID} {props.user.FNAME}
                 </p>
               </div>

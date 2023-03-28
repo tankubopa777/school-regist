@@ -1,16 +1,28 @@
 import './App.css';
 import Login_page from './page/Login.js';
-import Ajarn from './page/Ajarn';
+import Teacher from './page/Teacher';
 import Student1 from './page/Student1';
 import Student2 from './page/Student2';
 import Student3 from './page/Student3';
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useAsyncError } from "react-router-dom";
+import { fetchSubjects } from './dataFetch.js'
+
 
 export default function App() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
+    const [page, setPage] = useState('Login');
+    const [subjects, setSubjects] = useState(null);
+
+    useEffect(() => {
+        fetchSubjects().then((response) => {
+            setSubjects(response);
+        }).catch((error) => {
+            console.log(error);
+        });
+    }, [])
 
     const updateIsLoggedIn = (newValue) => {
         setIsLoggedIn(newValue);
@@ -20,9 +32,18 @@ export default function App() {
         setUser(newValue);
     };
 
+    const updatePage = (newValue) => {
+        setPage(newValue);
+    };
+
+    const updateSubjects = (newValue) => {
+        setSubjects(newValue);
+    };
+
     console.log(isLoggedIn)
     console.log(user)
-    
+    console.log(subjects)
+
     return (
         <Router>
             <Routes>
@@ -40,7 +61,14 @@ export default function App() {
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn} />} />
                 <Route path="/PROF" element={<Ajarn
                     user={user} updateUser={updateUser}
-                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn} />} />
+                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
+                    page={page} updatePage={updatePage}
+                    subjects={subjects} updateSubjects={updateSubjects} />} />
+                <Route path="/Teacher" element={<Teacher
+                    user={user} updateUser={updateUser}
+                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
+                    page={page} updatePage={updatePage}
+                    subjects={subjects} updateSubjects={updateSubjects} />} />
             </Routes>
         </Router>
     );
