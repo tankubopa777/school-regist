@@ -20,45 +20,45 @@ function Navbar_component(props) {
   return (
 
     <nav>
-      <div class="fixed top-0 left-0 z-50 w-full shadow-xl">
-        <div class="flex justify-between bg-green-500">
+      <div className="fixed top-0 left-0 z-50 w-full shadow-xl">
+        <div className="flex justify-between bg-green-500">
 
-          <div class="flex">
+          <div className="flex">
             <div>
-              <img src={Logo} class="w-20" />
+              <img src={Logo} className="w-20" />
             </div>
-            <div class="flex flex-col justify-center m-3">
-              <p class="">โรงเรียนเพชรพิทยาคม</p>
+            <div className="flex flex-col justify-center m-3">
+              <p className="">โรงเรียนเพชรพิทยาคม</p>
             </div>
 
-            <div class="hidden tablet:flex flex-row justify-center ">
-              <div class="flex flex-col justify-center m-3">
-                <a href="#responsive-header" class="">
+            <div className="hidden tablet:flex flex-row justify-center ">
+              <div className="flex flex-col justify-center m-3">
+                <a href="#responsive-header" className="">
                   วิชาเสรี
                 </a>
               </div>
-              <div class="flex flex-col justify-center m-3">
-                <a href="#responsive-header" class="">
+              <div className="flex flex-col justify-center m-3">
+                <a href="#responsive-header" className="">
                   วิชาชุมนุม
                 </a>
               </div>
-              <div class="flex flex-col justify-center m-3">
-                <a href="#responsive-header" class="">
+              <div className="flex flex-col justify-center m-3">
+                <a href="#responsive-header" className="">
                   วิชาที่ลงทะเบียนเเล้ว
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="flex flex-col justify-center m-3">
-            <div class="hidden tablet:flex flex-row justify-center">
-              <div class="flex flex-col justify-center m-3">
-                <a href="#responsive-header" class="">
+          <div className="flex flex-col justify-center m-3">
+            <div className="hidden tablet:flex flex-row justify-center">
+              <div className="flex flex-col justify-center m-3">
+                <a href="#responsive-header" className="">
                   icon
                 </a>
               </div>
-              <div class="flex flex-col justify-center m-3">
-                <a href="#responsive-header" class="">
+              <div className="flex flex-col justify-center m-3">
+                <a href="#responsive-header" className="">
                   SIGNED IN AS {props.user.FNAME} {props.user.LNAME}
                 </a>
               </div>

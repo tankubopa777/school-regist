@@ -1,3 +1,4 @@
+import React from "react";
 import NavbarAJ from "../components/NavbarAJ";
 import Table from "../components/Table";
 import Register_subject from "../components/RegSubject";
@@ -5,21 +6,26 @@ import Card_Edit from "../components/Card_Edit";
 import TableStd from "../components/TableStd";
 import Grade from "../components/Grade";
 import EditComponents from "../components/EditComponents";
+import { useState, useEffect } from 'react'
 
-function Ajarn_Page() {
+
+
+
+function Teacher_page(props) {
+
+ 
+  
   return (
     <div>
-      <NavbarAJ />
+      <NavbarAJ
+        user={props.user} updateUser={props.updateUser}
+        isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
 
-      {/* <Table />  */}
-      {/* <EditComponents /> */}
-      {/*   */}
 
-      {/* <EditComponents /> */}
-      
+        <Table subjects={props.subjects} />
 
 
     </div>
   );
 }
-export default Ajarn_Page;
+export default Teacher_page;

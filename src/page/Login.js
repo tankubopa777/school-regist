@@ -25,7 +25,7 @@ export const Login_page = (props) => {
   }
 
   if (props.isLoggedIn) {
-    navigate("/Home");
+    navigate("/Teacher");
     
   }
 
