@@ -2,7 +2,7 @@ import Block_subject from '../components/Block_Subject';
 import Navbar from '../components/Navbar';
 import React from 'react';
 import Block_DetailStd from '../components/Block_DetailStd';
-import Std1 from '../components/std1';
+import Std2 from '../components/std2';
 import './style.css'
 
 export default function Home_page(props) {
@@ -16,7 +16,7 @@ export default function Home_page(props) {
                     <Block_DetailStd user={props.user} />
                 </div>
                 <div id="home" class="relative">
-                    <Std1 />
+                    <Std2 />
                 </div>
             </div>
 

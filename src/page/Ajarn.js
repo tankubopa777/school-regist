@@ -6,11 +6,11 @@ import TableStd from "../components/TableStd";
 import Grade from "../components/Grade";
 import EditComponents from "../components/EditComponents";
 
-function Ajarn_Page() {
+function Ajarn_Page(props) {
   return (
     <div>
       <NavbarAJ />
-
+      XZczxc
       {/* <Table />  */}
       {/* <EditComponents /> */}
       {/*   */}
