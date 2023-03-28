@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useAsyncError } from "react-router-dom";
 import { fetchSubjects } from './dataFetch.js'
 
-
 export default function App() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,12 +16,16 @@ export default function App() {
     const [subjects, setSubjects] = useState(null);
 
     useEffect(() => {
-        fetchSubjects().then((response) => {
+        const timer = setTimeout(() => {
+          fetchSubjects().then((response) => {
             setSubjects(response);
-        }).catch((error) => {
+          }).catch((error) => {
             console.log(error);
-        });
-    }, [])
+          });
+        }, 2000);
+      
+        return () => clearTimeout(timer);
+      }, []);
 
     const updateIsLoggedIn = (newValue) => {
         setIsLoggedIn(newValue);
@@ -43,27 +46,30 @@ export default function App() {
     console.log(isLoggedIn)
     console.log(user)
     console.log(subjects)
-
+ 
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Login_page
-                    user={user} updateUser={updateUser}
-                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn} />} />
-                <Route path="/วิชาเสรี" element={<Student1
-                    user={user} updateUser={updateUser}
-                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn} />} />
-                <Route path="/วิชาชุมนุม" element={<Student2
-                    user={user} updateUser={updateUser}
-                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn} />} />
-                <Route path="/วิชาที่ลงทะเบียนเเล้ว" element={<Student3
-                    user={user} updateUser={updateUser}
-                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn} />} />
-                <Route path="/PROF" element={<Ajarn
-                    user={user} updateUser={updateUser}
+                    user={user}             updateUser={updateUser}
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
-                    page={page} updatePage={updatePage}
-                    subjects={subjects} updateSubjects={updateSubjects} />} />
+                    page={page}             updatePage={updatePage}
+                    subjects={subjects}     updateSubjects={updateSubjects} />} />
+                <Route path="/วิชาเสรี" element={<Student1
+                     user={user}             updateUser={updateUser}
+                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
+                    page={page}             updatePage={updatePage}
+                    subjects={subjects}     updateSubjects={updateSubjects} />} />
+                <Route path="/วิชาชุมนุม" element={<Student2
+                    user={user}             updateUser={updateUser}
+                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
+                    page={page}             updatePage={updatePage}
+                    subjects={subjects}     updateSubjects={updateSubjects} />} />
+                <Route path="/วิชาที่ลงทะเบียนเเล้ว" element={<Student3
+                    user={user}             updateUser={updateUser}
+                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
+                    page={page}             updatePage={updatePage}
+                    subjects={subjects}     updateSubjects={updateSubjects} />} />
                 <Route path="/Teacher" element={<Teacher
                     user={user} updateUser={updateUser}
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
