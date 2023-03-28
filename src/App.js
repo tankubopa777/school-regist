@@ -1,9 +1,12 @@
 import './App.css';
 import Login_page from './page/Login.js';
-import Home from './page/Home';
+import Teacher from './page/Teacher';
+import Student1 from './page/Student1';
+import Student2 from './page/Student2';
+import Student3 from './page/Student3';
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useAsyncError } from "react-router-dom";
-import {fetchSubjects} from './dataFetch.js'
+import { fetchSubjects } from './dataFetch.js'
 
 export default function App() {
 
@@ -43,7 +46,7 @@ export default function App() {
     console.log(isLoggedIn)
     console.log(user)
     console.log(subjects)
-    
+ 
     return (
         <Router>
             <Routes>
@@ -52,11 +55,26 @@ export default function App() {
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
                     page={page}             updatePage={updatePage}
                     subjects={subjects}     updateSubjects={updateSubjects} />} />
-                <Route path="/Home" element={<Home
+                <Route path="/วิชาเสรี" element={<Student1
+                     user={user}             updateUser={updateUser}
+                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
+                    page={page}             updatePage={updatePage}
+                    subjects={subjects}     updateSubjects={updateSubjects} />} />
+                <Route path="/วิชาชุมนุม" element={<Student2
                     user={user}             updateUser={updateUser}
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
                     page={page}             updatePage={updatePage}
                     subjects={subjects}     updateSubjects={updateSubjects} />} />
+                <Route path="/วิชาที่ลงทะเบียนเเล้ว" element={<Student3
+                    user={user}             updateUser={updateUser}
+                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
+                    page={page}             updatePage={updatePage}
+                    subjects={subjects}     updateSubjects={updateSubjects} />} />
+                <Route path="/Teacher" element={<Teacher
+                    user={user} updateUser={updateUser}
+                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
+                    page={page} updatePage={updatePage}
+                    subjects={subjects} updateSubjects={updateSubjects} />} />
             </Routes>
         </Router>
     );
