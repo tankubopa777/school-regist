@@ -2,13 +2,14 @@ import { Container } from "react-bootstrap";
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { redirect, useNavigate, useHistory } from 'react-router-dom';
-import { checkLogin } from '../dataFetch.js'
+import { checkLogin , fetchSubjects} from '../dataFetch.js'
 import { useState, useEffect } from 'react'
 
 // export const username = document.getElementById('username');
 
 export const Login_page = (props) => {
-
+  
+  fetchSubjects()
   const navigate = useNavigate();
 
   const Login = async (e)  => {

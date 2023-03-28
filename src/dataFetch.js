@@ -1,4 +1,4 @@
-export async function hookUser() {
+export async function hookUsers() {
     const url = 'https://script.google.com/macros/s/AKfycbwCe11s89bwSy3g6qedTBktt6j7gwou3Wc7bItonos8PoSEZryJ1ODjXIDkLJb5L_52Pg/exec';
     const action = 'getUsers';
     const urlwithaction = url + '?action=' + action;
@@ -7,7 +7,7 @@ export async function hookUser() {
     return result;
 }
 
-export async function hookSubjet() {
+export async function hookSubjects() {
     const url = 'https://script.google.com/macros/s/AKfycbwCe11s89bwSy3g6qedTBktt6j7gwou3Wc7bItonos8PoSEZryJ1ODjXIDkLJb5L_52Pg/exec';
     const action = 'getSubjects';
     const urlwithaction = url + '?action=' + action;
@@ -116,10 +116,14 @@ export async function stdJoin(data){
 }
 
 const callUser = async () => {
-    let data = await hookUser()
+    let data = await hookUsers()
     return data;
 }
 
+const callSubjects = async () => {
+    let data = await hookSubjects()
+    return data;
+}
 
 // export function checkLogin(username,passw) {
 //     callUser().then((response) => {
@@ -134,6 +138,11 @@ const callUser = async () => {
 //     });
 
 // }
+
+export async function fetchSubjects(){
+    const response = await callSubjects();
+    return response;
+}
 
 export function checkLogin(username, passw) {
     return callUser().then((response) => {
