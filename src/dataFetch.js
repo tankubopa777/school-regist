@@ -1,5 +1,6 @@
+const url = "https://script.google.com/macros/s/AKfycby9EBOFGgCkUT160pCCDRIIXPqKPzwR4Kb7KBh815gwpe64saOKRwlXxn7jL36Z_IyT2g/exec"
+
 export async function hookUsers() {
-    const url = 'https://script.google.com/macros/s/AKfycbwCe11s89bwSy3g6qedTBktt6j7gwou3Wc7bItonos8PoSEZryJ1ODjXIDkLJb5L_52Pg/exec';
     const action = 'getUsers';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction);
@@ -8,7 +9,6 @@ export async function hookUsers() {
 }
 
 export async function hookSubjects() {
-    const url = 'https://script.google.com/macros/s/AKfycbwCe11s89bwSy3g6qedTBktt6j7gwou3Wc7bItonos8PoSEZryJ1ODjXIDkLJb5L_52Pg/exec';
     const action = 'getSubjects';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction);
@@ -27,7 +27,6 @@ export async function addSubjet(new_subject_data) {
     //     "SUB_ADDR"  :123,
     //     "STD"       :[]
     // }
-    const url = 'https://script.google.com/macros/s/AKfycbwCe11s89bwSy3g6qedTBktt6j7gwou3Wc7bItonos8PoSEZryJ1ODjXIDkLJb5L_52Pg/exec';
     const action = 'addSubjects';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction,
@@ -51,7 +50,6 @@ export async function editSubject(data) {
     //     "SUB_PROF"  :["profx","profy"],
     //     "SUB_ADDR"  :125
     // }
-    const url = 'https://script.google.com/macros/s/AKfycbwCe11s89bwSy3g6qedTBktt6j7gwou3Wc7bItonos8PoSEZryJ1ODjXIDkLJb5L_52Pg/exec';
     const action = 'editSubject';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction,
@@ -69,7 +67,6 @@ export async function editPassword(data) {
     //     "cellidx"  :2,
     //     "newpass"    :"asdws"
     // }
-    const url = 'https://script.google.com/macros/s/AKfycbwCe11s89bwSy3g6qedTBktt6j7gwou3Wc7bItonos8PoSEZryJ1ODjXIDkLJb5L_52Pg/exec';
     const action = 'editPW';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction,
@@ -86,7 +83,6 @@ export async function editStdGrade(data){
     //     "cellidx":2,
     //     "std": [{"ID":40527,"GRADE":0} , {"ID":40528,"GRADE":80} ]
     // }
-    const url = 'https://script.google.com/macros/s/AKfycbwCe11s89bwSy3g6qedTBktt6j7gwou3Wc7bItonos8PoSEZryJ1ODjXIDkLJb5L_52Pg/exec';
     const action = 'editStdGrade';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction,
@@ -103,7 +99,6 @@ export async function stdJoin(data){
     //     "cellidx": 2,
     //     "std": {"ID":"6410742297","GRADE":0}
     // }
-    const url = 'https://script.google.com/macros/s/AKfycbw6IT2aAOUB1hcJNhTivDE3Dst9jHXzCcOPpXqdabTNy-2YJ26ZfGdmZphS8aVPfv5umA/exec';
     const action = 'stdJoin';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction,
