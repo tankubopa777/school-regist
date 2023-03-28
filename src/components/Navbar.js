@@ -2,68 +2,79 @@ import Logo from '../assets/pks.png';
 import { redirect, useNavigate, useHistory } from 'react-router-dom';
 
 function navToggle() {
-  document.getElementById('mobile-nav').classList.toggle('hidden');
-  document.getElementById('btn-on').classList.toggle('hidden');
-  document.getElementById('btn').classList.toggle('hidden');
+  document.getElementById('mobile-nav').classNameList.toggle('hidden');
+  document.getElementById('btn-on').classNameList.toggle('hidden');
+  document.getElementById('btn').classNameList.toggle('hidden');
 }
 
 function Navbar_component(props) {
   const navigate = useNavigate();
 
-  const logout =  ()  => {
+  const logout = () => {
     props.updateIsLoggedIn(false)
     props.updateUser(null)
     navigate("/")
+  }
+
+  const std1 = () => {
+    navigate("/วิชาเสรี")
+  }
+
+  const std2 = () => {
+    navigate("/วิชาชุมนุม")
+  }
+
+  const std3 = () => {
+    navigate("/วิชาที่ลงทะเบียนเเล้ว")
   }
 
 
   return (
 
     <nav>
-      <div className="fixed top-0 left-0 z-50 w-full shadow-xl">
-        <div className="flex justify-between bg-green-500">
+      <div className="fixed top-0 left-0 z-50 w-full shadow-2xl">
+        <div className="flex justify-between bg-green-600 tablet:rounded-b-2xl">
 
           <div className="flex">
             <div>
               <img src={Logo} className="w-20" />
             </div>
-            <div className="flex flex-col justify-center m-3">
+            <div className="hidden tablet:flex flex-col justify-center m-3">
               <p className="">โรงเรียนเพชรพิทยาคม</p>
             </div>
 
+            <div className="flex tablet:hidden flex-col justify-center m-3">
+              <p className="">{props.user.ID} <br /> {props.user.FNAME}</p>
+            </div>
+
             <div className="hidden tablet:flex flex-row justify-center ">
-              <div className="flex flex-col justify-center m-3">
-                <a href="#responsive-header" className="">
+              <div className="flex flex-col justify-center m-1">
+                <a onClick={std1} className="hover:text-white hover:underline cursor-pointer">
                   วิชาเสรี
                 </a>
               </div>
-              <div className="flex flex-col justify-center m-3">
-                <a href="#responsive-header" className="">
+              <div className="flex flex-col justify-center m-1">
+                <a onClick={std2} className="hover:text-white hover:underline cursor-pointer">
                   วิชาชุมนุม
                 </a>
               </div>
-              <div className="flex flex-col justify-center m-3">
-                <a href="#responsive-header" className="">
+              <div className="flex flex-col justify-center m-1">
+                <a onClick={std3} className="hover:text-white hover:underline cursor-pointer">
                   วิชาที่ลงทะเบียนเเล้ว
                 </a>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col justify-center m-3">
+          <div className="flex flex-col justify-center m-1">
             <div className="hidden tablet:flex flex-row justify-center">
-              <div className="flex flex-col justify-center m-3">
-                <a href="#responsive-header" className="">
-                  icon
-                </a>
+              <div className="flex flex-col justify-center m-1">
+                <p className="">
+                  {props.user.ID} {props.user.FNAME}
+                </p>
               </div>
-              <div className="flex flex-col justify-center m-3">
-                <a href="#responsive-header" className="">
-                  SIGNED IN AS {props.user.FNAME} {props.user.LNAME}
-                </a>
-              </div>
-              <div className="flex flex-col justify-center m-3">
-                <button onClick={logout}>
+              <div className="flex flex-col justify-center m-1">
+                <button className="hover:text-white hover:underline" onClick={logout}>
                   Log out
                 </button>
               </div>
@@ -71,7 +82,7 @@ function Navbar_component(props) {
             <div>
               <div className="flex tablet:hidden">
                 <button id="btn" onClick={navToggle} className="hidden flex-row justify-center m-3">
-                <div className="fixed">
+                  <div className="fixed">
                     <div className="h-4 w-4 border-r-4 ml-1 -rotate-45" />
                   </div>
                   <div className="relative">
@@ -90,23 +101,28 @@ function Navbar_component(props) {
           </div>
         </div>
 
-        <div className="flex justify-center bg-green-500">
+        <div className="flex justify-center bg-green-600 rounded-b-2xl">
           <div id="mobile-nav" className="hidden flex-col justify-center m-3 tablet:hidden">
-            <div className="flex flex-row justify-center ">
-              <div className="flex flex-col justify-center m-3">
-                <a href="#responsive-header" className="">
+            <div className="flex flex-col justify-center ">
+              <div className="flex flex-row justify-center m-3">
+                <a onClick={std1} className="hover:text-white hover:font-bold cursor-pointer">
                   วิชาเสรี
                 </a>
               </div>
-              <div className="flex flex-col justify-center m-3">
-                <a href="#responsive-header" className="">
+              <div className="flex flex-row justify-center m-3">
+                <a onClick={std2} className="hover:text-white hover:font-bold cursor-pointer">
                   วิชาชุมนุม
                 </a>
               </div>
-              <div className="flex flex-col justify-center m-3">
-                <a href="#responsive-header" className="">
+              <div className="flex flex-row justify-center m-3">
+                <a onClick={std3} className="hover:text-white hover:font-bold cursor-pointer">
                   วิชาที่ลงทะเบียนเเล้ว
                 </a>
+              </div>
+              <div className="flex flex-row justify-center m-3">
+                <button onClick={logout} className="hover:text-white hover:font-bold cursor-pointer">
+                  Log out
+                </button>
               </div>
             </div>
           </div>

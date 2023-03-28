@@ -8,23 +8,14 @@ import Grade from "../components/Grade";
 import EditComponents from "../components/EditComponents";
 import { useState, useEffect } from 'react'
 
-
-
-
 function Teacher_page(props) {
 
- 
-  
   return (
     <div>
       <NavbarAJ
         user={props.user} updateUser={props.updateUser}
         isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
-
-
         <Table subjects={props.subjects} />
-
-
     </div>
   );
 }
