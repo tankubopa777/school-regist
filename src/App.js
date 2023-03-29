@@ -24,7 +24,7 @@ export default function App() {
             .catch(error => {
               console.log(error);
             });
-        }, 5000);
+        }, 2000);
       
         return () => clearInterval(interval);
       }, []);
@@ -58,7 +58,7 @@ export default function App() {
                     page={page}             updatePage={updatePage}
                     subjects={subjects}     updateSubjects={updateSubjects} />} />
                 <Route path="/วิชาเสรี" element={<Student1
-                     user={user}             updateUser={updateUser}
+                    user={user}             updateUser={updateUser}
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
                     page={page}             updatePage={updatePage}
                     subjects={subjects}     updateSubjects={updateSubjects} />} />
