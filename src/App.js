@@ -5,6 +5,8 @@ import Student1 from './page/Student1';
 import Student2 from './page/Student2';
 import Student3 from './page/Student3';
 import Edit from './PageTeacher/Edit';
+import DataStd from './PageTeacher/DataStd';
+
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useAsyncError } from "react-router-dom";
 import { fetchSubjects } from './dataFetch.js'
@@ -67,7 +69,7 @@ export default function App() {
     console.log(subjects)
 
     
- 
+
     return (
         <Router>
             <Routes>
