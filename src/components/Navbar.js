@@ -2,9 +2,9 @@ import Logo from '../assets/pks.png';
 import { redirect, useNavigate, useHistory } from 'react-router-dom';
 
 function navToggle() {
-  document.getElementById('mobile-nav').classNameList.toggle('hidden');
-  document.getElementById('btn-on').classNameList.toggle('hidden');
-  document.getElementById('btn').classNameList.toggle('hidden');
+  document.getElementById('mobile-nav').classList.toggle('hidden');
+  document.getElementById('btn-on').classList.toggle('hidden');
+  document.getElementById('btn').classList.toggle('hidden');
 }
 
 function Navbar_component(props) {
@@ -33,7 +33,7 @@ function Navbar_component(props) {
 
     <nav>
       <div className="fixed top-0 left-0 z-50 w-full shadow-2xl">
-        <div className="flex justify-between bg-green-600 tablet:rounded-b-2xl">
+        <div className="flex justify-between bg-green-600">
 
           <div className="flex">
             <div>

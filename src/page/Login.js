@@ -31,7 +31,7 @@ export const Login_page = (props) => {
       navigate("/วิชาเสรี");
     }
     if (props.user.TYPE === 'PROF') {
-      navigate("/PROF");
+      navigate("/Teacher");
     }
   }
 
