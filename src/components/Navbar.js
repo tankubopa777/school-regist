@@ -101,7 +101,7 @@ function Navbar_component(props) {
           </div>
         </div>
 
-        <div className="flex justify-center bg-green-600 rounded-b-2xl">
+        <div className="flex justify-center bg-green-600">
           <div id="mobile-nav" className="hidden flex-col justify-center m-3 tablet:hidden">
             <div className="flex flex-col justify-center ">
               <div className="flex flex-row justify-center m-3">

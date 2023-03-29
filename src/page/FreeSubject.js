@@ -1,7 +1,7 @@
 import Navbar from '../components/Navbar';
 import React from 'react';
 import Block_DetailStd from '../components/Block_DetailStd';
-import ElectiveDetail from '../components/ElectiveSubject';
+import ElectiveDetail from '../components/FreeSubject';
 import './style.css'
 
 export default function ElectiveSubjectPage(props) {
@@ -15,7 +15,7 @@ export default function ElectiveSubjectPage(props) {
                     <Block_DetailStd user={props.user} />
                 </div>
                 <div id="home" class="relative">
-                     <ElectiveDetail subjects={props.subjects} />
+                     <ElectiveDetail subjects={props.subjects} user={props.user} updateUser={props.updateUser}/>
                 </div>
             </div>
 

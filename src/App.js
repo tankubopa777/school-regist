@@ -1,12 +1,13 @@
 import './App.css';
 import Login_page from './page/Login.js';
 import Teacher from './page/Teacher';
-import Student3 from './page/Student3';
+import Summarize from './page/Summarize';
+import ElectiveSubject from './page/FreeSubject';
+import GroupSubject from './page/ChumSubject';
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useAsyncError } from "react-router-dom";
 import { fetchSubjects } from './dataFetch.js'
-import ElectiveSubject from './page/ElectiveSubject';
-import GroupSubject from './page/GroupSubject';
+
 
 export default function App() {
 
@@ -65,7 +66,7 @@ export default function App() {
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
                     page={page}             updatePage={updatePage}
                     subjects={subjects}     updateSubjects={updateSubjects} />} />
-                <Route path="/วิชาที่ลงทะเบียนเเล้ว" element={<Student3
+                <Route path="/วิชาที่ลงทะเบียนเเล้ว" element={<Summarize
                     user={user}             updateUser={updateUser}
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
                     page={page}             updatePage={updatePage}

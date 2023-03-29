@@ -1,10 +1,11 @@
+import Block_subject from '../components/Block_Subject';
 import Navbar from '../components/Navbar';
 import React from 'react';
 import Block_DetailStd from '../components/Block_DetailStd';
-import GroupSubject from '../components/GroupSubject';
+import Summarize from '../components/Summarize';
 import './style.css'
 
-export default function GroupSubjectPage(props) {
+export default function Home_page(props) {
     return (
         <div>
             <Navbar
@@ -15,7 +16,7 @@ export default function GroupSubjectPage(props) {
                     <Block_DetailStd user={props.user} />
                 </div>
                 <div id="home" class="relative">
-                     <GroupSubject subjects={props.subjects} />
+                    <Summarize user={props.user}/>
                 </div>
             </div>
 

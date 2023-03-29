@@ -1,4 +1,4 @@
-const url = "https://script.google.com/macros/s/AKfycby9EBOFGgCkUT160pCCDRIIXPqKPzwR4Kb7KBh815gwpe64saOKRwlXxn7jL36Z_IyT2g/exec"
+const url = "https://script.google.com/macros/s/AKfycbwZvj3duf4Hs2TEiSWFXuGv2gpm-m9TsV35f8Y4t59UwSonxO8xMqKfKK57W_H9SlK6/exec"
 
 export async function hookUsers() {
     const action = 'getUsers';
