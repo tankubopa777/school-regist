@@ -1,9 +1,19 @@
 import NavbarAJ from "../components/NavbarAJ";
 
-function DataStd() {
+function DataStd(props) {
+  const dataStd = Object.values(props.users)
+  
+  
+  let dataStdlst = []
+  for (let i = 0; i < dataStd.length; i++) {
+      dataStdlst.push(dataStd[i])
+      
+  }
+  console.log(dataStdlst[0])
+
   return (
+    
     <div>
-      <NavbarAJ />
       <div className="container mx-auto px-4 sm:px-8 rounded-lg justify-center">
         <div className="py-8">
           <div>
@@ -46,8 +56,8 @@ function DataStd() {
                   </thead>
 
                   <tbody >
-                    {/* {subjects.map((subjects, index) => ( */}
-                    <tr className="w-max ">
+                    {/* {dataStd.map((student, index) => ( */}
+                    <tr  className="w-max ">
                       <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
                           36227
