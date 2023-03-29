@@ -9,7 +9,7 @@ import DataStd from './PageTeacher/DataStd';
 
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useAsyncError } from "react-router-dom";
-import { fetchSubjects } from './dataFetch.js'
+import { fetchSubjects , fetchUsers } from './dataFetch.js'
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -35,13 +35,22 @@ export default function App() {
     const [user, setUser] = useState(null);
     const [page, setPage] = useState('Login');
     const [subjects, setSubjects] = useState(null);
+    const [users, setUsers] = useState(null);
 
     useEffect(() => {
         const timer = setTimeout(() => {
-          fetchSubjects().then((response) => {
+          
+            fetchSubjects().then((response) => {
             setSubjects(response);
           }).catch((error) => {
             console.log(error);
+          });
+
+          fetchUsers().then((response) => {
+            setUsers(response);
+          }).catch((error) => {
+            console.log(error);
+
           });
         }, 2000);
       
@@ -56,6 +65,10 @@ export default function App() {
         setUser(newValue);
     };
 
+    const updateUsers = (newValue) => {
+        setUsers(newValue);
+    };
+
     const updatePage = (newValue) => {
         setPage(newValue);
     };
@@ -67,6 +80,7 @@ export default function App() {
     console.log(isLoggedIn)
     console.log(user)
     console.log(subjects)
+    console.log(users)
 
     
 
@@ -94,6 +108,7 @@ export default function App() {
                     page={page}             updatePage={updatePage}
                     subjects={subjects}     updateSubjects={updateSubjects} />} />
                 <Route path="/Teacher" element={<Teacher
+                    users={users} updateUsers={updateUsers}
                     user={user} updateUser={updateUser}
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
                     page={page} updatePage={updatePage}

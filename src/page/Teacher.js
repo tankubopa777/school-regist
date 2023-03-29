@@ -6,6 +6,7 @@ import Grade from "../components/Grade";
 import EditComponents from "../components/EditComponents";
 import { useState, useEffect } from 'react'
 import Edit from "../PageTeacher/Edit";
+import DataStd from "../PageTeacher/DataStd";
 
 // List ที่ต้องทำ
 // ทำปุ่มเพิ่มวิชา <Table />
@@ -34,7 +35,9 @@ function Teacher_page(props) {
       <div>
         <NavbarAJ
           user={props.user} updateUser={props.updateUser}
-          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} 
+          updateTablePage={updateTablePage} 
+          TablePage={TablePage}/>
         <Table updateTablePage={updateTablePage} 
                 TablePage={TablePage} 
                 updatesubjectselect={updatesubjectselect} 
@@ -48,7 +51,10 @@ function Teacher_page(props) {
       <div>
         <NavbarAJ
           user={props.user} updateUser={props.updateUser}
-          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} 
+          updateTablePage={updateTablePage} 
+          TablePage={TablePage}/>
+
         <Edit subjectselect={subjectselect} 
               updateTablePage={updateTablePage} 
               TablePage={TablePage}  />
@@ -60,13 +66,37 @@ function Teacher_page(props) {
       <div>
         <NavbarAJ
           user={props.user} updateUser={props.updateUser}
-          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
-        <RegSubject subjectselect={subjectselect}  
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} 
+          updateTablePage={updateTablePage} 
+          TablePage={TablePage}/>
+
+        <RegSubject users={props.users}
+                    updateusers={props.updateusers}
+                    subjectselect={subjectselect}  
                     updateTablePage={updateTablePage} 
                     TablePage={TablePage} />
       </div>
     );
   }
+
+  else if (TablePage === 'Data_student') {
+    return (
+      <div>
+        <NavbarAJ
+          user={props.user} updateUser={props.updateUser}
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} 
+          updateTablePage={updateTablePage} 
+          TablePage={TablePage}/>
+
+        <DataStd users={props.users}
+                 updateusers={props.updateusers}
+                 subjectselect={subjectselect}  
+                 updateTablePage={updateTablePage} 
+                 TablePage={TablePage} />
+      </div>
+    );
+  }
+  
 
 
 }
