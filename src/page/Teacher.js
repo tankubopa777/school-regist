@@ -1,13 +1,19 @@
 import React from "react";
 import NavbarAJ from "../components/NavbarAJ";
 import Table from "../components/Table";
-import Register_subject from "../components/RegSubject";
-import Card_Edit from "../components/Card_Edit";
-import TableStd from "../components/TableStd";
+import RegSubject from "../components/RegSubject";
 import Grade from "../components/Grade";
 import EditComponents from "../components/EditComponents";
 import { useState, useEffect } from 'react'
 import Edit from "../PageTeacher/Edit";
+
+// List ที่ต้องทำ
+// ทำปุ่มเพิ่มวิชา <Table />
+// Link Navbar ไปหน้าเเรก
+// Link Navbar ไปหน้ารายชื่อนักเรียน
+// Link Navbar log out
+// ตกเเต่งหน้าเว็บ
+
 
 function Teacher_page(props) {
   const [TablePage, setTablePage] = useState('Table');
@@ -43,7 +49,21 @@ function Teacher_page(props) {
         <NavbarAJ
           user={props.user} updateUser={props.updateUser}
           isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
-        <Edit subjectselect={subjectselect}  />
+        <Edit subjectselect={subjectselect} 
+              updateTablePage={updateTablePage} 
+              TablePage={TablePage}  />
+      </div>
+    );
+  }
+  else if (TablePage === 'Register_subject') {
+    return (
+      <div>
+        <NavbarAJ
+          user={props.user} updateUser={props.updateUser}
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
+        <RegSubject subjectselect={subjectselect}  
+                    updateTablePage={updateTablePage} 
+                    TablePage={TablePage} />
       </div>
     );
   }

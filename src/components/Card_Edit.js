@@ -3,12 +3,19 @@ function Card_Edit(props) {
     console.log(selected)
     console.log(props.subjectselect)
 
+    function handleClick() {
+        console.log(props.tablepage); 
+        props.updateTablePage('Register_subject');
+    }
+
     return (
         <div className="inline-block rounded-lg bg-gray-200 m-4 p-4 w-22 h-23">
             <div>
-                <p className="" >ชื่อชุมนุม/เสรี : {selected.SUB_NAME}</p>
-                <p className="" >คุณครู : {selected.SUB_PROF}</p>
-                <p className="" >จำนวนนักเรียนที่ลงทะเบียน : </p>
+                <p className="text-start text-xs" >ชื่อชุมนุม/เสรี : {props.subjectselect.SUB_NAME}</p>
+                <p className="text-start text-xs" >คุณครู : {props.subjectselect.SUB_PROF}</p>
+                <p className="text-start text-xs" >จำนวนนักเรียนที่ลงทะเบียน : {selected[7].length} /{props.subjectselect.SUB_CAP}</p>
+                <p className="text-start text-xs" >รหัสวิชา : {props.subjectselect.SUB_ID}</p>
+                <p className="text-start text-xs" >ห้องเรียน : {props.subjectselect.SUB_ADDR}</p>
             </div>
 
             <div className="flex justify-end">
@@ -16,10 +23,11 @@ function Card_Edit(props) {
                     Delete
                 </button>
 
-                <button className="bg-green-600 px-2 mx-2 rounded-md text-center text-slate-100">
+                <button onClick={() => handleClick()} className="bg-green-600 px-2 mx-2 rounded-md text-center text-slate-100">
                     Edit
                 </button> 
             </div>
+            
         </div>
     );
 }

@@ -4,7 +4,7 @@ import Card_Edit from "../components/Card_Edit";
 import NavbarAJ from "../components/NavbarAJ";
 
 function Edit(props){
-    
+
     return(
         <div>
         <div className="grid grid-cols-4">
@@ -12,7 +12,8 @@ function Edit(props){
             <TableStd subjectselect={props.subjectselect}/>
           </div>
           <div className="m-4 mt-5 col-span-1">
-            <Card_Edit subjectselect={props.subjectselect}/>
+            <Card_Edit subjectselect={props.subjectselect} updateTablePage={props.updateTablePage} 
+                TablePage={props.TablePage} />
           </div>
         </div>
         <div className="block float-right mx-5">

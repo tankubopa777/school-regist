@@ -6,11 +6,15 @@ function Table(props) {
     const subjects = Object.values(props.subjects);
     console.log(subjects);
 
-    const handleClick = async(s) => {
-        await props.updatesubjectselect(s);
-        console.log(s);
-        console.log(props.subjectselect);
+    const handleClick = (s) => {
+        props.updatesubjectselect(s);
+        // console.log(s);
+        // console.log(props.subjectselect);
         props.updateTablePage('Edit');
+    }
+    const toAddSubject = (s) => {
+        props.updatesubjectselect(s);   /////////ไม่เเน่ใจว่าต้องใส่มั้ย
+        props.updateTablePage('Register_subject');
     }
 
     const [open, setOpen] = useState(false);
@@ -123,6 +127,7 @@ function Table(props) {
                     </div>
                 </div>
             </div>
+            <button className="bg-green-600 text-center text-white" onClick={() => toAddSubject(subjects)}>AddSubject</button>
         </div>
     );
 }
