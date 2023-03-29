@@ -7,16 +7,47 @@ import TableStd from "../components/TableStd";
 import Grade from "../components/Grade";
 import EditComponents from "../components/EditComponents";
 import { useState, useEffect } from 'react'
+import Edit from "../PageTeacher/Edit";
 
 function Teacher_page(props) {
+  const [TablePage, setTablePage] = useState('Table');
 
-  return (
-    <div>
-      <NavbarAJ
-        user={props.user} updateUser={props.updateUser}
-        isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
-        <Table subjects={props.subjects} />
-    </div>
-  );
+  console.log(props.subjects);
+  const [subjectselect, setSubjectselect] = useState();
+
+  const updatesubjectselect = (newValue) => {
+    setSubjectselect(newValue);
+  };
+
+  const updateTablePage = (newValue) => {
+    setTablePage(newValue);
+  };
+
+  if (TablePage === 'Table') {
+    return (
+      <div>
+        <NavbarAJ
+          user={props.user} updateUser={props.updateUser}
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
+        <Table updateTablePage={updateTablePage} 
+                TablePage={TablePage} 
+                updatesubjectselect={updatesubjectselect} 
+                subjectselect={subjectselect} 
+                subjects={props.subjects} />
+      </div>
+    );
+  } 
+  else if (TablePage === 'Edit') {
+    return (
+      <div>
+        <NavbarAJ
+          user={props.user} updateUser={props.updateUser}
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
+        <Edit subjectselect={subjectselect}  />
+      </div>
+    );
+  }
+
+
 }
 export default Teacher_page;
