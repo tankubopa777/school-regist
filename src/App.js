@@ -16,15 +16,17 @@ export default function App() {
     const [subjects, setSubjects] = useState(null);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-          fetchSubjects().then((response) => {
-            setSubjects(response);
-          }).catch((error) => {
-            console.log(error);
-          });
-        }, 2000);
+        const interval = setInterval(() => {
+          fetchSubjects()
+            .then(response => {
+              setSubjects(response);
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }, 5000);
       
-        return () => clearTimeout(timer);
+        return () => clearInterval(interval);
       }, []);
 
     const updateIsLoggedIn = (newValue) => {

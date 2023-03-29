@@ -1,4 +1,4 @@
-const url = "https://script.google.com/macros/s/AKfycby9EBOFGgCkUT160pCCDRIIXPqKPzwR4Kb7KBh815gwpe64saOKRwlXxn7jL36Z_IyT2g/exec"
+const url = "https://script.google.com/macros/s/AKfycbwOvlkkOTW030kI_zlu0Q3xr-e_l_bWfLVKqYUsqflhaQkOr0ZFFMrpnM4SQsXVxgwwow/exec"
 
 export async function hookUsers() {
     const action = 'getUsers';
@@ -81,7 +81,8 @@ export async function editPassword(data) {
 export async function editStdGrade(data){
     // { this is how parameter should look like
     //     "cellidx":2,
-    //     "std": [{"ID":40527,"GRADE":0} , {"ID":40528,"GRADE":80} ]
+    //     "std": [{"ID":40527,"FNAME":"asd","LNAME":"ASD","CLASS":1,"ROOM":2,"GRADE":0}
+    //            ,{"ID":40528,"FNAME":"asd2","LNAME":"ASD2","CLASS":1,"ROOM":3,"GRADE":0}]
     // }
     const action = 'editStdGrade';
     const urlwithaction = url + '?action=' + action;
@@ -97,7 +98,7 @@ export async function editStdGrade(data){
 export async function stdJoin(data){
     // { this is how parameter should look like
     //     "cellidx": 2,
-    //     "std": {"ID":"6410742297","GRADE":0}
+    //     "std": {"ID":40527,"FNAME":"asd","LNAME":"ASD","CLASS":1,"ROOM":2,"GRADE":0}
     // }
     const action = 'stdJoin';
     const urlwithaction = url + '?action=' + action;

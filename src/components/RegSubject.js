@@ -1,4 +1,6 @@
-function Register_subject() {
+function Register_subject(props) {
+
+
     return (
         <div className="flex justify-center">
             <div className="inline-block rounded-lg t bg-gray-200 m-4 ">
@@ -8,9 +10,6 @@ function Register_subject() {
                         ลงทะเบียนวิชาเรียน
                     </h1>
                 </div>
-
-
-
 
 
                 <form >

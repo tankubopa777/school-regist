@@ -1,6 +1,6 @@
 //วิชาเสรี
 function detail() {
-    document.getElementById('desc').classNameList.toggle('hidden');
+    document.getElementById('desc').classList.toggle('hidden');
 }
 export default function Block_DetailStd() {
     return (

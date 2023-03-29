@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { redirect, useNavigate, useHistory } from 'react-router-dom';
 
-function NavbarAJ() {
+function NavbarAJ(props) {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    props.updateIsLoggedIn(false)
+    props.updateUser(null)
+    navigate("/")
+  }
+
   return (
     <nav className=" border-gray-200 bg-green-700 p-3">
       <div className="flex justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
@@ -17,7 +26,9 @@ function NavbarAJ() {
 
         <div className="flex items-center">
           <div className="mr-6 text-sm font-medium text-gray-500 dark:text-white ">Prof.Pao</div>
-          <Link className="text-sm font-medium text-white hover:underline">Login</Link>
+          <button onClick={logout} className="hover:text-white hover:font-bold cursor-pointer">
+                  Log out
+                </button>
         </div>
       </div>
     </nav>

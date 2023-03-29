@@ -15,7 +15,7 @@ function Teacher_page(props) {
       <NavbarAJ
         user={props.user} updateUser={props.updateUser}
         isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
-        <Table subjects={props.subjects} />
+      <Table subjects={props.subjects} />
     </div>
   );
 }
