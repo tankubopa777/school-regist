@@ -17,7 +17,7 @@ function Table(props) {
     }
 
     const toAddSubject = (s) => {
-        props.updatesubjectselect(s);   /////////ไม่เเน่ใจว่าต้องใส่มั้ย
+        props.updatesubjectselect(s);
         props.updateTablePage('Register_subject');
     }
 
@@ -130,7 +130,7 @@ function Table(props) {
                                         <td
                                             className=" w-1/6 border-b border-gray-200 bg-white text-sm text-left"
                                         >
-                                            <button onClick={() => handleClick(subjects)}>add</button>
+                                            <button onClick={() => handleClick(subjectsType)}>add</button>
                                         </td>
                                     </tr>
                                 ))}
