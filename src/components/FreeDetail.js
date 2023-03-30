@@ -12,16 +12,22 @@ export default function FreeSubject(props) {
                 alert("คุณได้ลงทะเบียนวิชานี้ไปแล้ว");
             } else if (subject.STD.length == subject.SUB_CAP) {
                 alert("วิชานี้เต็มแล้ว");
-            } else if (user.FREE.length == 1) {
+            } else if (user.FREE.length == 2) {
                 alert("คุณได้ลงทะเบียนไปแล้ว");
             } else if (!(user.STD_CLASS == subject.SUB_PERM[0]) || (user.STD_CLASS == subject.SUB_PERM[1]) || (user.STD_CLASS == subject.SUB_PERM[2]) || (user.STD_CLASS == subject.SUB_PERM[3]) || (user.STD_CLASS == subject.SUB_PERM[4]) || (user.STD_CLASS == subject.SUB_PERM[5])) {
                 alert("ไม่สามารถลงทะเบียนได้");
             } else {
+                let confirm = prompt("กรุณาใส่รหัสวิชาเพื่อยืนยันการลงทะเบียน").toLowerCase;
+            if (confirm == (subject.SUB_ID).toLowerCase) {
                 props.updateUser({
                     ...user,
-                    FREE: [...user.FREE, subject]
+                    FREE: [subject]
                 })
+                alert("ลงทะเบียนสำเร็จ")
                 navigate('/วิชาที่ลงทะเบียนเเล้ว');
+            }else{
+                alert("ลงทะเบียนไม่สำเร็จ")
+            }
             }
     }
 

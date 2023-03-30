@@ -5,7 +5,7 @@ function Block_DetailStd(props) {
                 <h1 className="font-bold flex flex-row justify-center" > ข้อมูลนักเรียน  </h1>
                 <div className="" >เลขประจำตัว : {props.user.ID}</div>
                 <div className="" >ชื่อ - นามสกุล :  {props.user.FNAME} {props.user.LNAME}</div>
-                <div className="" >ชั้น : ม.{props.user.STD_CLASS}/{props.user.STD_ROOM}</div>
+                <div className="" >ชั้น : ม. {props.user.STD_CLASS}.{props.user.STD_ROOM}</div>
             </div>
         </div>
     );

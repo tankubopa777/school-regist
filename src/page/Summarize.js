@@ -16,7 +16,7 @@ export default function Home_page(props) {
                     <Block_DetailStd user={props.user} />
                 </div>
                 <div id="home" class="relative">
-                    <Summarize user={props.user}/>
+                    <Summarize user={props.user} updateUser={props.updateUser}/>
                 </div>
             </div>
 
