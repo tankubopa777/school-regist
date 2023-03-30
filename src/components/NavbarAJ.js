@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { redirect, useNavigate, useHistory } from 'react-router-dom';
 
 function NavbarAJ(props) {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    props.updateIsLoggedIn(false)
+    props.updateUser(null)
+    navigate("/")
+  }
+
   const MainClick = () => {  
     props.updateTablePage('Table');
 }
@@ -25,7 +34,9 @@ function NavbarAJ(props) {
 
         <div className="flex items-center">
           <div className="mr-6 text-sm font-medium text-gray-500 dark:text-white ">Prof.Pao</div>
-          <Link className="text-sm font-medium text-white hover:underline">Login</Link>
+          <button onClick={logout} className="hover:text-white hover:font-bold cursor-pointer">
+                  Log out
+                </button>
         </div>
       </div>
     </nav>

@@ -53,7 +53,7 @@ export default function App() {
           });
         }, 2000);
       
-        return () => clearTimeout(timer);
+        return () => clearInterval(interval);
       }, []);
 
     const updateIsLoggedIn = (newValue) => {
