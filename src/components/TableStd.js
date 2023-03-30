@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 
-function TableStd() {
+function TableStd(props) {
+    console.log(props.subjectselect)
+    const selected = Object.values(props.subjectselect);
+    console.log(selected);
 
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
+    
 
     return (
         
@@ -11,7 +15,7 @@ function TableStd() {
             <div className="py-8">
                 <div>
                     <label className="text-2xl font-semibold leading-tight">
-                        รายชื่อนักเรียน
+                        รายชื่อนักเรียนวิชา {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}
                     </label>
                     <button
                         className="inline-block px-3 py-2 m-3 shadow-md rounded-lg  bg-gray-300 font-bold hover:text-gray-700"
@@ -38,9 +42,9 @@ function TableStd() {
                     <div
                         className="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
                     >
-                        <table className="min-w-full leading-normal">
+                        <table className="gird grid-cols-5 min-w-full leading-normal">
                             <thead className="">
-                                <tr classNameName="w-auto">
+                                <tr className="w-auto">
                                     <th
                                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
                                     >
@@ -59,27 +63,42 @@ function TableStd() {
                                 </tr>
                             </thead>
 
-                            <tbody>
-                                <tr>
+                            <tbody className="gird grid-cols-5">
+                                {selected[7].map((each) => (
+                                    <tr>
 
-                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <div className="flex">
-                                            <div>
-                                                <p className="text-gray-900 whitespace-no-wrap">
-                                                    362227
-                                                </p>
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            <div className="flex">
+                                                <div>
+                                                    <p className="text-gray-900 whitespace-no-wrap">
+                                                        {each.ID}
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
+                                        </td>
 
-                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p className="text-gray-900 whitespace-no-wrap">นายอินทัช ศรีเภา</p>
-                                    </td>
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            <p className="text-gray-900 whitespace-no-wrap">
+                                                {each.FNAME} {each.LNAME}
+                                            </p>
+                                        </td>
 
-                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p className="text-gray-900 whitespace-no-wrap">ม.6.3</p>
-                                    </td>
-                                </tr>
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            <p className="text-gray-900 whitespace-no-wrap">
+                                                {each.CLASS}.{each.ROOM}
+                                            </p>
+                                        </td>
+
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            <p className="text-gray-900 whitespace-no-wrap">
+                                                {each.GRADE}
+                                            </p>
+                                        </td>
+                                        
+                                    </tr>
+
+                                ))}
+
                             </tbody>
                         </table>
                     </div>

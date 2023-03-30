@@ -1,4 +1,4 @@
-const url = "https://script.google.com/macros/s/AKfycbxzdqqxQ8pUYU16iwm1bTxifpg8AMhW8bmTIoApGuU6Zy0gO3TrJnlPMn7InXhU0-yHyA/exec"
+const url = "https://script.google.com/macros/s/AKfycbwZvj3duf4Hs2TEiSWFXuGv2gpm-m9TsV35f8Y4t59UwSonxO8xMqKfKK57W_H9SlK6/exec"
 
 export async function hookUsers() {
     const action = 'getUsers';
@@ -137,6 +137,11 @@ const callSubjects = async () => {
 
 export async function fetchSubjects(){
     const response = await callSubjects();
+    return response;
+}
+
+export async function fetchUsers(){
+    const response = await callUser();
     return response;
 }
 
