@@ -1,4 +1,4 @@
-const url = "https://script.google.com/macros/s/AKfycbwZvj3duf4Hs2TEiSWFXuGv2gpm-m9TsV35f8Y4t59UwSonxO8xMqKfKK57W_H9SlK6/exec"
+const url = "https://script.google.com/macros/s/AKfycbwjHLl2AhP3D27NEMrpOR7ybAG7wWh6GwQKCd4uMX7IyVhKeATwTFir7C1apubXmvhu1Q/exec"
 
 export async function hookUsers() {
     const action = 'getUsers';
@@ -109,6 +109,61 @@ export async function stdJoin(data){
         }
     )
     return res;
+}
+
+export async function addSubIntoSTD(data){
+    // {
+    //     "cell_idx": 4,
+    //     "CHUM": [],
+    //     "FREE": [
+    //         {
+    //             "SUB_TYPE": "FREE",
+    //             "SUB_ID": "XS512",
+    //             "SUB_NAME": "EXTRA SMALL",
+    //             "SUB_CAP": 12,
+    //             "SUB_PERM": [
+    //                 1,
+    //                 2,
+    //                 3
+    //             ],
+    //             "SUB_PROF": [
+    //                 "profx",
+    //                 "profy"
+    //             ],
+    //             "SUB_ADDR": 125,
+    //             "STD": [
+    //                 {
+    //                     "ID": 40527,
+    //                     "FNAME": "Inthat",
+    //                     "LNAME": "ASD",
+    //                     "CLASS": 1,
+    //                     "ROOM": 2,
+    //                     "GRADE": 80
+    //                 },
+    //                 {
+    //                     "ID": 40528,
+    //                     "FNAME": "asd2",
+    //                     "LNAME": "ASD2",
+    //                     "CLASS": 1,
+    //                     "ROOM": 3,
+    //                     "GRADE": 0
+    //                 }
+    //             ],
+    //             "AVAILABILITY": "false",
+    //             "CELLIDX": 1
+    //         }
+    //     ]
+    // }
+    const action = 'addSubIntoSTD';
+    const urlwithaction = url + '?action=' + action;
+    const res = await fetch(urlwithaction,
+        {
+            method: "POST",
+            body: data
+        }
+    )
+    return res;
+
 }
 
 const callUser = async () => {
