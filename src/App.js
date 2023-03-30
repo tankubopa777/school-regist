@@ -1,12 +1,10 @@
 import './App.css';
 import Login_page from './page/Login.js';
 import Teacher from './page/Teacher';
-import Student1 from './page/Student1';
-import Student2 from './page/Student2';
-import Student3 from './page/Student3';
-import Edit from './PageTeacher/Edit';
-import DataStd from './PageTeacher/DataStd';
 
+import Summarize from './page/Summarize';
+import ElectiveSubject from './page/FreeSubject';
+import GroupSubject from './page/ChumSubject';
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useAsyncError } from "react-router-dom";
 import { fetchSubjects , fetchUsers } from './dataFetch.js'
@@ -28,6 +26,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
 
 export default function App() {
 
@@ -92,17 +91,17 @@ export default function App() {
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
                     page={page}             updatePage={updatePage}
                     subjects={subjects}     updateSubjects={updateSubjects} />} />
-                <Route path="/วิชาเสรี" element={<Student1
-                     user={user}             updateUser={updateUser}
-                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
-                    page={page}             updatePage={updatePage}
-                    subjects={subjects}     updateSubjects={updateSubjects} />} />
-                <Route path="/วิชาชุมนุม" element={<Student2
+                <Route path="/วิชาเสรี" element={<ElectiveSubject
                     user={user}             updateUser={updateUser}
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
                     page={page}             updatePage={updatePage}
                     subjects={subjects}     updateSubjects={updateSubjects} />} />
-                <Route path="/วิชาที่ลงทะเบียนเเล้ว" element={<Student3
+                <Route path="/วิชาชุมนุม" element={<GroupSubject
+                    user={user}             updateUser={updateUser}
+                    isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
+                    page={page}             updatePage={updatePage}
+                    subjects={subjects}     updateSubjects={updateSubjects} />} />
+                <Route path="/วิชาที่ลงทะเบียนเเล้ว" element={<Summarize
                     user={user}             updateUser={updateUser}
                     isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
                     page={page}             updatePage={updatePage}
