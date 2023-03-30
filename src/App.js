@@ -45,6 +45,15 @@ export default function App() {
           .catch(error => {
             console.log(error);
           });
+
+        fetchUsers()
+          .then(response => {
+            setUsers(response);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+        
       }, 2000);
     
       return () => clearInterval(interval);
