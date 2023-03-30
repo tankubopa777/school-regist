@@ -1,6 +1,7 @@
 import { func } from "prop-types";
 import React from "react";
 import SummarizeDetail from "./SummarizeDetail";
+import {addSubIntoSTD} from "../dataFetch"
 
 export default function ElectiveDetail(props) {
     const user = Object.values(props)[0];
@@ -26,7 +27,11 @@ export default function ElectiveDetail(props) {
 
         if(subject.length !== 0){
             alert("ลงทะเบียนเรียบร้อย");
+            const data = {"cell_idx":props.user.CELLIDX,"CHUM":props.user.CHUM,"FREE":props.user.FREE}
+            addSubIntoSTD(data);
+            console.log(data)
             console.log("Success");
+
         } else {
             alert("กรุณาเลือกวิชา");
             console.log("No subject");

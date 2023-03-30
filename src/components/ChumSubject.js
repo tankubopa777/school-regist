@@ -8,6 +8,7 @@ export default function ElectiveDetail(props) {
 
     for (let i = 0; i < subjects.length; i++) {
         if (subjects[i].SUB_TYPE === "CHUM") {
+          subjects[i]["CELLIDX"] = subjects.indexOf(subjects[i])
           chumSubject.push(subjects[i]);
         }
     }

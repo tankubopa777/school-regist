@@ -8,7 +8,8 @@ export default function ElectiveDetail(props) {
 
     for (let i = 0; i < subjects.length; i++) {
         if (subjects[i].SUB_TYPE === "FREE") {
-            freeSubject.push(subjects[i]);
+          subjects[i]["CELLIDX"] = subjects.indexOf(subjects[i])
+          freeSubject.push(subjects[i]);
         }
     }
 
