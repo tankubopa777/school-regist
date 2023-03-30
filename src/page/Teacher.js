@@ -10,8 +10,7 @@ import DataStd from "../PageTeacher/DataStd";
 
 // List ที่ต้องทำ
 // ทำปุ่มเพิ่มวิชา <Table />
-// Link Navbar ไปหน้าเเรก
-// Link Navbar ไปหน้ารายชื่อนักเรียน
+// filter วิชาที่เปิด <DataStd />
 // Link Navbar log out
 // ตกเเต่งหน้าเว็บ
 
