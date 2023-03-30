@@ -81,7 +81,8 @@ export async function editPassword(data) {
 export async function editStdGrade(data){
     // { this is how parameter should look like
     //     "cellidx":2,
-    //     "std": [{"ID":40527,"GRADE":0} , {"ID":40528,"GRADE":80} ]
+    //     "std": [{"ID":40527,"FNAME":"asd","LNAME":"ASD","CLASS":1,"ROOM":2,"GRADE":0}
+    //            ,{"ID":40528,"FNAME":"asd2","LNAME":"ASD2","CLASS":1,"ROOM":3,"GRADE":0}]
     // }
     const action = 'editStdGrade';
     const urlwithaction = url + '?action=' + action;
@@ -97,7 +98,7 @@ export async function editStdGrade(data){
 export async function stdJoin(data){
     // { this is how parameter should look like
     //     "cellidx": 2,
-    //     "std": {"ID":"6410742297","GRADE":0}
+    //     "std": {"ID":40527,"FNAME":"asd","LNAME":"ASD","CLASS":1,"ROOM":2,"GRADE":0}
     // }
     const action = 'stdJoin';
     const urlwithaction = url + '?action=' + action;
