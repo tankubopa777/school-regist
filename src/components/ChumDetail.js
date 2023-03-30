@@ -12,13 +12,13 @@ export default function ChumSubject(props) {
             alert("คุณได้ลงทะเบียนวิชานี้ไปแล้ว");
         } else if (subject.STD.length == subject.SUB_CAP) {
             alert("วิชานี้เต็มแล้ว");
-        } else if (user.CHUM.length == 2) {
+        } else if (user.CHUM.length == 1) {
             alert("คุณได้ลงทะเบียนไปแล้ว");
         } else if (!(user.STD_CLASS == subject.SUB_PERM[0]) || (user.STD_CLASS == subject.SUB_PERM[1]) || (user.STD_CLASS == subject.SUB_PERM[2]) || (user.STD_CLASS == subject.SUB_PERM[3]) || (user.STD_CLASS == subject.SUB_PERM[4]) || (user.STD_CLASS == subject.SUB_PERM[5])) {
             alert("ไม่สามารถลงทะเบียนได้");
         } else {
-            let confirm = prompt("กรุณาใส่รหัสวิชาเพื่อยืนยันการลงทะเบียน").toLowerCase;
-            if (confirm == subject.SUB_ID.toLowerCase) {
+            let confirm = prompt("กรุณาใส่รหัสวิชาเพื่อยืนยันการลงทะเบียน").toLowerCase();
+            if (confirm == subject.SUB_ID.toLowerCase()) {
                 props.updateUser({
                     ...user,
                     CHUM: [subject]
