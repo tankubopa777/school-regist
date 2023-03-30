@@ -1,42 +1,54 @@
 import React, { useState } from "react";
-import { redirect, useNavigate, useHistory } from 'react-router-dom';
-import { Link } from "react-router-dom";
+
 
 function Table(props) {
     const subjects = Object.values(props.subjects);
-    console.log(subjects);
+
+    const [open, setopen] = useState(false);
+    const [SubType, setSubType] = useState('CHUM');
 
     const handleClick = (s) => {
         props.updatesubjectselect(s);
-        // console.log(s);
-        // console.log(props.subjectselect);
         props.updateTablePage('Edit');
     }
+    const sortType = (text) => {
+        setopen(!open)
+        setSubType(text);
+    }
+
     const toAddSubject = (s) => {
         props.updatesubjectselect(s);   /////////ไม่เเน่ใจว่าต้องใส่มั้ย
         props.updateTablePage('Register_subject');
     }
 
-    const [open, setOpen] = useState(false);
-    const [open2, setOpen2] = useState(false);
+    const filterTYPE = subjects.filter(subjectlst => { 
+        if (subjectlst.SUB_TYPE === SubType) {
+            return subjectlst.SUB_TYPE === SubType;
+        }
+        else if (subjectlst.SUB_TYPE === SubType){
+            return subjectlst.SUB_TYPE === SubType;
+        } 
+      });
+    
     return (
-        <div className="container mx-auto px-4 sm:px-8 rounded-lg justify-center">
+
+        <div className="container mx-auto px-4 sm:px-8 rounded-lg">
             <div className="py-8">
                 <div>
                     <label className="text-2xl font-semibold leading-tight">
                         วิชาชุมนุม
                     </label>
                     <button
-                        classNameName="inline-block px-3 py-2 m-3 shadow-md rounded-lg  bg-gray-300 font-bold hover:text-gray-700"
-                        onClick={() => setOpen2(!open2)}>
+                        className="inline-block px-3 py-2 m-3 shadow-md rounded-lg  bg-gray-300 font-bold hover:text-gray-700"
+                        onClick={() => setopen(!open)}>
                         Sort
                     </button>
 
-                    {open2 && (
+                    {open && (
                         <div className="block bg-white shadow-md rounded px-5 pt-4 pb-5 mb-4">
                             <ul>
-                                <li className="hover:bg-slate-300 font-serif text-left p-3"> วิชาชุมนุม</li>
-                                <li className="hover:bg-slate-300 font-serif text-left p-3"> วิชาเสรี</li>
+                                <div onClick={()=>sortType('CHUM')} className="hover:bg-slate-300 font-serif text-left p-3"> วิชาชุมนุม</div>
+                                <div onClick={()=>sortType('FREE')} className="hover:bg-slate-300 font-serif text-left p-3"> วิชาเสรี</div>
                             </ul>
 
                         </div>
@@ -82,35 +94,35 @@ function Table(props) {
                             </thead>
 
                             <tbody >
-                                {subjects.map((subjects, index) => (
+                                {filterTYPE.map((subjectsType, index) => (
                                     <tr key={index} className="w-max ">
                                         <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                {subjects.SUB_ID}
+                                                {subjectsType.SUB_ID}
                                             </p>
                                         </td>
 
                                         <td className=" w-1/6 sborder-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                {subjects.SUB_NAME}
+                                                {subjectsType.SUB_NAME}
                                             </p>
                                         </td>
 
                                         <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                {subjects.SUB_ADDR}
+                                                {subjectsType.SUB_ADDR}
                                             </p>
                                         </td>
 
                                         <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                {subjects.SUB_PROF[0]} , {subjects.SUB_PROF[1]}
+                                                {subjectsType.SUB_PROF[0]} , {subjectsType.SUB_PROF[1]}
                                             </p>
                                         </td>
 
                                         <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                {subjects.STD.length}/{subjects.SUB_CAP}
+                                                {subjectsType.STD.length}/{subjectsType.SUB_CAP}
                                             </p>
                                         </td>
 

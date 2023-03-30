@@ -17,8 +17,7 @@ import DataStd from "../PageTeacher/DataStd";
 
 function Teacher_page(props) {
   const [TablePage, setTablePage] = useState('Table');
-
-  console.log(props.subjects);
+  
   const [subjectselect, setSubjectselect] = useState();
 
   const updatesubjectselect = (newValue) => {

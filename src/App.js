@@ -80,13 +80,6 @@ export default function App() {
         setSubjects(newValue);
     };
 
-    console.log(isLoggedIn)
-    console.log(user)
-    console.log(subjects)
-    console.log(users)
-
-    
-
     return (
         <Router>
             <Routes>
