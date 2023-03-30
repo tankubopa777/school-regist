@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 
 function TableStd(props) {
-    console.log(props.subjectselect)
     const selected = Object.values(props.subjectselect);
-    console.log(selected);
-
+    
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
     
@@ -17,11 +15,6 @@ function TableStd(props) {
                     <label className="text-2xl font-semibold leading-tight">
                         รายชื่อนักเรียนวิชา {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}
                     </label>
-                    <button
-                        className="inline-block px-3 py-2 m-3 shadow-md rounded-lg  bg-gray-300 font-bold hover:text-gray-700"
-                        onClick={() => setOpen2(!open2)}>
-                        Sort
-                    </button>
 
                     {open2 && (
                         <div className="block bg-white shadow-md rounded px-5 pt-4 pb-5 mb-4">

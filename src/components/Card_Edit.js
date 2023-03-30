@@ -1,21 +1,18 @@
 function Card_Edit(props) {
     const selected = Object.values(props.subjectselect);
-    
-    console.log(props.subjectselect)
 
-    function handleClick() {
-        console.log(props.tablepage); 
+    function handleClick() { 
         props.updateTablePage('Register_subject');
     }
 
     return (
         <div className="inline-block rounded-lg bg-gray-200 m-4 p-4 w-22 h-23">
             <div>
-                <p className="text-start text-xs" >ชื่อชุมนุม/เสรี : {props.subjectselect.SUB_NAME}</p>
-                <p className="text-start text-xs" >คุณครู : {props.subjectselect.SUB_PROF}</p>
-                <p className="text-start text-xs" >จำนวนนักเรียนที่ลงทะเบียน : {selected[7].length} /{props.subjectselect.SUB_CAP}</p>
-                <p className="text-start text-xs" >รหัสวิชา : {props.subjectselect.SUB_ID}</p>
-                <p className="text-start text-xs" >ห้องเรียน : {props.subjectselect.SUB_ADDR}</p>
+                <p className="text-start text-xs" > <label className="font-bold">ชื่อชุมนุม/เสรี : </label>{props.subjectselect.SUB_NAME}</p>
+                <p className="text-start text-xs" > <label className="font-bold">คุณครู : </label>{props.subjectselect.SUB_PROF}</p>
+                <p className="text-start text-xs" > <label className="font-bold">จำนวนนักเรียนที่ลงทะเบียน :  </label>{selected[7].length} / {props.subjectselect.SUB_CAP}</p>
+                <p className="text-start text-xs" > <label className="font-bold">รหัสวิชา :  </label>{props.subjectselect.SUB_ID}</p>
+                <p className="text-start text-xs" > <label className="font-bold">ห้องเรียน :  </label>{props.subjectselect.SUB_ADDR}</p>
             </div>
 
             <div className="flex justify-end">

@@ -34,7 +34,7 @@ function NavbarAJ(props) {
 
         <div className="flex items-center">
           <div className="mr-6 text-sm font-medium text-gray-500 dark:text-white ">Prof.Pao</div>
-          <button onClick={logout} className="hover:text-white hover:font-bold cursor-pointer">
+          <button onClick={logout} className="hover:text-white hover:font-bold cursor-pointer text-white">
                   Log out
                 </button>
         </div>
