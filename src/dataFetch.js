@@ -139,6 +139,11 @@ export async function fetchSubjects(){
     return response;
 }
 
+export async function fetchUsers(){
+    const response = await callUser();
+    return response;
+}
+
 export function checkLogin(username, passw) {
     return callUser().then((response) => {
         if (!(username in response) || response[username].PASSW != passw) {

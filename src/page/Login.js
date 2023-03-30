@@ -23,6 +23,7 @@ export const Login_page = (props) => {
     if (success[0]) {
       props.updateIsLoggedIn(true);
       props.updateUser(success[1]);
+      props.updateUsers(success[2]);
     }
   }
 
