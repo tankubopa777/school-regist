@@ -10,22 +10,22 @@ import { BrowserRouter as Router, Routes, Route, useAsyncError } from "react-rou
 import { fetchSubjects , fetchUsers } from './dataFetch.js'
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+// import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAIwdL2S-oHhqVYYiUoV_1i8ZGzqx0A5W4",
-  authDomain: "pks-register-5580c.firebaseapp.com",
-  projectId: "pks-register-5580c",
-  storageBucket: "pks-register-5580c.appspot.com",
-  messagingSenderId: "369398019644",
-  appId: "1:369398019644:web:ce3f5f01738a7dc472f539"
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAIwdL2S-oHhqVYYiUoV_1i8ZGzqx0A5W4",
+//   authDomain: "pks-register-5580c.firebaseapp.com",
+//   projectId: "pks-register-5580c",
+//   storageBucket: "pks-register-5580c.appspot.com",
+//   messagingSenderId: "369398019644",
+//   appId: "1:369398019644:web:ce3f5f01738a7dc472f539"
+// };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
 
 
 export default function App() {
