@@ -1,6 +1,6 @@
 function Card_Edit(props) {
     const selected = Object.values(props.subjectselect);
-    console.log(selected)
+    
     console.log(props.subjectselect)
 
     function handleClick() {
