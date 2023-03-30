@@ -37,24 +37,19 @@ export default function App() {
     const [users, setUsers] = useState(null);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-          
-            fetchSubjects().then((response) => {
+      const interval = setInterval(() => {
+        fetchSubjects()
+          .then(response => {
             setSubjects(response);
-          }).catch((error) => {
+          })
+          .catch(error => {
             console.log(error);
           });
+      }, 2000);
+    
+      return () => clearInterval(interval);
+    }, []);
 
-          fetchUsers().then((response) => {
-            setUsers(response);
-          }).catch((error) => {
-            console.log(error);
-
-          });
-        }, 2000);
-      
-        return () => clearInterval(interval);
-      }, []);
 
     const updateIsLoggedIn = (newValue) => {
         setIsLoggedIn(newValue);
