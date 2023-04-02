@@ -3,8 +3,11 @@ import React from 'react';
 import Block_DetailStd from '../components/Block_DetailStd';
 import GroupSubject from '../components/ChumSubject';
 import './style.css'
+import { useState, useEffect } from 'react'
 
 export default function GroupSubjectPage(props) {
+
+
     return (
         <div>
             <Navbar

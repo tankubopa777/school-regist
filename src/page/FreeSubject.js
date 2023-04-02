@@ -3,8 +3,11 @@ import React from 'react';
 import Block_DetailStd from '../components/Block_DetailStd';
 import ElectiveDetail from '../components/FreeSubject';
 import './style.css'
+import { useState, useEffect } from 'react'
+import { redirect, useNavigate, useHistory } from 'react-router-dom';
 
 export default function ElectiveSubjectPage(props) {
+
     return (
         <div>
             <Navbar
@@ -15,7 +18,7 @@ export default function ElectiveSubjectPage(props) {
                     <Block_DetailStd user={props.user} />
                 </div>
                 <div id="home" class="relative">
-                     <ElectiveDetail subjects={props.subjects} user={props.user} updateUser={props.updateUser}/>
+                    <ElectiveDetail subjects={props.subjects} user={props.user} updateUser={props.updateUser} />
                 </div>
             </div>
 
