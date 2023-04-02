@@ -1,9 +1,5 @@
-import { Container } from "react-bootstrap";
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import { redirect, useNavigate, useHistory } from 'react-router-dom';
 import { checkLogin , fetchSubjects} from '../dataFetch.js'
-import { useState, useEffect } from 'react'
 import Logo from '../assets/pks.png';
 import Loading from "../components/loading.js";
 

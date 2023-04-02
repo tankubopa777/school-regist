@@ -1,9 +1,21 @@
 import NavbarAJ from "../components/NavbarAJ";
+import React, { useState } from "react";
 
 function DataStd(props) {
   const dataStd = Object.values(props.users)
   
+  const [Room , setRoom] = useState(1)
+  const [Class , setClass] = useState(1)
   
+  const handleInputChangeRoom = (event) => {
+    setRoom(parseInt(event.target.value));
+  };
+
+  const handleInputChangeClass = (event) => {
+    setClass(parseInt(event.target.value));
+  };
+
+
   let dataStdlst = []
   for (let i = 0; i < dataStd.length; i++) {
       dataStdlst.push(dataStd[i])
@@ -11,8 +23,13 @@ function DataStd(props) {
   }
   console.log(dataStdlst[0])
 
-  return (
+  //Sort ห้องเรียน
+  const filterSTD = dataStdlst.filter(dataStdlst => { 
+    return dataStdlst.STD_ROOM === Room && dataStdlst.STD_CLASS === Class;
     
+  });
+
+  return (
     <div>
       <div className="container mx-auto px-4 sm:px-8 rounded-lg justify-center">
         <div className="py-8">
@@ -20,6 +37,7 @@ function DataStd(props) {
             <label className="text-2xl font-semibold leading-tight">
               รายชื่อนักเรียน
             </label>
+            <input text="Room" type="number" placeholder={Room} value={Room} onChange={handleInputChangeRoom}/> . <input text="Class" type="number" placeholder={Class} value={Class} onChange={handleInputChangeClass}/>
           </div>
 
             <div className="py-4 ">
@@ -27,6 +45,11 @@ function DataStd(props) {
                 <table className="rounded-lg shadow-md">
                   <thead >
                     <tr className="rounded-lg shadow-md">
+                      <th
+                        className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                      >
+                        เลขที่
+                      </th>
                       <th
                         className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
                       >
@@ -56,47 +79,49 @@ function DataStd(props) {
                   </thead>
 
                   <tbody >
-                    {/* {dataStd.map((student, index) => ( */}
-                    <tr  className="w-max ">
+                    {filterSTD.map((student, index) => (
+                    <tr key={index}  className="w-max ">
                       <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          36227
+                          {student.STD_ORD}
+                        </p>
+                      </td>
+                      <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
+                        <p className="text-gray-900 whitespace-no-wrap">
+                          {student.ID}
                         </p>
                       </td>
 
                       <td className=" w-1/6 sborder-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          นายอินทัช ศรีเภา
+                          {student.FNAME} {student.LNAME}
                         </p>
                       </td>
 
                       <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          ม.6.3
+                          ม.{student.STD_CLASS}.{student.STD_ROOM}
                         </p>
                       </td>
 
                       <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          Com1
+                          {student.CHUM}
                         </p>
                       </td>
 
                       <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          Com2
+                          {student.FREE}
                         </p>
                       </td>
                     </tr>
-                    {/* ))} */}
+                    ))}
                   </tbody>
                 </table>
                 <div className="flex justify-end mr-10 mt-3">
                   <button className="bg-green-600 font-semibold text-white px-3 py-1 m-3 rounded-md shadow-md">
                     Export
-                  </button>
-                  <button className="bg-green-600 font-semibold text-white px-3 py-1 m-3 rounded-md shadow-md">
-                    Submit
                   </button>
                 </div>
               </div>

@@ -2,8 +2,6 @@ import React from "react";
 import NavbarAJ from "../components/NavbarAJ";
 import Table from "../components/Table";
 import RegSubject from "../components/RegSubject";
-import Grade from "../components/Grade";
-import EditComponents from "../components/EditComponents";
 import { useState, useEffect } from 'react'
 import Edit from "../PageTeacher/Edit";
 import DataStd from "../PageTeacher/DataStd";
@@ -18,7 +16,6 @@ import DataStd from "../PageTeacher/DataStd";
 function Teacher_page(props) {
   const [TablePage, setTablePage] = useState('Table');
 
-  console.log(props.subjects);
   const [subjectselect, setSubjectselect] = useState();
 
   const updatesubjectselect = (newValue) => {
