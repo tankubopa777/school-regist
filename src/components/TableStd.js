@@ -106,7 +106,8 @@ function TableStd(props) {
                                                         type="text"
                                                         value={inputValue}
                                                         onChange={handleInputChangeGrade}
-                                                        onBlur={handleInputBlur} />
+                                                        onBlur={handleInputBlur}
+                                                        placeholder={each.GRADE} />
                                                 ) : (
                                                     <label onClick={ClickShowInput}>{each.GRADE}</label>
                                                 )}
