@@ -2,8 +2,8 @@ import NavbarAJ from "../components/NavbarAJ";
 import React, { useState } from "react";
 
 function DataStd(props) {
-  const dataStd = Object.values(props.users)
-  
+  const dataStd = Object.values(props.users);
+
   const [Room , setRoom] = useState(1)
   const [Class , setClass] = useState(1)
   
@@ -21,13 +21,22 @@ function DataStd(props) {
       dataStdlst.push(dataStd[i])
       
   }
-  console.log(dataStdlst[0])
 
   //Sort ห้องเรียน
   const filterSTD = dataStdlst.filter(dataStdlst => { 
     return dataStdlst.STD_ROOM === Room && dataStdlst.STD_CLASS === Class;
     
   });
+  
+  function checkArray(arr) {
+    if (arr.length === 0) {
+      return <div>ยังไม่ได้ลงทะเบียน</div>;
+    } else {
+      return arr[0].SUB_NAME;
+    }
+  }
+
+  console.log(filterSTD)
 
   return (
     <div>
@@ -81,6 +90,7 @@ function DataStd(props) {
                   <tbody >
                     {filterSTD.map((student, index) => (
                     <tr key={index}  className="w-max ">
+                      {console.log(student)}
                       <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
                           {student.STD_ORD}
@@ -92,7 +102,7 @@ function DataStd(props) {
                         </p>
                       </td>
 
-                      <td className=" w-1/6 sborder-b border-gray-200 bg-white text-sm">
+                      <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
                           {student.FNAME} {student.LNAME}
                         </p>
@@ -106,13 +116,13 @@ function DataStd(props) {
 
                       <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          {student.CHUM}
+                          {checkArray(student.CHUM)}
                         </p>
                       </td>
 
                       <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          {student.FREE}
+                        {checkArray(student.FREE)}
                         </p>
                       </td>
                     </tr>
