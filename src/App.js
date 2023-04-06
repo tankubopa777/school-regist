@@ -81,7 +81,7 @@ export default function App() {
           console.log(error);
         });
 
-    }, 2000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -106,16 +106,17 @@ export default function App() {
     setSubjects(newValue);
   };
 
-  console.log(isLoggedIn)
-  console.log(user)
-  console.log(subjects)
-  console.log(users)
+  // console.log(isLoggedIn)
+  // console.log(user)
+  // console.log(subjects)
+  // console.log(users)
 
   return (
     <ErrorBoundary>
       <Router>
         <Routes>
           <Route exact path="/" element={<Login_page
+            users={users} updateUsers={updateUsers}
             user={user} updateUser={updateUser}
             isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
             page={page} updatePage={updatePage}

@@ -1,7 +1,7 @@
 import { func } from "prop-types";
 import React from "react";
 import SummarizeDetail from "./SummarizeDetail";
-import {addSubIntoSTD} from "../dataFetch"
+import {addSubIntoSTD,stdJoin} from "../dataFetch"
 
 export default function ElectiveDetail(props) {
     const user = Object.values(props)[0];
@@ -16,20 +16,16 @@ export default function ElectiveDetail(props) {
     }
 
     function submit() {
-        // const requestOptions = {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(user)
-        // };
-        // fetch('http://localhost:5000/summarize', requestOptions)
-        //     .then(response => response.json())
-        //     .then(data => console.log(data));
-
         if(subject.length !== 0){
             alert("ลงทะเบียนเรียบร้อย");
-            const data = {"cell_idx":props.user.CELLIDX,"CHUM":props.user.CHUM,"FREE":props.user.FREE}
-            addSubIntoSTD(data);
-            console.log(data)
+            const datatostd = {"cell_idx":props.user.CELLIDX,"CHUM":props.user.CHUM,"FREE":props.user.FREE}
+            const datatosub = {"cellidx":3,"std":{"ID":user.ID,"FNAME":user.FNAME,"LNAME":user.LNAME,"CLASS":user.STD_CLASS,"ROOM":user.STD_ROOM,"GRADE":0}}
+            console.log(subject)
+            console.log(user)
+            console.log(datatostd)
+            console.log(datatosub)
+            addSubIntoSTD(datatostd);
+            stdJoin(datatosub);
             console.log("Success");
 
         } else {
