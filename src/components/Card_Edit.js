@@ -4,10 +4,19 @@ function Card_Edit(props) {
     function handleClick() { 
         props.updateTablePage('Register_subject');
     }
+    const Status = (status) => {
+        if (status === 'true') {
+            return <div className="bg-green-500 px-2 py-1 text-white rounded-lg">Open</div>
+        }
+        else {
+            return <div className="bg-red-500 px-2 py-1 text-white rounded-lg">Close</div>
+        }
+    }
 
     return (
         <div className="inline-block rounded-lg bg-gray-200 m-4 p-4 w-22 h-23">
             <div>
+                <p className="text-start text-xs" >{Status(props.subjectselect.AVAILABILITY)}</p>
                 <p className="text-start text-xs" > <label className="font-bold">ชื่อชุมนุม/เสรี : </label>{props.subjectselect.SUB_NAME}</p>
                 <p className="text-start text-xs" > <label className="font-bold">คุณครู : </label>{props.subjectselect.SUB_PROF}</p>
                 <p className="text-start text-xs" > <label className="font-bold">จำนวนนักเรียนที่ลงทะเบียน :  </label>{selected[7].length} / {props.subjectselect.SUB_CAP}</p>
