@@ -2,8 +2,7 @@ import { redirect, useNavigate, useHistory } from 'react-router-dom';
 import { checkLogin , fetchSubjects} from '../dataFetch.js'
 import Logo from '../assets/pks.png';
 import Loading from "../components/loading.js";
-
-// export const username = document.getElementById('username');
+import { useState, useEffect } from 'react'
 
 export const Login_page = (props) => {
   
