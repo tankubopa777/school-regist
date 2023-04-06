@@ -19,13 +19,13 @@ const firebaseConfig = {
   projectId: "pks-reg",
   storageBucket: "pks-reg.appspot.com",
   messagingSenderId: "905703944162",
-  appId: "1:905703944162:web:b3b7766d1856f9203693bb",
-  measurementId: "G-BXG1RQM9EV"
+  appId: "1:905703944162:web:cf74958e0cf586933693bb",
+  measurementId: "G-YXJESR4KGV"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
