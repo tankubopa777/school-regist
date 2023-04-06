@@ -85,11 +85,13 @@ function Table(props) {
                                     <th
                                         className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
                                     >
-                                        Quota
+                                        จำนวนนักเรียน
                                     </th>
                                     <th
                                         className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-                                    >ICON</th>
+                                    >
+                                        เพิ่มเติม
+                                    </th>
                                 </tr>
                             </thead>
 
@@ -102,7 +104,7 @@ function Table(props) {
                                             </p>
                                         </td>
 
-                                        <td className=" w-1/6 sborder-b border-gray-200 bg-white text-sm">
+                                        <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {subjectsType.SUB_NAME}
                                             </p>
@@ -130,7 +132,7 @@ function Table(props) {
                                         <td
                                             className=" w-1/6 border-b border-gray-200 bg-white text-sm text-left"
                                         >
-                                            <button onClick={() => handleClick(subjectsType)}>add</button>
+                                            <button onClick={() => handleClick(subjectsType)}>เพิ่มเติม</button>
                                         </td>
                                     </tr>
                                 ))}
