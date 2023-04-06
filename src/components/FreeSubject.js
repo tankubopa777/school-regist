@@ -13,18 +13,19 @@ export default function ElectiveDetail(props) {
         }
     }
 
-    return (
+  return (
+    <div>
+      {freeSubject.map((subject, index) => (
         <div>
-         {freeSubject.map((subject, index) => (
-          <div>
           <FreeDetail
             key={index}
             item={subject}
             user={props.user}
             updateUser={props.updateUser}
           />
-          </div>
-          ))}
         </div>
-      )
-    }
+      ))
+      }
+    </div>
+  )
+}

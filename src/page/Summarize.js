@@ -11,12 +11,12 @@ export default function Home_page(props) {
             <Navbar
                 user={props.user} updateUser={props.updateUser}
                 isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
-            <div class="relative top-28">
-                <div class="hidden tablet:block fixed right-0">
+            <div className="relative top-28">
+                <div className="hidden tablet:block fixed right-0">
                     <Block_DetailStd user={props.user} />
                 </div>
-                <div id="home" class="relative">
-                    <Summarize user={props.user} updateUser={props.updateUser}/>
+                <div id="home" className="relative">
+                    <Summarize user={props.user} updateUser={props.updateUser} subjects={props.subjects}/>
                 </div>
             </div>
 

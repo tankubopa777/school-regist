@@ -3,18 +3,21 @@ import React from 'react';
 import Block_DetailStd from '../components/Block_DetailStd';
 import GroupSubject from '../components/ChumSubject';
 import './style.css'
+import { useState, useEffect } from 'react'
 
 export default function GroupSubjectPage(props) {
+
+
     return (
         <div>
             <Navbar
                 user={props.user} updateUser={props.updateUser}
                 isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
-            <div class="relative top-28">
-                <div class="hidden tablet:block fixed right-0">
+            <div className="relative top-28">
+                <div className="hidden tablet:block fixed right-0">
                     <Block_DetailStd user={props.user} />
                 </div>
-                <div id="home" class="relative">
+                <div id="home" className="relative">
                      <GroupSubject subjects={props.subjects} user={props.user} updateUser={props.updateUser}/>
                 </div>
             </div>

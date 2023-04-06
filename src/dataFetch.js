@@ -1,4 +1,4 @@
-const url = "https://script.google.com/macros/s/AKfycbx0QX-Mzj3RT5pkVetEi6QLbvV9cCpcyCgwmk7K_84MtczFcOuInRX0Vg--7DfAkGGzTA/exec"
+const url = "https://script.google.com/macros/s/AKfycbw51kGEucEigU-FB9bMwZFEFo-1z1M6CTWeQG5SekMDPPBNoEAZojtVOLI9jNR5KcSTyA/exec"
 
 export async function hookUsers() {
     const action = 'getUsers';
@@ -16,7 +16,7 @@ export async function hookSubjects() {
     return result;
 }
 
-export async function addSubjet(new_subject_data) {
+export async function addSubjet(data) {
     // {  this is how parameter should look like
     //     "SUB_TYPE"  :"CHUM",
     //     "SUB_ID"    :"asdasd",
@@ -32,7 +32,11 @@ export async function addSubjet(new_subject_data) {
     const res = await fetch(urlwithaction,
         {
             method: "POST",
-            body: new_subject_data
+            mode: 'cors',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'text/plain',
+              }
         }
     )
     return res;
@@ -55,7 +59,11 @@ export async function editSubject(data) {
     const res = await fetch(urlwithaction,
         {
             method: "POST",
-            body: data
+            mode: 'cors',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'text/plain',
+              }
         }
     )
     return res;
@@ -72,7 +80,11 @@ export async function editPassword(data) {
     const res = await fetch(urlwithaction,
         {
             method: "POST",
-            body: data
+            mode: 'cors',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'text/plain',
+              }
         }
     )
     return res;
@@ -89,7 +101,11 @@ export async function editStdGrade(data) {
     const res = await fetch(urlwithaction,
         {
             method: "POST",
-            body: data
+            mode: 'cors',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'text/plain',
+              }
         }
     )
     return res;
@@ -105,7 +121,11 @@ export async function stdJoin(data) {
     const res = await fetch(urlwithaction,
         {
             method: "POST",
-            body: data
+            mode: 'cors',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'text/plain',
+              }
         }
     )
     return res;
@@ -154,16 +174,20 @@ export async function addSubIntoSTD(data) {
     //         }
     //     ]
     // }
+
     const action = 'addSubIntoSTD';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction,
         {
             method: "POST",
-            body: data
+            mode: 'cors',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'text/plain',
+              }
         }
     )
     return res;
-
 }
 
 const callUser = async () => {

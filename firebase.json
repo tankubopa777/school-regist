@@ -1,17 +1,8 @@
 {
   "hosting": {
-    "public": "public",
-    "site": "register-pks",
+    "site": "pksr-test",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
-}
