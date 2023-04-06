@@ -1,4 +1,4 @@
-const url = "https://script.google.com/macros/s/AKfycbwjHLl2AhP3D27NEMrpOR7ybAG7wWh6GwQKCd4uMX7IyVhKeATwTFir7C1apubXmvhu1Q/exec"
+const url = "https://script.google.com/macros/s/AKfycbx0QX-Mzj3RT5pkVetEi6QLbvV9cCpcyCgwmk7K_84MtczFcOuInRX0Vg--7DfAkGGzTA/exec"
 
 export async function hookUsers() {
     const action = 'getUsers';
@@ -78,7 +78,7 @@ export async function editPassword(data) {
     return res;
 }
 
-export async function editStdGrade(data){
+export async function editStdGrade(data) {
     // { this is how parameter should look like
     //     "cellidx":2,
     //     "std": [{"ID":40527,"FNAME":"asd","LNAME":"ASD","CLASS":1,"ROOM":2,"GRADE":0}
@@ -95,7 +95,7 @@ export async function editStdGrade(data){
     return res;
 }
 
-export async function stdJoin(data){
+export async function stdJoin(data) {
     // { this is how parameter should look like
     //     "cellidx": 2,
     //     "std": {"ID":40527,"FNAME":"asd","LNAME":"ASD","CLASS":1,"ROOM":2,"GRADE":0}
@@ -111,7 +111,7 @@ export async function stdJoin(data){
     return res;
 }
 
-export async function addSubIntoSTD(data){
+export async function addSubIntoSTD(data) {
     // {
     //     "cell_idx": 4,
     //     "CHUM": [],
@@ -190,12 +190,12 @@ const callSubjects = async () => {
 
 // }
 
-export async function fetchSubjects(){
+export async function fetchSubjects() {
     const response = await callSubjects();
     return response;
 }
 
-export async function fetchUsers(){
+export async function fetchUsers() {
     const response = await callUser();
     return response;
 }
@@ -205,7 +205,7 @@ export function checkLogin(username, passw) {
         if (!(username in response) || response[username].PASSW != passw) {
             return false;
         } else {
-            return [true,response[username]];
+            return [true, response[username]];
         }
     });
 }
