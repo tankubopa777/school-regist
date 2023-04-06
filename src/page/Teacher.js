@@ -15,8 +15,8 @@ import DataStd from "../PageTeacher/DataStd";
 
 function Teacher_page(props) {
   const [TablePage, setTablePage] = useState('Table');
-
   const [subjectselect, setSubjectselect] = useState();
+  const [Status, setStatus] = useState();
 
   const updatesubjectselect = (newValue) => {
     setSubjectselect(newValue);
@@ -24,6 +24,9 @@ function Teacher_page(props) {
 
   const updateTablePage = (newValue) => {
     setTablePage(newValue);
+  };
+  const updateStatus = (newValue) => {
+    setStatus(newValue);
   };
 
   if (TablePage === 'Table') {
@@ -53,7 +56,10 @@ function Teacher_page(props) {
 
         <Edit subjectselect={subjectselect} 
               updateTablePage={updateTablePage} 
-              TablePage={TablePage}  />
+              TablePage={TablePage} 
+              updateStatus={updateStatus}
+              Status={Status}
+              />
       </div>
     );
   }

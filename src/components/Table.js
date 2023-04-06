@@ -17,7 +17,7 @@ function Table(props) {
     }
 
     const toAddSubject = (s) => {
-        props.updatesubjectselect(s);
+        props.updatesubjectselect(s); //ไม่เเน่ใจว่าต้องส่ง parameter ไหม
         props.updateTablePage('Register_subject');
     }
 
@@ -29,6 +29,16 @@ function Table(props) {
             return subjectlst.SUB_TYPE === SubType;
         } 
       });
+
+      const Status = (status) => {
+        if (status === 'true') {
+            return <div className="bg-green-500 px-2 py-1 text-white rounded-lg">Open</div>
+        }
+        else {
+            return <div className="bg-red-500 px-2 py-1 text-white rounded-lg">Close</div>
+        }
+    }
+
     
     return (
 
@@ -65,6 +75,11 @@ function Table(props) {
                                     <th 
                                         className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
                                     >
+                                        Status
+                                    </th>
+                                    <th 
+                                        className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                    >
                                         รหัสวิชา
                                     </th>
                                     <th
@@ -85,11 +100,13 @@ function Table(props) {
                                     <th
                                         className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
                                     >
-                                        Quota
+                                        จำนวนนักเรียน
                                     </th>
                                     <th
                                         className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-                                    >ICON</th>
+                                    >
+                                        เพิ่มเติม
+                                    </th>
                                 </tr>
                             </thead>
 
@@ -98,11 +115,17 @@ function Table(props) {
                                     <tr key={index} className="w-max ">
                                         <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
+                                                {Status(subjectsType.AVAILABILITY)}
+                                            </p>
+                                        </td>
+
+                                        <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
+                                            <p className="text-gray-900 whitespace-no-wrap">
                                                 {subjectsType.SUB_ID}
                                             </p>
                                         </td>
 
-                                        <td className=" w-1/6 sborder-b border-gray-200 bg-white text-sm">
+                                        <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {subjectsType.SUB_NAME}
                                             </p>
@@ -126,11 +149,10 @@ function Table(props) {
                                             </p>
                                         </td>
 
-
                                         <td
                                             className=" w-1/6 border-b border-gray-200 bg-white text-sm text-left"
                                         >
-                                            <button onClick={() => handleClick(subjectsType)}>add</button>
+                                            <button onClick={() => handleClick(subjectsType)}>เพิ่มเติม</button>
                                         </td>
                                     </tr>
                                 ))}
@@ -139,7 +161,7 @@ function Table(props) {
                     </div>
                 </div>
             </div>
-            <button className="bg-green-600 text-center text-white" onClick={() => toAddSubject(subjects)}>AddSubject</button>
+            <button className="bg-green-600 text-center text-white" onClick={() => toAddSubject()}>AddSubject</button>
         </div>
     );
 }

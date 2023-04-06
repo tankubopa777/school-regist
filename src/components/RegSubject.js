@@ -1,6 +1,8 @@
 
 function Register_subject(props) {
     //Register Subject
+    console.log(props.subjectselect);
+
     if (props.subjectselect === undefined) {
         return (
             <div className="flex justify-center">
@@ -8,7 +10,7 @@ function Register_subject(props) {
     
                     <div className="block rounded-lg p-4 bg-neutral-400">
                         <h1 className="text-center font-bold" >
-                            ลงทะเบียนวิชาเรียน
+                            ลงทะเบียนวิชาเรียน undefined
                         </h1>
                     </div>
     
@@ -25,12 +27,17 @@ function Register_subject(props) {
                             </label>
     
                             <label className="p-2 m-2">
-                                ชื่ออาจารย์ :
+                                ชื่ออาจารย์คนที่ 1 :
                                 <input required className="ml-2" type="text" name="name" />
                             </label>
     
                             <label className="p-2 m-2">
                                 Quota :
+                                <input required className="ml-2" type="text" name="name" />
+                            </label>
+
+                            <label className="p-2 m-2">
+                                ชื่ออาจารย์คนที่ 2 :
                                 <input required className="ml-2" type="text" name="name" />
                             </label>
                             <form >
@@ -107,7 +114,7 @@ function Register_subject(props) {
 
                 <div className="block rounded-lg p-4 bg-neutral-400">
                     <h1 className="text-center font-bold text-white" >
-                        ลงทะเบียนวิชาเรียน
+                        ลงทะเบียนวิชาเรียน Not undefined
                     </h1>
                 </div>
                 <form >
@@ -123,8 +130,8 @@ function Register_subject(props) {
                         </label>
 
                         <label className="p-2 m-2">
-                            ชื่ออาจารย์ :
-                            <input required placeholder={props.subjectselect.SUB_PROF[0]} className="ml-2 pl-4" type="text" name="ProfName" />
+                            ชื่ออาจารย์คนที่ 1 :
+                            <input required placeholder={props.subjectselect.SUB_PROF} className="ml-2 pl-4" type="text" name="ProfName" />
                         </label>
 
                         <label className="p-2 m-2">
@@ -133,8 +140,8 @@ function Register_subject(props) {
                         </label>
 
                         <label className="p-2 m-2">
-                            ชื่ออาจารย์ :
-                            <input placeholder={props.subjectselect.SUB_PROF[1]} className="ml-2 pl-4" type="text" name="ProfName" />
+                            ชื่ออาจารย์คนที่ 2 :
+                            <input placeholder={props.subjectselect.SUB_PROF} className="ml-2 pl-4" type="text" name="ProfName" />
                         </label>
 
                     </div>
