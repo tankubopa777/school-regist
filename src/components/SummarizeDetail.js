@@ -3,6 +3,12 @@ import React, { useState } from 'react'
 export default function ChumSubject(props) {
     const [show, setShow] = useState(false);
     const subject = Object.values(props)[0];
+    
+    // const subjectx = props.subjects[subject.SUB_ID]
+
+    // console.log(subject === subjectx)
+    // console.log(subject , subjectx)
+
     return (
         <div className="w-5/6 tablet:w-1/2 ml-10">
             <table className="w-full">
@@ -10,7 +16,6 @@ export default function ChumSubject(props) {
                     <tr className="flex justify-evenly rounded-lg bg-white shadow-lg border-2 m-2 p-2">
                         <td className="w-4/12 text-[0.7rem] p-0 mobile:text-xs font-bold break-all tablet:p-2 flex flex-col justify-center">{subject.SUB_ID}</td>
                         <td className="w-1/3 text-[0.5rem] p-0 mobile:text-xs mobile:p-2 break-all flex flex-col justify-center">{subject.SUB_NAME}</td>
-                        <td className="w-2/12 text-[0.5rem] p-0 mobile:text-xs mobile:p-2 break-all flex flex-col justify-center">{subject.STD.length}/{subject.SUB_CAP}</td>
                         <td><button className="text-[0.5rem] p-0 mobile:text-xs mobile:p-2 font-bold hover:text-green-700 flex flex-col justify-center" onClick={() => setShow(!show)}>เพิ่มเติม</button></td>
                     </tr>
                     {show && <tr id="detail">
@@ -19,7 +24,7 @@ export default function ChumSubject(props) {
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td className="text-xs font-bold break-all p-2">ชื่อวิชาเสรี : </td>
+                                        <td className="text-xs font-bold break-all p-2">ชื่อวิชา : </td>
                                         <td className="text-xs p-2 break-all">{subject.SUB_NAME}</td>
                                     </tr>
 
