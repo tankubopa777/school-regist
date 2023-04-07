@@ -3,7 +3,6 @@ import React, { useState } from "react";
 function TableStd(props) {
     const selected = Object.values(props.subjectselect);
 
-    const [open, setOpen] = useState(false);
     const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
@@ -27,21 +26,6 @@ function TableStd(props) {
                     <label className="text-2xl font-semibold leading-tight">
                         รายชื่อนักเรียนวิชา {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}
                     </label>
-
-                    {open && (
-                        <div className="block bg-white shadow-md rounded px-5 pt-4 pb-5 mb-4">
-                            <ul>
-                                <li className="hover:bg-slate-300 font-serif text-left p-3"> วิชาชุมนุม</li>
-                                <li className="hover:bg-slate-300 font-serif text-left p-3"> วิชาเสรี</li>
-                            </ul>
-
-                        </div>
-
-                    )
-                    }
-
-
-
                 </div>
                 <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                     <div
