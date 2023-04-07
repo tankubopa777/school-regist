@@ -3,6 +3,8 @@ import { addSubject } from "../dataFetch";
 
 function Register_subject(props) {
     //Register Subject
+
+    let temp_subsel = props.subjectselect
     const [formData, setFormData] = useState({
         SUB_NAME: "",
         SUB_ID: "",
@@ -115,7 +117,7 @@ function Register_subject(props) {
                                     required
                                     className="ml-2"
                                     type="text"
-                                    id="SUB_UD"
+                                    id="SUB_ID"
                                     value={formData.SUB_ID}
                                     onChange={(e) =>
                                         setFormData({ ...formData, SUB_ID: e.target.value })
@@ -304,7 +306,7 @@ function Register_subject(props) {
 
                     <input onClick={addSubjectBtn} className="float-right m-4 h-11 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded " type="submit" value="Submit" />
 
-                    <button type="button" className="float-right m-4 bg-neutral-300 rounded-md py-2 px-4 inline-flex items-center justify-center text-white hover:text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <button onClick={() => props.updateTablePage("Table")} type="button" className="float-right m-4 bg-neutral-300 rounded-md py-2 px-4 inline-flex items-center justify-center text-white hover:text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <label className="text-lg font-bold pr-1">Exit</label>
                         <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -323,7 +325,7 @@ function Register_subject(props) {
     
                     <div className="block rounded-lg p-4 bg-neutral-400">
                         <h1 className="text-center font-bold" >
-                            แก้ไขรายวิชา {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}
+                            แก้ไขข้อมูลรายวิชา {temp_subsel.SUB_ID} {temp_subsel.SUB_NAME}
                         </h1>
                     </div>
 
@@ -336,11 +338,8 @@ function Register_subject(props) {
                                     required
                                     className="ml-2"
                                     type="text"
-                                    id="SUB_UD"
-                                    value={formData.SUB_ID}
-                                    onChange={(e) =>
-                                        setFormData({ ...formData, SUB_ID: e.target.value })
-                                    }
+                                    id="SUB_ID"
+                                    value={temp_subsel.SUB_ID}
                                 />
                             </label>
 
@@ -351,10 +350,7 @@ function Register_subject(props) {
                                     className="ml-2"
                                     type="text"
                                     id="SUB_NAME"
-                                    value={formData.SUB_NAME}
-                                    onChange={(e) =>
-                                        setFormData({ ...formData, SUB_NAME: e.target.value })
-                                    }
+                                    value={temp_subsel.SUB_NAME}
                                 />
                             </label>
 
@@ -365,10 +361,7 @@ function Register_subject(props) {
                                     className="ml-2"
                                     type="text"
                                     id="SUB_PROF1"
-                                    value={formData.SUB_PROF1}
-                                    onChange={(e) =>
-                                        setFormData({ ...formData, SUB_PROF1: e.target.value })
-                                    }
+                                    value={temp_subsel.SUB_PROF[0]}
                                 />
                             </label>
 
@@ -379,14 +372,10 @@ function Register_subject(props) {
                                     className="ml-2"
                                     type="text"
                                     id="SUB_PROF2"
-                                    value={formData.SUB_PROF2}
-                                    onChange={(e) =>
-                                        setFormData({ ...formData, SUB_PROF2: e.target.value })
-                                    }
+                                    value={temp_subsel.SUB_PROF[1]}
                                 />
                             </label>
 
-                            
                             <label className="p-2 m-2">
                                 Quota :
                                 <input
@@ -394,10 +383,7 @@ function Register_subject(props) {
                                     className="ml-2"
                                     type="text"
                                     id="SUB_CAP"
-                                    value={formData.SUB_CAP}
-                                    onChange={(e) =>
-                                        setFormData({ ...formData, SUB_CAP: e.target.value })
-                                    }
+                                    value={temp_subsel.SUB_CAP}
                                 />
                             </label>
 
@@ -408,10 +394,7 @@ function Register_subject(props) {
                                     className="ml-2"
                                     type="text"
                                     id="SUB_ADDR"
-                                    value={formData.SUB_ADDR}
-                                    onChange={(e) =>
-                                        setFormData({ ...formData, SUB_ADDR: e.target.value })
-                                    }
+                                    value={temp_subsel.SUB_ADDR}
                                 />
                             </label>
 
@@ -425,10 +408,7 @@ function Register_subject(props) {
                                         type="radio"
                                         id="TYPE"
                                         value="CHUM"
-                                        checked={formData.TYPE === "CHUM"}
-                                        onChange={(e) =>
-                                            setFormData({ ...formData, TYPE: e.target.value })
-                                        }
+                                        checked={temp_subsel.SUB_TYPE === "CHUM"}
                                     />
                                 </label>
 
@@ -440,10 +420,7 @@ function Register_subject(props) {
                                         type="radio"
                                         id="TYPE"
                                         value="FREE"
-                                        checked={formData.TYPE === "FREE"}
-                                        onChange={(e) =>
-                                            setFormData({ ...formData, TYPE: e.target.value })
-                                        }
+                                        checked={temp_subsel.SUB_TYPE === "FREE"}
                                     />
                                 </label>
                             </div>
@@ -461,7 +438,7 @@ function Register_subject(props) {
                                     type="checkbox"
                                     name="1"
                                     value="1"
-                                    checked={formData.PERM.includes(1)}
+                                    checked={temp_subsel.SUB_PERM.includes(1)}
                                     onChange={handlePermChange}
                                 />
                                 { }
@@ -473,7 +450,7 @@ function Register_subject(props) {
                                     type="checkbox"
                                     name="2"
                                     value="2"
-                                    checked={formData.PERM.includes(2)}
+                                    checked={temp_subsel.SUB_PERM.includes(2)}
                                     onChange={handlePermChange}
                                 />
                             </label>
@@ -484,7 +461,7 @@ function Register_subject(props) {
                                     type="checkbox"
                                     name="3"
                                     value="3"
-                                    checked={formData.PERM.includes(3)}
+                                    checked={temp_subsel.SUB_PERM.includes(3)}
                                     onChange={handlePermChange}
                                 />
                             </label>
@@ -495,7 +472,7 @@ function Register_subject(props) {
                                     type="checkbox"
                                     name="4"
                                     value="4"
-                                    checked={formData.PERM.includes(4)}
+                                    checked={temp_subsel.SUB_PERM.includes(4)}
                                     onChange={handlePermChange}
                                 />
                             </label>
@@ -505,7 +482,7 @@ function Register_subject(props) {
                                     type="checkbox"
                                     name="5"
                                     value="5"
-                                    checked={formData.PERM.includes(5)}
+                                    checked={temp_subsel.SUB_PERM.includes(5)}
                                     onChange={handlePermChange}
                                 />
                             </label>
@@ -516,7 +493,7 @@ function Register_subject(props) {
                                     type="checkbox"
                                     name="6"
                                     value="6"
-                                    checked={formData.PERM.includes(6)}
+                                    checked={temp_subsel.SUB_PERM.includes(6)}
                                     onChange={handlePermChange}
                                 />
                             </label>
@@ -525,7 +502,7 @@ function Register_subject(props) {
 
                     <input onClick={addSubjectBtn} className="float-right m-4 h-11 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded " type="submit" value="Submit" />
 
-                    <button type="button" className="float-right m-4 bg-neutral-300 rounded-md py-2 px-4 inline-flex items-center justify-center text-white hover:text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <button onClick={() => props.updateTablePage("Table")} type="button" className="float-right m-4 bg-neutral-300 rounded-md py-2 px-4 inline-flex items-center justify-center text-white hover:text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <label className="text-lg font-bold pr-1">Exit</label>
                         <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
