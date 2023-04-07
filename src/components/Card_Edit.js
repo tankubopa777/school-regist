@@ -5,7 +5,7 @@ function Card_Edit(props) {
         props.updateTablePage('Register_subject');
     }
     const Status = (status) => {
-        if (status === 'true') {
+        if (status === 'TRUE') {
             return <div className="bg-green-500 px-2 py-1 text-white rounded-lg">Open</div>
         }
         else {
@@ -25,8 +25,8 @@ function Card_Edit(props) {
             </div>
 
             <div className="flex justify-end">
-                <button className="bg-red-600 px-2 mx-2 rounded-md text-center text-slate-100 ">
-                    Delete
+                <button className="bg-red-600 px-2 mx-2 rounded-md text-center text-slate-100 "> // Dropdown สำหรับเปลี่ยนสถานะวิชา
+                    Switch Status
                 </button>
 
                 <button onClick={() => handleClick()} className="bg-green-600 px-2 mx-2 rounded-md text-center text-slate-100">
