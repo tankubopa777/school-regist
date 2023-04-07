@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -82,11 +82,11 @@ function DataStd(props) {
             <label className="text-l font-semibold leading-tight">
               ชั้นมัธยมศึกษาปีที่ : 
             </label>
-            <input className="bg-slate-400 px-2 w-20 rounded-md" text="Room" type="number" placeholder={Class} value={Class} onChange={handleInputChangeClass} />
+            <input className="bg-gray-200 px-2 w-20 rounded-md" text="Room" type="number" placeholder={Class} value={Class} onChange={handleInputChangeClass} />
             <label className="text-l font-semibold leading-tight">
               ห้อง : 
             </label>
-            <input className="bg-slate-400 px-2 w-20 rounded-md" text="Class" type="number" placeholder={Room} value={Room} onChange={handleInputChangeRoom} />
+            <input className="bg-gray-200 px-2 w-20 rounded-md" text="Class" type="number" placeholder={Room} value={Room} onChange={handleInputChangeRoom} />
           </div>
 
           <div className="py-4 ">

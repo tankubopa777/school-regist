@@ -2,20 +2,14 @@ import React, { useState } from "react";
 
 function TableStd(props) {
     const selected = Object.values(props.subjectselect);
-
-    const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
     function ClickShowInput() {
-        setShowInput(!showInput);
+        props.setShowInput(!props.showInput);
     }
 
     function handleInputChangeGrade(event) {
         setInputValue(parseInt(event.target.value));
-    }
-
-    function handleInputBlur() {
-        setShowInput(false);
     }
 
     return (
@@ -85,12 +79,11 @@ function TableStd(props) {
 
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <label className="text-gray-900 whitespace-no-wrap hover:bg-neutral-700">
-                                                {showInput ? (
+                                                {props.showInput ? (
                                                     <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                                                         type="text"
                                                         value={inputValue}
                                                         onChange={handleInputChangeGrade}
-                                                        onBlur={handleInputBlur}
                                                         placeholder={each.GRADE} />
                                                 ) : (
                                                     <label onClick={ClickShowInput}>{each.GRADE}</label>

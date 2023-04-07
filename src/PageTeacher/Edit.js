@@ -1,15 +1,22 @@
 import React from "react";
 import TableStd from "../components/TableStd";
 import Card_Edit from "../components/Card_Edit";
-import NavbarAJ from "../components/NavbarAJ";
+import { useState } from "react";
 
 function Edit(props){
+
+  const [showInput, setShowInput] = useState(false);
+
+  const ClickShowInput = () => {
+    setShowInput(!showInput);
+  }
 
     return(
         <div>
         <div className="grid grid-cols-4">
           <div className="m-4 col-span-3">
-            <TableStd subjectselect={props.subjectselect}/>
+            <TableStd subjectselect={props.subjectselect}
+            showInput={showInput} setShowInput={setShowInput}/>
           </div>
           <div className="m-4 mt-5 col-span-1">
             <Card_Edit subjectselect={props.subjectselect} updateTablePage={props.updateTablePage} 
@@ -21,7 +28,7 @@ function Edit(props){
             Export
           </button>
 
-          <button className="bg-green-600 rounded-md px-2 py-1 mx-5 my-3 text-slate-50 hover:bg-lime-700 ">
+          <button onClick={ClickShowInput} className="bg-green-600 rounded-md px-2 py-1 mx-5 my-3 text-slate-50 hover:bg-lime-700 ">
             Submit
           </button>
         </div>  

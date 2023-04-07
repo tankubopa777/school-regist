@@ -28,16 +28,19 @@ function Table(props) {
         else if (subjectlst.SUB_TYPE === SubType){
             return subjectlst.SUB_TYPE === SubType;
         } 
+        // add a default return statement
+        return false;
       });
 
       const Status = (status) => {
-        if (status === 'true') {
+        if (status === true) {
             return <div className="bg-green-500 px-2 py-1 text-white rounded-lg">Open</div>
         }
         else {
             return <div className="bg-red-500 px-2 py-1 text-white rounded-lg">Close</div>
         }
     }
+    console.log(filterTYPE);
 
     
     return (
@@ -161,7 +164,7 @@ function Table(props) {
                     </div>
                 </div>
             </div>
-            <button className="bg-green-600 text-center text-white" onClick={() => toAddSubject()}>AddSubject</button>
+            <button className="bg-green-600 text-center text-white px-2 py-1 rounded-lg float-right" onClick={() => toAddSubject()}>AddSubject</button>
         </div>
     );
 }
