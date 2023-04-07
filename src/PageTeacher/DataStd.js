@@ -7,7 +7,6 @@ function DataStd(props) {
 
   const [Room, setRoom] = useState(1)
   const [Class, setClass] = useState(1)
-  const tableRef = useRef(null);
 
   const handleInputChangeRoom = (event) => {
     setRoom(parseInt(event.target.value));
@@ -78,9 +77,16 @@ function DataStd(props) {
         <div className="py-8">
           <div>
             <label className="text-2xl font-semibold leading-tight">
-              รายชื่อนักเรียน
+              รายชื่อนักเรียน <br/>
             </label>
-            <input className="bg-slate-400 px-2 w-20 rounded-md" text="Room" type="number" placeholder={Room} value={Room} onChange={handleInputChangeRoom} /> . <input className="bg-slate-400 px-2 w-20 rounded-md" text="Class" type="number" placeholder={Class} value={Class} onChange={handleInputChangeClass} />
+            <label className="text-l font-semibold leading-tight">
+              ชั้นมัธยมศึกษาปีที่ : 
+            </label>
+            <input className="bg-slate-400 px-2 w-20 rounded-md" text="Room" type="number" placeholder={Class} value={Class} onChange={handleInputChangeClass} />
+            <label className="text-l font-semibold leading-tight">
+              ห้อง : 
+            </label>
+            <input className="bg-slate-400 px-2 w-20 rounded-md" text="Class" type="number" placeholder={Room} value={Room} onChange={handleInputChangeRoom} />
           </div>
 
           <div className="py-4 ">
