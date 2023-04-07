@@ -5,6 +5,7 @@ import React from "react";
 import Summarize from './page/Summarize';
 import ElectiveSubject from './page/FreeSubject';
 import GroupSubject from './page/ChumSubject';
+import ResetPassword from './page/ResetPassword';
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useAsyncError } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
@@ -132,6 +133,11 @@ export default function App() {
             page={page} updatePage={updatePage}
             subjects={subjects} updateSubjects={updateSubjects} />} />
           <Route path="/วิชาที่ลงทะเบียนเเล้ว" element={<Summarize
+            user={user} updateUser={updateUser}
+            isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
+            page={page} updatePage={updatePage}
+            subjects={subjects} updateSubjects={updateSubjects} />} />
+            <Route path="/แก้ไขรหัส" element={<ResetPassword
             user={user} updateUser={updateUser}
             isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
             page={page} updatePage={updatePage}
