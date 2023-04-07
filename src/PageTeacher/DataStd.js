@@ -24,11 +24,15 @@ function DataStd(props) {
 
   }
 
-  //Sort ห้องเรียน
-  const filterSTD = dataStdlst.filter(dataStdlst => {
-    return dataStdlst.STD_ROOM === Room && dataStdlst.STD_CLASS === Class;
+  //Sort เลขที่
+  const sortedDataStdlst = dataStdlst.sort((a, b) => a.STD_ORD - b.STD_ORD);
+  console.log(sortedDataStdlst)
 
+  //Sort ห้องเรียน
+  const filterSTD = sortedDataStdlst.filter(dataStdlst => {
+    return dataStdlst.STD_ROOM === Room && dataStdlst.STD_CLASS === Class;
   });
+  
 
   function checkArray(arr) {
     if (arr.length === 0) {
@@ -120,7 +124,6 @@ function DataStd(props) {
                 <tbody >
                   {filterSTD.map((student, index) => (
                     <tr key={index} className="w-max ">
-                      {console.log(student)}
                       <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
                           {student.STD_ORD}
@@ -163,7 +166,6 @@ function DataStd(props) {
                 <button onClick={DownloadPDF} className="bg-green-600 font-semibold text-white px-3 py-1 m-3 rounded-md shadow-md">
                   Export
                 </button>
-
               </div>
             </div>
           </div>
