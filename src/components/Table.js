@@ -17,7 +17,7 @@ function Table(props) {
     }
 
     const toAddSubject = (s) => {
-        props.updatesubjectselect(s); //ไม่เเน่ใจว่าต้องส่ง parameter ไหม
+        props.updatesubjectselect(null);
         props.updateTablePage('Register_subject');
     }
 
@@ -31,7 +31,7 @@ function Table(props) {
       });
 
       const Status = (status) => {
-        if (status === 'true') {
+        if (status === true) {
             return <div className="bg-green-500 px-2 py-1 text-white rounded-lg">Open</div>
         }
         else {

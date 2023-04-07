@@ -1,4 +1,4 @@
-const url = "https://script.google.com/macros/s/AKfycbw51kGEucEigU-FB9bMwZFEFo-1z1M6CTWeQG5SekMDPPBNoEAZojtVOLI9jNR5KcSTyA/exec"
+const url = "https://script.google.com/macros/s/AKfycbzM7N4fk2Ri0G5SGN13Thk8gzGbTcbWutiEK-7pMqTeByDxsp19u9r-NO4oCvUK2Iii6w/exec"
 
 export async function hookUsers() {
     const action = 'getUsers';
@@ -16,7 +16,7 @@ export async function hookSubjects() {
     return result;
 }
 
-export async function addSubjet(data) {
+export async function addSubject(data) {
     // {  this is how parameter should look like
     //     "SUB_TYPE"  :"CHUM",
     //     "SUB_ID"    :"asdasd",
@@ -27,7 +27,7 @@ export async function addSubjet(data) {
     //     "SUB_ADDR"  :123,
     //     "STD"       :[]
     // }
-    const action = 'addSubjects';
+    const action = 'addSubject';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction,
         {

@@ -76,7 +76,8 @@ function Teacher_page(props) {
                     updateusers={props.updateusers}
                     subjectselect={subjectselect}  
                     updateTablePage={updateTablePage} 
-                    TablePage={TablePage} />
+                    TablePage={TablePage} 
+                    subjects={props.subjects}/>
       </div>
     );
   }

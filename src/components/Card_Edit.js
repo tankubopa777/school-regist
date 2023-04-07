@@ -5,7 +5,7 @@ function Card_Edit(props) {
         props.updateTablePage('Register_subject');
     }
     const Status = (status) => {
-        if (status === 'true') {
+        if (status === true) {
             return <div className="bg-green-500 px-2 py-1 text-white rounded-lg">Open</div>
         }
         else {
