@@ -1,6 +1,6 @@
 import Logo from '../assets/pks.png';
+import Profile from '../assets/profile.png';
 import { redirect, useNavigate, useHistory } from 'react-router-dom';
-import "./style.css"
 
 function navToggle() {
   document.getElementById('mobile-nav').classList.toggle('hidden');
@@ -29,11 +29,15 @@ function Navbar_component(props) {
     navigate("/วิชาที่ลงทะเบียนเเล้ว")
   }
 
+  const resetPasswd = () => {
+    navigate("/แก้ไขรหัส")
+  }
+
 
   return (
 
     <nav id="nav">
-      <div className="fixed top-0 left-0 z-50 w-full shadow-2xl">
+      <div className="fixed top-0 left-0 z-50 w-full shadow-2xl text-white">
         <div className="flex justify-between bg-green-600">
 
           <div className="flex">
@@ -69,14 +73,19 @@ function Navbar_component(props) {
 
           <div className="flex flex-col justify-center m-1">
             <div className="hidden tablet:flex flex-row justify-center">
-              <div className="flex flex-col justify-center m-1">
+              <div className="flex flex-row justify-center items-center m-1">
                 <p className="">
                   {props.user.ID} {props.user.FNAME}
                 </p>
+                <div className="relative">
+                  <div className="w-10 relative ml-2 hover:opacity-50 cursor-pointer" onClick={resetPasswd}>
+                    <img src={Profile} className="" />
+                  </div>
+                </div>
               </div>
               <div className="flex flex-col justify-center m-1">
                 <button className="hover:text-white hover:underline" onClick={logout}>
-                  Log out
+                  <p className='text-xs'>ออกจากระบบ</p>
                 </button>
               </div>
             </div>
@@ -121,8 +130,13 @@ function Navbar_component(props) {
                 </a>
               </div>
               <div className="flex flex-row justify-center m-3">
+                <a onClick={resetPasswd} className="hover:text-white hover:font-bold cursor-pointer">
+                  แก้ไขรหัสผ่าน
+                </a>
+              </div>
+              <div className="flex flex-row justify-center m-3">
                 <button onClick={logout} className="hover:text-white hover:font-bold cursor-pointer">
-                  Log out
+                  ออกจากระบบ
                 </button>
               </div>
             </div>
