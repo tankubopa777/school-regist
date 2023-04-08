@@ -1,4 +1,4 @@
-const url = "https://script.google.com/macros/s/AKfycbzM7N4fk2Ri0G5SGN13Thk8gzGbTcbWutiEK-7pMqTeByDxsp19u9r-NO4oCvUK2Iii6w/exec"
+const url = "https://script.google.com/macros/s/AKfycbytb-yX8JgbZFMutvrE-UJuedA81WXN8IVLf626FbVETXLcDm1gax9-T8D4sGDA3fWiyw/exec"
 
 export async function hookUsers() {
     const action = 'getUsers';
@@ -97,6 +97,26 @@ export async function editStdGrade(data) {
     //            ,{"ID":40528,"FNAME":"asd2","LNAME":"ASD2","CLASS":1,"ROOM":3,"GRADE":0}]
     // }
     const action = 'editStdGrade';
+    const urlwithaction = url + '?action=' + action;
+    const res = await fetch(urlwithaction,
+        {
+            method: "POST",
+            mode: 'cors',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'text/plain',
+              }
+        }
+    )
+    return res;
+}
+
+export async function editAvailability(data) {
+    // { this is how parameter should look like
+    //     "cellidx":2,
+    //     "avail": false/true
+    // }
+    const action = 'editAvailability';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction,
         {

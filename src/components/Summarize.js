@@ -17,29 +17,24 @@ export default function ElectiveDetail(props) {
 
     function submit() {
         let datatosub = {};
-        let check = 0;
-
+        console.log(subject)
         if(subject.length !== 0){
-            alert("ลงทะเบียนเรียบร้อย");
+
 
             let datatostd = {"cell_idx":props.user.CELLIDX,"CHUM":props.user.CHUM,"FREE":props.user.FREE}
             addSubIntoSTD(datatostd);
 
             for(let i=0;i<subject.length;i++){
-                check = 0
-
-                for(let j=0;j<subject[i].STD.length;j++)
-                    if(subject[i].STD[j].ID == props.user.ID){
-                        check += 1;
-                    }
-
-                if(check == 0){
-                    datatosub = {"cellidx":subject[i].CELLIDX+2,"std":{"ID":user.ID,"FNAME":user.FNAME,"LNAME":user.LNAME,"CLASS":user.STD_CLASS,"ROOM":user.STD_ROOM,"GRADE":0}}
+                if(subject[i].STD.some((student) => student.ID === props.user.ID)){
+                    continue
+                }
+                else{
+                    datatosub = { "cellidx": subject[i].CELLIDX + 2, "std": { "ID": user.ID, "FNAME": user.FNAME, "LNAME": user.LNAME, "CLASS": user.STD_CLASS, "ROOM": user.STD_ROOM, "GRADE": 0 } }
                     stdJoin(datatosub);
                 }
                 
             }
-
+   
             console.log(subject)
             console.log(user)
             console.log(datatostd)

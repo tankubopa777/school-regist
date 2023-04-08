@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { addSubject } from "../dataFetch";
+import { addSubject , editSubject} from "../dataFetch";
 
 function Register_subject(props) {
     //Register Subject
 
-    let temp_subsel = props.subjectselect
+    const [temp_subsel, setTempSubsel] = useState(props.subjectselect)
     const [formData, setFormData] = useState({
         SUB_NAME: "",
         SUB_ID: "",
@@ -17,7 +17,6 @@ function Register_subject(props) {
         SUB_ADDR: ""
     });
 
-    console.log(props.subjectselect)
     const handlePermChange = (e) => {
         const { value, checked } = e.target;
 
@@ -40,27 +39,57 @@ function Register_subject(props) {
         }
     };
 
-    // const handleCheckboxChange = (event) => {
-    //     const value = parseInt(event.target.value);
-    //     let updatedPerm = [...formData.PERM];
-    //     if (event.target.checked) {
-    //         updatedPerm.push(value);
-    //     } else {
-    //         updatedPerm = updatedPerm.filter((item) => item !== value);
-    //     }
-    //     setFormData({ ...formData, PERM: updatedPerm });
-    // };
+    const onEditHandlePermChange = (e) => {
+        const { value, checked } = e.target;
+
+        if (value === "all") {
+            if (checked) {
+                setTempSubsel({ ...temp_subsel, SUB_PERM: [1, 2, 3, 4, 5, 6] });
+            } else {
+                setTempSubsel({ ...temp_subsel, SUB_PERM: [] });
+            }
+        } else {
+            let newPerm = [...temp_subsel.SUB_PERM];
+
+            if (checked) {
+                newPerm.push(parseInt(value));
+            } else {
+                newPerm = newPerm.filter((p) => p !== parseInt(value));
+            }
+
+            setTempSubsel({ ...temp_subsel, SUB_PERM: newPerm });
+        }
+    };
+
+    function checkIfSubIdExists() {
+        const subIds = Object.values(props.subjects).map(sub => sub.SUB_ID);
+        const filteredSubIds = subIds.filter(subId => subId !== temp_subsel.SUB_ID);
+        return filteredSubIds.includes(temp_subsel.SUB_ID);
+      }
+
+    const editSubjectBtn = (e) => {
+        e.preventDefault();
+        if (temp_subsel.SUB_ID == '' || temp_subsel.SUB_NAME == '' || temp_subsel.SUB_CAP == '' || temp_subsel.SUB_TYPE == '' || temp_subsel.PERM == []) {
+            alert('ไม่สามารถเว้นช่องว่างได้')
+        }
+        else if(checkIfSubIdExists(temp_subsel.SUB_ID)) {
+            alert('มีรหัสวิชานี้ถูกลงทะเบียนไว้แล้ว')
+        }
+        else{
+            editSubject(temp_subsel);
+            alert('แก้ไขเสร็จสิ้น')
+            props.updateTablePage("Edit")
+        }
+        
+    };
 
     const addSubjectBtn = (e) => {
         e.preventDefault();
 
         if (formData.SUB_ID == '' || formData.SUB_NAME == '' || formData.SUB_CAP == '' || formData.SUB_TYPE == '' || formData.PERM == []) {
-
             alert('ไม่สามารถเว้นช่องว่างได้')
-
         }
         else if (formData.SUB_ID in props.subjects) {
-
             alert('รหัสวิชานี้ถูกลงทะเบียนไปแล้ว')
         }
         else {
@@ -78,7 +107,8 @@ function Register_subject(props) {
                 "STD": [],
                 "AVAILABILITY": "true"
             }
-
+            addSubject(data)
+            alert('เพิ่มวิชาเสร็จสิ้น')
             setFormData({
                 SUB_NAME: "",
                 SUB_ID: "",
@@ -91,7 +121,8 @@ function Register_subject(props) {
                 SUB_ADDR: ""
             })
 
-            addSubject(data)
+            
+            props.updateTablePage("Table")
         }
 
 
@@ -325,7 +356,7 @@ function Register_subject(props) {
     
                     <div className="block rounded-lg p-4 bg-neutral-400">
                         <h1 className="text-center font-bold" >
-                            แก้ไขข้อมูลรายวิชา {temp_subsel.SUB_ID} {temp_subsel.SUB_NAME}
+                            แก้ไขข้อมูลรายวิชา {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}
                         </h1>
                     </div>
 
@@ -340,6 +371,9 @@ function Register_subject(props) {
                                     type="text"
                                     id="SUB_ID"
                                     value={temp_subsel.SUB_ID}
+                                    onChange={(e) =>
+                                        setTempSubsel({ ...temp_subsel, SUB_ID: e.target.value })
+                                    }
                                 />
                             </label>
 
@@ -351,6 +385,9 @@ function Register_subject(props) {
                                     type="text"
                                     id="SUB_NAME"
                                     value={temp_subsel.SUB_NAME}
+                                    onChange={(e) =>
+                                        setTempSubsel({ ...temp_subsel, SUB_NAME: e.target.value })
+                                    }
                                 />
                             </label>
 
@@ -362,6 +399,9 @@ function Register_subject(props) {
                                     type="text"
                                     id="SUB_PROF1"
                                     value={temp_subsel.SUB_PROF[0]}
+                                    onChange={(e) =>
+                                        setTempSubsel({ ...temp_subsel, SUB_PROF: [e.target.value, temp_subsel.SUB_PROF[1]] })
+                                    }
                                 />
                             </label>
 
@@ -373,6 +413,9 @@ function Register_subject(props) {
                                     type="text"
                                     id="SUB_PROF2"
                                     value={temp_subsel.SUB_PROF[1]}
+                                    onChange={(e) =>
+                                        setTempSubsel({ ...temp_subsel, SUB_PROF: [temp_subsel.SUB_PROF[0], e.target.value] })
+                                    }
                                 />
                             </label>
 
@@ -384,6 +427,9 @@ function Register_subject(props) {
                                     type="text"
                                     id="SUB_CAP"
                                     value={temp_subsel.SUB_CAP}
+                                    onChange={(e) =>
+                                        setTempSubsel({ ...temp_subsel, SUB_CAP: e.target.value })
+                                    }
                                 />
                             </label>
 
@@ -395,6 +441,9 @@ function Register_subject(props) {
                                     type="text"
                                     id="SUB_ADDR"
                                     value={temp_subsel.SUB_ADDR}
+                                    onChange={(e) =>
+                                        setTempSubsel({ ...temp_subsel, SUB_ADDR: e.target.value })
+                                    }
                                 />
                             </label>
 
@@ -409,6 +458,9 @@ function Register_subject(props) {
                                         id="TYPE"
                                         value="CHUM"
                                         checked={temp_subsel.SUB_TYPE === "CHUM"}
+                                        onChange={(e) =>
+                                            setTempSubsel({ ...temp_subsel, SUB_TYPE: e.target.value })
+                                        }
                                     />
                                 </label>
 
@@ -421,6 +473,9 @@ function Register_subject(props) {
                                         id="TYPE"
                                         value="FREE"
                                         checked={temp_subsel.SUB_TYPE === "FREE"}
+                                        onChange={(e) =>
+                                            setTempSubsel({ ...temp_subsel, SUB_TYPE: e.target.value })
+                                        }
                                     />
                                 </label>
                             </div>
@@ -439,7 +494,7 @@ function Register_subject(props) {
                                     name="1"
                                     value="1"
                                     checked={temp_subsel.SUB_PERM.includes(1)}
-                                    onChange={handlePermChange}
+                                    onChange={onEditHandlePermChange}
                                 />
                                 { }
                             </label>
@@ -451,7 +506,7 @@ function Register_subject(props) {
                                     name="2"
                                     value="2"
                                     checked={temp_subsel.SUB_PERM.includes(2)}
-                                    onChange={handlePermChange}
+                                    onChange={onEditHandlePermChange}
                                 />
                             </label>
 
@@ -462,7 +517,7 @@ function Register_subject(props) {
                                     name="3"
                                     value="3"
                                     checked={temp_subsel.SUB_PERM.includes(3)}
-                                    onChange={handlePermChange}
+                                    onChange={onEditHandlePermChange}
                                 />
                             </label>
 
@@ -473,7 +528,7 @@ function Register_subject(props) {
                                     name="4"
                                     value="4"
                                     checked={temp_subsel.SUB_PERM.includes(4)}
-                                    onChange={handlePermChange}
+                                    onChange={onEditHandlePermChange}
                                 />
                             </label>
                             <label>
@@ -483,7 +538,7 @@ function Register_subject(props) {
                                     name="5"
                                     value="5"
                                     checked={temp_subsel.SUB_PERM.includes(5)}
-                                    onChange={handlePermChange}
+                                    onChange={onEditHandlePermChange}
                                 />
                             </label>
 
@@ -494,13 +549,13 @@ function Register_subject(props) {
                                     name="6"
                                     value="6"
                                     checked={temp_subsel.SUB_PERM.includes(6)}
-                                    onChange={handlePermChange}
+                                    onChange={onEditHandlePermChange}
                                 />
                             </label>
                         </div>
                     </form>
 
-                    <input onClick={addSubjectBtn} className="float-right m-4 h-11 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded " type="submit" value="Submit" />
+                    <input onClick={editSubjectBtn} className="float-right m-4 h-11 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded " type="submit" value="Submit" />
 
                     <button onClick={() => props.updateTablePage("Table")} type="button" className="float-right m-4 bg-neutral-300 rounded-md py-2 px-4 inline-flex items-center justify-center text-white hover:text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <label className="text-lg font-bold pr-1">Exit</label>

@@ -55,6 +55,7 @@ function Teacher_page(props) {
           TablePage={TablePage}/>
 
         <Edit subjectselect={subjectselect} 
+              updatesubjectselect={updatesubjectselect}
               updateTablePage={updateTablePage} 
               TablePage={TablePage} 
               updateStatus={updateStatus}

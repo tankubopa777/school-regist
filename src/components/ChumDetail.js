@@ -16,6 +16,8 @@ export default function ChumSubject(props) {
             alert("คุณได้ลงทะเบียนไปแล้ว");
         } else if (!(user.STD_CLASS == subject.SUB_PERM[0]) || (user.STD_CLASS == subject.SUB_PERM[1]) || (user.STD_CLASS == subject.SUB_PERM[2]) || (user.STD_CLASS == subject.SUB_PERM[3]) || (user.STD_CLASS == subject.SUB_PERM[4]) || (user.STD_CLASS == subject.SUB_PERM[5])) {
             alert("ไม่สามารถลงทะเบียนได้");
+        } else if(!subject.AVAILABILITY){
+                alert("วิชานี้ปิดลงทะเบียน");  
         } else {
             let confirm = prompt("กรุณาใส่รหัสวิชาเพื่อยืนยันการลงทะเบียน").toLowerCase();
             if (confirm == subject.SUB_ID.toLowerCase()) {

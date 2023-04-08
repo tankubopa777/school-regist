@@ -3,6 +3,9 @@ import React, { useState } from "react";
 
 function Table(props) {
     const subjects = Object.values(props.subjects);
+    for(let i=0;i<subjects.length;i++){
+        subjects[i].cell_idx = i+2;
+    }
 
     const [open, setopen] = useState(false);
     const [SubType, setSubType] = useState('CHUM');
@@ -23,14 +26,12 @@ function Table(props) {
 
     const filterTYPE = subjects.filter(subjectlst => { 
         if (subjectlst.SUB_TYPE === SubType) {
-            return subjectlst.SUB_TYPE === SubType;
+            return true;
         }
-        else if (subjectlst.SUB_TYPE === SubType){
-            return subjectlst.SUB_TYPE === SubType;
-        } 
-      });
+        return false;
+    });
 
-      const Status = (status) => {
+    const Status = (status) => {
         if (status === true) {
             return <div className="bg-green-500 px-2 py-1 text-white rounded-lg">Open</div>
         }
