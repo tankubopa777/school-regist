@@ -6,6 +6,7 @@ import Summarize from './page/Summarize';
 import ElectiveSubject from './page/FreeSubject';
 import GroupSubject from './page/ChumSubject';
 import ResetPassword from './page/ResetPassword';
+import PageNotFound from './page/PageNotFound';
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useAsyncError } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
@@ -148,6 +149,8 @@ export default function App() {
             isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
             page={page} updatePage={updatePage}
             subjects={subjects} updateSubjects={updateSubjects} />} />
+          <Route path="*" element={<PageNotFound 
+            page={page} updatePage={updatePage} />} />
         </Routes>
       </Router>
     </ErrorBoundary>
