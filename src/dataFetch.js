@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 const url = "https://script.google.com/macros/s/AKfycbytb-yX8JgbZFMutvrE-UJuedA81WXN8IVLf626FbVETXLcDm1gax9-T8D4sGDA3fWiyw/exec"
 export async function editAvailability(data) {
     // { this is how parameter should look like
@@ -13,7 +14,7 @@ export async function editAvailability(data) {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'text/plain',
-              }
+            }
         }
     )
     return res;
@@ -55,7 +56,7 @@ export async function addSubjet(data) {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'text/plain',
-              }
+            }
         }
     )
     return res;
@@ -82,7 +83,7 @@ export async function editSubject(data) {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'text/plain',
-              }
+            }
         }
     )
     return res;
@@ -103,7 +104,7 @@ export async function editPassword(data) {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'text/plain',
-              }
+            }
         }
     )
     return res;
@@ -124,7 +125,7 @@ export async function editStdGrade(data) {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'text/plain',
-              }
+            }
         }
     )
     return res;
@@ -144,7 +145,7 @@ export async function stdJoin(data) {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'text/plain',
-              }
+            }
         }
     )
     return res;
@@ -203,7 +204,7 @@ export async function addSubIntoSTD(data) {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'text/plain',
-              }
+            }
         }
     )
     return res;
@@ -243,13 +244,32 @@ export async function fetchUsers() {
     return response;
 }
 
+// export function checkLogin(username, passw) {
+//     return callUser().then((response) => {
+//         if (!(username in response) || response[username].PASSW != passw) {
+//             return false;
+//         } else {
+//             return [true, response[username]];
+//         }
+//     });
+// }
+
 export function checkLogin(username, passw) {
-    return callUser().then((response) => {
-        if (!(username in response) || response[username].PASSW != passw) {
-            return false;
-        } else {
-            return [true, response[username]];
-        }
+    return new Promise((resolve, reject) => {
+        callUser().then((response) => {
+            bcrypt.compare(passw, response[username].PASSW, function (err, result) {
+                if (result) {
+                    resolve([true, response[username]]);
+                } else {
+                    if (!(username in response) || response[username].PASSW != passw) {
+                        resolve(false);
+                    } else {
+                        resolve([true, response[username]]);
+                    }
+                }
+            });
+        }).catch((err) => {
+            reject(err);
+        });
     });
 }
-
