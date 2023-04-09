@@ -56,13 +56,13 @@ export const Login_page = (props) => {
     return (
       <div>
         {/* Under Tabblet Login Page */}
-        <div className="fixed flex tablet:hidden justify-center top-0 left-0 z-50 w-full h-10 shadow-2xl bg-green-600">
+        <div className="fixed flex tablet:hidden justify-center top-0 left-0 z-50 w-full h-10 shadow-2xl bg-green-600 ">
           <div className="relative flex flex-col top-20">
             <div className="">
             <img className="w-64" src={Logo} />
               <p className="text-center font-bold text-xl">Welcome <br /> Petpittayakom School</p>
             </div>
-            <div className="flex">
+            <div className="flex m-auto">
               <form className='login'>
   
                 <div className="m-3">
@@ -92,7 +92,7 @@ export const Login_page = (props) => {
         {/* Over Tablet size Login Page */}
         <div className="hidden tablet:block">
           <div className="absolute flex flex-row-reverse justify-between w-[700px] h-[400px] border-solid bg-gray-300 border-l-gray-300 rounded-[50px] shadow-2xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
-            <div className="relative top-28 right-20">
+            <div className="relative top-28 right-28">
               <form className='login'>
                 <p className="flex flex-row justify-center text-2xl font-bold">Login</p>
                 <div className="m-3">

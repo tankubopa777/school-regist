@@ -39,6 +39,7 @@ function Table(props) {
             return <div className="bg-red-500 px-2 py-1 text-white rounded-lg">Close</div>
         }
     }
+    console.log(filterTYPE);
 
     
     return (
@@ -162,7 +163,7 @@ function Table(props) {
                     </div>
                 </div>
             </div>
-            <button className="bg-green-600 text-center text-white" onClick={() => toAddSubject()}>AddSubject</button>
+            <button className="bg-green-600 text-center text-white px-2 py-1 rounded-lg float-right" onClick={() => toAddSubject()}>AddSubject</button>
         </div>
     );
 }

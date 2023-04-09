@@ -5,6 +5,7 @@ import NavbarAJ from "../components/NavbarAJ";
 import { editStdGrade } from "../dataFetch";
 import { useEffect } from "react";
 
+
 function Edit(props) {
 
   function onSubmitGrade() {
@@ -41,6 +42,7 @@ function Edit(props) {
         <button onClick={onSubmitGrade} className="bg-green-600 rounded-md px-2 py-1 mx-5 my-3 text-slate-50 hover:bg-lime-700 ">
           Submit
         </button>
+
       </div>
     </div>
   );

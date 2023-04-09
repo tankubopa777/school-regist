@@ -13,6 +13,7 @@ function TableStd(props) {
         }
       }, [editingRow]);
 
+
     function handleClickRow(index) {
       setEditingRow(index);
     }
@@ -25,7 +26,6 @@ function TableStd(props) {
         );
       }
       
-
     function handleInputBlur() {
       setEditingRow(null);
     }
@@ -36,6 +36,7 @@ function TableStd(props) {
         }
 
     }
+
 
     return (
 
@@ -117,6 +118,7 @@ function TableStd(props) {
                                                         onKeyDown={(event) => handleKeyDown(event, index)}
                                                         autoComplete="off"
                                                     />
+
                                                 ) : (
                                                     <label
                                                         className="text-gray-900 whitespace-no-wrap px-6 py-2 hover:bg-neutral-300 cursor-pointer"
