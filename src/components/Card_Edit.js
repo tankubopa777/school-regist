@@ -4,7 +4,6 @@ import { useState } from "react";
 function Card_Edit(props) {
     const selected = Object.values(props.subjectselect);
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-    const [buttonOnLoad, setButtonOnLoad] = useState("cursor-pointer")
 
     function handleClick() { 
         props.updateTablePage('Register_subject');
@@ -12,10 +11,8 @@ function Card_Edit(props) {
     
     function editAvailabilityC() {
         setIsButtonDisabled(true);
-        setButtonOnLoad("cursor-default");
         setTimeout(() => {
             setIsButtonDisabled(false);
-            setButtonOnLoad("cursor-pointer");
         }, 5000);
 
         editAvailability({cellidx:props.subjectselect.cell_idx,avail:!props.subjectselect.AVAILABILITY});
@@ -23,13 +20,13 @@ function Card_Edit(props) {
 
     const Status = (status) => {
         if(isButtonDisabled === true){
-            return <div className="bg-gray-600 px-2 py-1 text-white rounded-lg ${buttonOnLoad}">Loading...</div>
+            return <div className="bg-gray-600 px-2 py-1 text-white rounded-lg cursor-progress">Loading...</div>
         }
         else if (status === true) {
-            return <div className="bg-green-500 px-2 py-1 text-white rounded-lg hover:bg-green-700 ${buttonOnLoad}">Open</div>
+            return <div className="bg-green-500 px-2 py-1 text-white rounded-lg hover:bg-green-700 cursor-pointer">Open</div>
         }
         else {
-            return <div className="bg-red-500 px-2 py-1 text-white rounded-lg hover:bg-red-700 ${buttonOnLoad}">Close</div>
+            return <div className="bg-red-500 px-2 py-1 text-white rounded-lg hover:bg-red-700 cursor-pointer">Close</div>
         }
     }
 
