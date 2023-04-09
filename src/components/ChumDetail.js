@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { redirect, useNavigate, useHistory } from 'react-router-dom';
 
-export default function ChumSubject(props) {
+export default function ChumDetail(props) {
     const [show, setShow] = useState(false);
     const navigate = useNavigate();
     const subject = Object.values(props)[0];
@@ -39,7 +39,7 @@ export default function ChumSubject(props) {
             <table className="w-full">
                 <tbody>
                     <tr className="flex justify-evenly rounded-lg bg-white shadow-lg border-2 m-2 p-2">
-                        <td className="w-4/12 text-[0.7rem] p-0 mobile:text-xs font-bold break-all tablet:p-2 flex flex-col justify-center">{subject.SUB_ID}</td>
+                        <td className="w-2/12 text-[0.7rem] p-0 mobile:text-xs font-bold break-all tablet:p-2 flex flex-col justify-center">{subject.SUB_ID}</td>
                         <td className="w-1/3 text-[0.5rem] p-0 mobile:text-xs mobile:p-2 break-all flex flex-col justify-center">{subject.SUB_NAME}</td>
                         <td className="w-2/12 text-[0.5rem] p-0 mobile:text-xs mobile:p-2 break-all flex flex-col justify-center">{subject.STD.length}/{subject.SUB_CAP}</td>
                         <td><button className="text-[0.5rem] p-0 mobile:text-xs mobile:p-2 font-bold hover:text-green-700 flex flex-col justify-center" onClick={() => setShow(!show)}>เพิ่มเติม</button></td>

@@ -30,7 +30,6 @@ export const Login_page = (props) => {
     let alt = e.target.form.alert;
 
     const success = await checkLogin(username, passw);
-    console.log(success)
 
     if (success[0]) {
       props.updateIsLoggedIn(true);

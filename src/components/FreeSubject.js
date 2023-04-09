@@ -1,7 +1,7 @@
 import React from "react";
 import FreeDetail from "./FreeDetail";
 
-export default function ElectiveDetail(props) {
+export default function FreeSubject(props) {
     const subjects = Object.values(props.subjects);
 
     let freeSubject = [];

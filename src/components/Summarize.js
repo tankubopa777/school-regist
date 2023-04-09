@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import SummarizeDetail from "./SummarizeDetail";
 import {addSubIntoSTD,stdJoin} from "../dataFetch"
 
-export default function ElectiveDetail(props) {
+export default function Summarize(props) {
     const user = Object.values(props)[0];
     let subject = [];
     const [submitState,setSubmitState] = useState("enable")

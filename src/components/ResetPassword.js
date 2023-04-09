@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-export default function Block_DetailStd(props) {
+export default function ResetPassword(props) {
 
     const changePassword = async (e) => {
         e.preventDefault();

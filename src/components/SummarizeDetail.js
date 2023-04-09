@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function ChumSubject(props) {
+export default function SummarizeDetail(props) {
     const [show, setShow] = useState(false);
     const subject = Object.values(props)[0];
     

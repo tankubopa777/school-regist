@@ -1,7 +1,7 @@
 import React from "react";
 import ChumDetail from "./ChumDetail";
 
-export default function ElectiveDetail(props) {
+export default function ChumSubject(props) {
     const subjects = Object.values(props.subjects);
 
     let chumSubject = [];

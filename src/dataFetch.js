@@ -134,26 +134,6 @@ export async function editStdGrade(data) {
     return res;
 }
 
-export async function editAvailability(data) {
-    // { this is how parameter should look like
-    //     "cellidx":2,
-    //     "avail": false/true
-    // }
-    const action = 'editAvailability';
-    const urlwithaction = url + '?action=' + action;
-    const res = await fetch(urlwithaction,
-        {
-            method: "POST",
-            mode: 'cors',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'text/plain',
-              }
-        }
-    )
-    return res;
-}
-
 export async function stdJoin(data) {
     // { this is how parameter should look like
     //     "cellidx": 2,
@@ -284,7 +264,7 @@ export function checkLogin(username, passw) {
                 if (result) {
                     resolve([true, response[username]]);
                 } else {
-                    if (!(username in response) || response[username].PASSW != passw) {
+                    if (!(username in response) || response[username].PASSW != passw || passw.length >= 60) {
                         resolve(false);
                     } else {
                         resolve([true, response[username]]);
