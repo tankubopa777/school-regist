@@ -5,9 +5,8 @@ import {addSubIntoSTD,stdJoin} from "../dataFetch"
 
 export default function ElectiveDetail(props) {
     const user = Object.values(props)[0];
-    const [cache,setCache] = useState([])
-    
     let subject = [];
+    const [submitState,setSubmitState] = useState("enable")
 
     if (user.FREE[0] !== undefined) {
         subject.push(user.FREE[0]);
@@ -17,31 +16,23 @@ export default function ElectiveDetail(props) {
     }
 
     function submit() {
-        let datatosub = {};
-        console.log(subject)
-        if(subject.length !== 0){
+        let datatosub1 = {};
+        let datatosub2 = {};
 
-
-            let datatostd = {"cell_idx":props.user.CELLIDX,"CHUM":props.user.CHUM,"FREE":props.user.FREE}
-            addSubIntoSTD(datatostd);
-
-            for(let i=0;i<subject.length;i++){
-                if(cache.includes(subject[i])){
-                    continue
-                }
-                else{
-                    datatosub = { "cellidx": subject[i].CELLIDX + 2, "std": { "ID": user.ID, "FNAME": user.FNAME, "LNAME": user.LNAME, "CLASS": user.STD_CLASS, "ROOM": user.STD_ROOM, "GRADE": 0 } }
-                    stdJoin(datatosub);
-                    setCache([...cache,subject[i]])
-                    console.log(cache)
-                }
-                
-
-            }
-        } else {
-            alert("กรุณาเลือกวิชา");
-            console.log("No subject");
+        let datatostd = { "cell_idx": props.user.CELLIDX, "CHUM": props.user.CHUM, "FREE": props.user.FREE }
+        addSubIntoSTD(datatostd);
+        if(user.FREE[0] !== undefined && user.FREEREG == 0){
+            datatosub1 = { "cellidx": user.FREE[0].CELLIDX + 2, "std": { "ID": user.ID, "FNAME": user.FNAME, "LNAME": user.LNAME, "CLASS": user.STD_CLASS, "ROOM": user.STD_ROOM, "GRADE": 0 } }
+            stdJoin(datatosub1);
+            props.updateUser({...user,FREEREG: 1})
         }
+        if (user.CHUM[0] !== undefined && user.CHUMREG == 0){
+            datatosub2 = { "cellidx": user.CHUM[0].CELLIDX + 2, "std": { "ID": user.ID, "FNAME": user.FNAME, "LNAME": user.LNAME, "CLASS": user.STD_CLASS, "ROOM": user.STD_ROOM, "GRADE": 0 } }
+            stdJoin(datatosub2);
+            props.updateUser({...user,CHUMREG: 1})
+        }
+        alert("ลงทะเบียนสำเร็จ")
+
     }
 
     return (

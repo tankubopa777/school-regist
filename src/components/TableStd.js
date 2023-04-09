@@ -115,7 +115,7 @@ function TableStd(props) {
                                                         onBlur={handleInputBlur}
                                                         autoFocus
                                                         onKeyDown={(event) => handleKeyDown(event, index)}
-                                                        autocomplete="off"
+                                                        autoComplete="off"
                                                     />
                                                 ) : (
                                                     <label

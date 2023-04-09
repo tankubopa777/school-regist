@@ -23,7 +23,8 @@ export default function ChumSubject(props) {
             if (confirm == subject.SUB_ID.toLowerCase()) {
                 props.updateUser({
                     ...user,
-                    CHUM: [subject]
+                    CHUM: [subject],
+                    CHUMREG: 0
                 })
                 alert("ลงทะเบียนสำเร็จ")
                 navigate('/วิชาที่ลงทะเบียนเเล้ว');

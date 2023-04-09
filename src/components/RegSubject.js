@@ -557,7 +557,7 @@ function Register_subject(props) {
 
                     <input onClick={editSubjectBtn} className="float-right m-4 h-11 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded " type="submit" value="Submit" />
 
-                    <button onClick={() => props.updateTablePage("Table")} type="button" className="float-right m-4 bg-neutral-300 rounded-md py-2 px-4 inline-flex items-center justify-center text-white hover:text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <button onClick={() => props.updateTablePage("Edit")} type="button" className="float-right m-4 bg-neutral-300 rounded-md py-2 px-4 inline-flex items-center justify-center text-white hover:text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                         <label className="text-lg font-bold pr-1">Exit</label>
                         <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />

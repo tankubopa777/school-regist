@@ -3,6 +3,7 @@ import TableStd from "../components/TableStd";
 import Card_Edit from "../components/Card_Edit";
 import NavbarAJ from "../components/NavbarAJ";
 import { editStdGrade } from "../dataFetch";
+import { useEffect } from "react";
 
 function Edit(props) {
 
@@ -10,6 +11,15 @@ function Edit(props) {
     editStdGrade({"cellidx":props.subjectselect.cell_idx,"std":props.subjectselect.STD})
     alert("แก้ไขเกรดนักเรียนเสร็จสิ้น")
   }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      props.updatesubjectselect({... props.subjects[props.subjectselect.SUB_ID],cell_idx:props.subjectselect.cell_idx});
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, [props.subjectselect]);
+
 
   return (
     <div>

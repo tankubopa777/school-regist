@@ -23,7 +23,8 @@ export default function FreeSubject(props) {
                 if (confirm.toLowerCase() == (subject.SUB_ID).toLowerCase()) {
                     props.updateUser({
                         ...user,
-                        FREE: [subject]
+                        FREE: [subject],
+                        FREEREG: 0
                     })
                     alert("ลงทะเบียนสำเร็จ")
                     navigate('/วิชาที่ลงทะเบียนเเล้ว');
