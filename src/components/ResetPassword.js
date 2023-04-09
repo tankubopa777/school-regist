@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 export default function Block_DetailStd(props) {
 
     const changePassword = async (e) => {
@@ -11,18 +12,34 @@ export default function Block_DetailStd(props) {
             console.log("empty")
             alert("กรุณากรอกข้อมูลให้ครบ")
         } else {
-            if (currentPassword === password) {
-                if (newPassword === confirmPassword) {
-                    console.log("password match")
-                    alert("เปลี่ยนรหัสผ่านสำเร็จ")
+            bcrypt.compare(currentPassword, password, function (err, result) {
+                if (result) {
+                    if (newPassword === confirmPassword) {
+                        console.log("success")
+                        newPassword = bcrypt.hashSync(newPassword, 10);
+                        console.log(newPassword)
+                        alert("เปลี่ยนรหัสผ่านสำเร็จ")
+                    } else {
+                        console.log("not match")
+                        alert("รหัสผ่านใหม่ไม่ตรงกัน")
+                    }
                 } else {
-                    console.log("password not match")
-                    alert("รหัสผ่านไม่ตรงกัน")
+                    if (currentPassword === password) {
+                        if (newPassword === confirmPassword) {
+                            console.log("password match")
+                            newPassword = bcrypt.hashSync(newPassword, 10);
+                            console.log(newPassword)
+                            alert("เปลี่ยนรหัสผ่านสำเร็จ")
+                        } else {
+                            console.log("password not match")
+                            alert("รหัสผ่านไม่ตรงกัน")
+                        }
+                    } else {
+                        console.log("current password not match")
+                        alert("รหัสผ่านปัจจุบันไม่ถูกต้อง")
+                    }
                 }
-            } else {
-                console.log("current password not match")
-                alert("รหัสผ่านปัจจุบันไม่ถูกต้อง")
-            }
+            });
         }
     }
 
