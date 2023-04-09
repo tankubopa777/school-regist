@@ -3,6 +3,9 @@ import React, { useState } from "react";
 
 function Table(props) {
     const subjects = Object.values(props.subjects);
+    for(let i=0;i<subjects.length;i++){
+        subjects[i].cell_idx = i+2;
+    }
 
     const [open, setopen] = useState(false);
     const [SubType, setSubType] = useState('CHUM');
@@ -17,22 +20,18 @@ function Table(props) {
     }
 
     const toAddSubject = (s) => {
-        props.updatesubjectselect(s); //ไม่เเน่ใจว่าต้องส่ง parameter ไหม
+        props.updatesubjectselect(null);
         props.updateTablePage('Register_subject');
     }
 
     const filterTYPE = subjects.filter(subjectlst => { 
         if (subjectlst.SUB_TYPE === SubType) {
-            return subjectlst.SUB_TYPE === SubType;
+            return true;
         }
-        else if (subjectlst.SUB_TYPE === SubType){
-            return subjectlst.SUB_TYPE === SubType;
-        } 
-        // add a default return statement
         return false;
-      });
+    });
 
-      const Status = (status) => {
+    const Status = (status) => {
         if (status === true) {
             return <div className="bg-green-500 px-2 py-1 text-white rounded-lg">Open</div>
         }
@@ -115,14 +114,14 @@ function Table(props) {
 
                             <tbody >
                                 {filterTYPE.map((subjectsType, index) => (
-                                    <tr key={index} className="w-max ">
+                                    <tr key={index} className="bg-red w-max cursor-pointer" onClick={() => handleClick(subjectsType)}>
                                         <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {Status(subjectsType.AVAILABILITY)}
                                             </p>
                                         </td>
 
-                                        <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
+                                        <td className=" p-4 w-1/6 border-b border-gray-200 text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {subjectsType.SUB_ID}
                                             </p>
@@ -142,7 +141,7 @@ function Table(props) {
 
                                         <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                {subjectsType.SUB_PROF[0]} , {subjectsType.SUB_PROF[1]}
+                                                {subjectsType.SUB_PROF[0]}  {subjectsType.SUB_PROF[1]}
                                             </p>
                                         </td>
 

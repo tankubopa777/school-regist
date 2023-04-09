@@ -1,12 +1,12 @@
 import { func } from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 import SummarizeDetail from "./SummarizeDetail";
 import {addSubIntoSTD,stdJoin} from "../dataFetch"
 
 export default function ElectiveDetail(props) {
     const user = Object.values(props)[0];
-    
     let subject = [];
+    const [submitState,setSubmitState] = useState("enable")
 
     if (user.FREE[0] !== undefined) {
         subject.push(user.FREE[0]);
@@ -16,40 +16,23 @@ export default function ElectiveDetail(props) {
     }
 
     function submit() {
-        let datatosub = {};
-        let check = 0;
+        let datatosub1 = {};
+        let datatosub2 = {};
 
-        if(subject.length !== 0){
-            alert("ลงทะเบียนเรียบร้อย");
-
-            let datatostd = {"cell_idx":props.user.CELLIDX,"CHUM":props.user.CHUM,"FREE":props.user.FREE}
-            addSubIntoSTD(datatostd);
-
-            for(let i=0;i<subject.length;i++){
-                check = 0
-
-                for(let j=0;j<subject[i].STD.length;j++)
-                    if(subject[i].STD[j].ID == props.user.ID){
-                        check += 1;
-                    }
-
-                if(check == 0){
-                    datatosub = {"cellidx":subject[i].CELLIDX+2,"std":{"ID":user.ID,"FNAME":user.FNAME,"LNAME":user.LNAME,"CLASS":user.STD_CLASS,"ROOM":user.STD_ROOM,"GRADE":0}}
-                    stdJoin(datatosub);
-                }
-                
-            }
-
-            console.log(subject)
-            console.log(user)
-            console.log(datatostd)
-            console.log(datatosub)
-            console.log("Success");
-
-        } else {
-            alert("กรุณาเลือกวิชา");
-            console.log("No subject");
+        let datatostd = { "cell_idx": props.user.CELLIDX, "CHUM": props.user.CHUM, "FREE": props.user.FREE }
+        addSubIntoSTD(datatostd);
+        if(user.FREE[0] !== undefined && user.FREEREG == 0){
+            datatosub1 = { "cellidx": user.FREE[0].CELLIDX + 2, "std": { "ID": user.ID, "FNAME": user.FNAME, "LNAME": user.LNAME, "CLASS": user.STD_CLASS, "ROOM": user.STD_ROOM, "GRADE": 0 } }
+            stdJoin(datatosub1);
+            props.updateUser({...user,FREEREG: 1})
         }
+        if (user.CHUM[0] !== undefined && user.CHUMREG == 0){
+            datatosub2 = { "cellidx": user.CHUM[0].CELLIDX + 2, "std": { "ID": user.ID, "FNAME": user.FNAME, "LNAME": user.LNAME, "CLASS": user.STD_CLASS, "ROOM": user.STD_ROOM, "GRADE": 0 } }
+            stdJoin(datatosub2);
+            props.updateUser({...user,CHUMREG: 1})
+        }
+        alert("ลงทะเบียนสำเร็จ")
+
     }
 
     return (

@@ -83,10 +83,10 @@ export default function App() {
           console.log(error);
         });
 
-    }, 5000);
+    }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [subjects,users]); // to realtime reload component when state change
 
   const updateIsLoggedIn = (newValue) => {
     setIsLoggedIn(newValue);

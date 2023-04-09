@@ -1,4 +1,6 @@
+
 import bcrypt from 'bcryptjs';
+
 const url = "https://script.google.com/macros/s/AKfycbytb-yX8JgbZFMutvrE-UJuedA81WXN8IVLf626FbVETXLcDm1gax9-T8D4sGDA3fWiyw/exec"
 export async function editAvailability(data) {
     // { this is how parameter should look like
@@ -20,6 +22,7 @@ export async function editAvailability(data) {
     return res;
 }
 
+
 export async function hookUsers() {
     const action = 'getUsers';
     const urlwithaction = url + '?action=' + action;
@@ -36,7 +39,7 @@ export async function hookSubjects() {
     return result;
 }
 
-export async function addSubjet(data) {
+export async function addSubject(data) {
     // {  this is how parameter should look like
     //     "SUB_TYPE"  :"CHUM",
     //     "SUB_ID"    :"asdasd",
@@ -47,7 +50,7 @@ export async function addSubjet(data) {
     //     "SUB_ADDR"  :123,
     //     "STD"       :[]
     // }
-    const action = 'addSubjects';
+    const action = 'addSubject';
     const urlwithaction = url + '?action=' + action;
     const res = await fetch(urlwithaction,
         {
@@ -126,6 +129,26 @@ export async function editStdGrade(data) {
             headers: {
                 'Content-Type': 'text/plain',
             }
+        }
+    )
+    return res;
+}
+
+export async function editAvailability(data) {
+    // { this is how parameter should look like
+    //     "cellidx":2,
+    //     "avail": false/true
+    // }
+    const action = 'editAvailability';
+    const urlwithaction = url + '?action=' + action;
+    const res = await fetch(urlwithaction,
+        {
+            method: "POST",
+            mode: 'cors',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'text/plain',
+              }
         }
     )
     return res;

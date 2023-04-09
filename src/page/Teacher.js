@@ -55,7 +55,9 @@ function Teacher_page(props) {
           TablePage={TablePage}/>
 
         <Edit subjectselect={subjectselect} 
+              updatesubjectselect={updatesubjectselect}
               updateTablePage={updateTablePage} 
+              subjects={props.subjects}
               TablePage={TablePage} 
               updateStatus={updateStatus}
               Status={Status}
@@ -76,7 +78,8 @@ function Teacher_page(props) {
                     updateusers={props.updateusers}
                     subjectselect={subjectselect}  
                     updateTablePage={updateTablePage} 
-                    TablePage={TablePage} />
+                    TablePage={TablePage} 
+                    subjects={props.subjects}/>
       </div>
     );
   }
