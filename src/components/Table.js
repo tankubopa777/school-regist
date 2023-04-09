@@ -113,14 +113,14 @@ function Table(props) {
 
                             <tbody >
                                 {filterTYPE.map((subjectsType, index) => (
-                                    <tr key={index} className="w-max ">
+                                    <tr key={index} className="bg-red w-max cursor-pointer" onClick={() => handleClick(subjectsType)}>
                                         <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {Status(subjectsType.AVAILABILITY)}
                                             </p>
                                         </td>
 
-                                        <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
+                                        <td className=" p-4 w-1/6 border-b border-gray-200 text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {subjectsType.SUB_ID}
                                             </p>
@@ -140,7 +140,7 @@ function Table(props) {
 
                                         <td className=" w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                {subjectsType.SUB_PROF[0]} , {subjectsType.SUB_PROF[1]}
+                                                {subjectsType.SUB_PROF[0]}  {subjectsType.SUB_PROF[1]}
                                             </p>
                                         </td>
 

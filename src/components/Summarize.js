@@ -1,10 +1,11 @@
 import { func } from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 import SummarizeDetail from "./SummarizeDetail";
 import {addSubIntoSTD,stdJoin} from "../dataFetch"
 
 export default function ElectiveDetail(props) {
     const user = Object.values(props)[0];
+    const [cache,setCache] = useState([])
     
     let subject = [];
 
@@ -25,22 +26,18 @@ export default function ElectiveDetail(props) {
             addSubIntoSTD(datatostd);
 
             for(let i=0;i<subject.length;i++){
-                if(subject[i].STD.some((student) => student.ID === props.user.ID)){
+                if(cache.includes(subject[i])){
                     continue
                 }
                 else{
                     datatosub = { "cellidx": subject[i].CELLIDX + 2, "std": { "ID": user.ID, "FNAME": user.FNAME, "LNAME": user.LNAME, "CLASS": user.STD_CLASS, "ROOM": user.STD_ROOM, "GRADE": 0 } }
                     stdJoin(datatosub);
+                    setCache([...cache,subject[i]])
+                    console.log(cache)
                 }
                 
-            }
-   
-            console.log(subject)
-            console.log(user)
-            console.log(datatostd)
-            console.log(datatosub)
-            console.log("Success");
 
+            }
         } else {
             alert("กรุณาเลือกวิชา");
             console.log("No subject");
