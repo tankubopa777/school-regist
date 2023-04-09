@@ -2,12 +2,24 @@ import { redirect, useNavigate, useHistory } from 'react-router-dom';
 import { checkLogin , fetchSubjects} from '../dataFetch.js'
 import Logo from '../assets/pks.png';
 import Loading from "../components/loading.js";
-import { useState, useEffect } from 'react'
+import { useState, useEffect ,useRef  } from 'react'
 
 export const Login_page = (props) => {
   
   const navigate = useNavigate();
   const [altState,setAltState] = useState("hidden")
+  const usernameRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      if (event.target === usernameRef.current) {
+        passwordRef.current.focus();
+      } else if (event.target === passwordRef.current) {
+        Login()
+      }
+    }
+  }
 
   const Login = async (e) => {
     e.preventDefault();
@@ -84,11 +96,11 @@ export const Login_page = (props) => {
               <form className='login'>
                 <p className="flex flex-row justify-center text-2xl font-bold">Login</p>
                 <div className="m-3">
-                  <input type="text" className="form-control bg-slate-200 rounded-md w-max p-2" placeholder="Student ID" id='username' required />
+                  <input type="text" className="form-control bg-slate-200 rounded-md w-max p-2" placeholder="Student ID" id='username' ref={usernameRef} onKeyPress={handleKeyPress} required />
                 </div>
   
                 <div className="m-3">
-                  <input type="password" className="form-control bg-slate-200 rounded-md w-max p-2" placeholder="password" id='password' required />
+                  <input type="password" className="form-control bg-slate-200 rounded-md w-max p-2" placeholder="password" id='password' ref={passwordRef} onKeyPress={handleKeyPress} required />
                 </div>
   
                 <div className="m-3">
