@@ -23,7 +23,7 @@ export default function PageNotFound(props) {
                         </h2>
                         <p className="text-2xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
                         <p className="mt-4 mb-8 text-gray-200">ขออภัยไม่พบหน้าที่คุณต้องการ</p>
-                        <button onClick={home} className="px-8 py-3 font-semibold rounded bg-white hover:bg-green-400 text-black hover:text-white">Back to homepage</button>
+                        <button onClick={home} className="px-8 py-3 font-semibold rounded bg-white hover:bg-green-400 text-black hover:text-white">Back to Login</button>
                     </div>
                 </div>
             </section>
