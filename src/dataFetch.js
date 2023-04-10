@@ -299,7 +299,6 @@ export async function fetchUsers() {
 
 
 export async function checkLogin(username, passw, response) {
-    console.log(username,passw,response)
     try {
       const result = await new Promise((resolve, reject) => {
         bcrypt.compare(passw, response[username].PASSW, function (err, result) {
@@ -322,6 +321,5 @@ export async function checkLogin(username, passw, response) {
       }
     } catch (err) {
         console.error(err);
-        return "er";
     }
   }
