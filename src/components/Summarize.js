@@ -38,9 +38,8 @@ export default function Summarize(props) {
     return (
         <div>
          {subject.map((subject, index) => (
-          <div>
+          <div key={index}>
           <SummarizeDetail
-            key={index}
             item={subject}
             user={props.user}
             updateUser={props.updateUser}

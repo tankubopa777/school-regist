@@ -7,7 +7,7 @@ export default function FreeSubject(props) {
     let freeSubject = [];
 
     for (let i = 0; i < subjects.length; i++) {
-        if (subjects[i].SUB_TYPE === "FREE") {
+        if (subjects[i].SUB_TYPE === "FREE" && subjects[i].AVAILABILITY) {
           subjects[i]["CELLIDX"] = subjects.indexOf(subjects[i])
           freeSubject.push(subjects[i]);
         }
@@ -16,16 +16,13 @@ export default function FreeSubject(props) {
   return (
     <div>
       {freeSubject.map((subject, index) => (
-        <div>
-          <FreeDetail
-            key={index}
-            item={subject}
-            user={props.user}
-            updateUser={props.updateUser}
-          />
-        </div>
-      ))
-      }
+        <FreeDetail
+          key={index}
+          item={subject}
+          user={props.user}
+          updateUser={props.updateUser}
+        />
+      ))}
     </div>
   )
 }

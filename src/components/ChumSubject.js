@@ -7,7 +7,7 @@ export default function ChumSubject(props) {
     let chumSubject = [];
 
     for (let i = 0; i < subjects.length; i++) {
-        if (subjects[i].SUB_TYPE === "CHUM") {
+        if (subjects[i].SUB_TYPE === "CHUM" && subjects[i].AVAILABILITY) {
           subjects[i]["CELLIDX"] = subjects.indexOf(subjects[i])
           chumSubject.push(subjects[i]);
         }
@@ -16,14 +16,12 @@ export default function ChumSubject(props) {
     return (
         <div>
          {chumSubject.map((subject, index) => (
-          <div>
           <ChumDetail
             key={index}
             item={subject}
             user={props.user}
             updateUser={props.updateUser}
           />
-          </div>
           ))}
         </div>
       )
