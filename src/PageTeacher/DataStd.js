@@ -51,9 +51,9 @@ function DataStd(props) {
   const uniqueValues = [...new Set(arr.map(item => item.STD_ROOM))]; // EP , 1 , 2 , 3 , 4 , 5 , 6 .........
   console.log(uniqueValues)
 
-  const filterClassRoomDropDown = arr.filter(dataStdlst => {
-    return dataStdlst.STD_ROOM === Room && dataStdlst.STD_CLASS === Class;
-  });
+  // const filterClassRoomDropDown = arr.filter(dataStdlst => {
+  //   return dataStdlst.STD_ROOM === Room && dataStdlst.STD_CLASS === Class;
+  // });
 
   
   function checkArray(arr) {
