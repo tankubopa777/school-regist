@@ -5,6 +5,7 @@ import RegSubject from "../components/RegSubject";
 import { useState, useEffect } from 'react'
 import Edit from "../PageTeacher/Edit";
 import DataStd from "../PageTeacher/DataStd";
+import Home_page from "./ResetPassword";
 
 // List ที่ต้องทำ
 // ทำปุ่มเพิ่มวิชา <Table />
@@ -98,6 +99,24 @@ function Teacher_page(props) {
                  subjectselect={subjectselect}  
                  updateTablePage={updateTablePage} 
                  TablePage={TablePage} />
+      </div>
+    );
+  }
+  else if (TablePage === 'ResetPassword') {
+    return (
+      <div>
+        <NavbarAJ
+          user={props.user} updateUser={props.updateUser}
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} 
+          updateTablePage={updateTablePage} 
+          TablePage={TablePage}/>
+
+        <Home_page users={props.users}
+                    updateusers={props.updateusers}
+                    subjectselect={subjectselect}  
+                    updateTablePage={updateTablePage} 
+                    TablePage={TablePage} 
+                    subjects={props.subjects}/>
       </div>
     );
   }

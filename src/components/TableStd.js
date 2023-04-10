@@ -44,7 +44,7 @@ function TableStd(props) {
             <div className="py-8">
                 <div>
                     <label className="text-2xl font-semibold leading-tight">
-                        รายชื่อนักเรียนวิชา {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}
+                        รายชื่อนักเรียนวิชา : {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}
                     </label>
 
                 </div>
@@ -52,7 +52,7 @@ function TableStd(props) {
                     <div
                         className="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
                     >
-                        <table className="gird grid-cols-5 min-w-full leading-normal">
+                        <table id="table-to-print" className="gird grid-cols-5 min-w-full leading-normal">
                             <thead className="">
                                 <tr className="w-auto">
                                     <th
