@@ -20,7 +20,7 @@ function NavbarAJ(props) {
 }
 
   return (
-    <nav className=" border-gray-200 bg-green-700 p-3">
+    <nav className=" border-gray-200 bg-green-600 p-3">
       <div className="flex justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
         <div className="flex items-center">
           
