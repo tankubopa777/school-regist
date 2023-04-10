@@ -1,13 +1,15 @@
 import bcrypt from 'bcryptjs';
-export default function Block_DetailStd(props) {
+import { editPassword } from '../dataFetch';
 
+export default function Block_DetailStd(props) {
+    console.log(props.user)
     const changePassword = async (e) => {
         e.preventDefault();
         let password = String(props.user.PASSW);
         let currentPassword = e.target.form.currentPassword.value;
         let newPassword = e.target.form.NewPassword.value;
         let confirmPassword = e.target.form.ConfirmPassword.value;
-
+        
         if (currentPassword === "" || newPassword === "" || confirmPassword === "") {
             console.log("empty")
             alert("กรุณากรอกข้อมูลให้ครบ")
@@ -17,7 +19,7 @@ export default function Block_DetailStd(props) {
                     if (newPassword === confirmPassword) {
                         console.log("success")
                         newPassword = bcrypt.hashSync(newPassword, 10);
-                        console.log(newPassword)
+                        editPassword({cellidx:props.user.CELLIDX,newpass:newPassword})
                         alert("เปลี่ยนรหัสผ่านสำเร็จ")
                     } else {
                         console.log("not match")
@@ -28,7 +30,7 @@ export default function Block_DetailStd(props) {
                         if (newPassword === confirmPassword) {
                             console.log("password match")
                             newPassword = bcrypt.hashSync(newPassword, 10);
-                            console.log(newPassword)
+                            editPassword({cellidx:props.user.CELLIDX,newpass:newPassword})
                             alert("เปลี่ยนรหัสผ่านสำเร็จ")
                         } else {
                             console.log("password not match")

@@ -114,7 +114,7 @@ function Table(props) {
 
                             <tbody >
                                 {filterTYPE.map((subjectsType, index) => (
-                                    <tr key={index} className="bg-red w-max cursor-pointer" onClick={() => handleClick(subjectsType)}>
+                                    <tr key={index} className="w-max cursor-pointer" onClick={() => handleClick(subjectsType)}>
                                         <td className=" p-4 w-1/6 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {Status(subjectsType.AVAILABILITY)}
