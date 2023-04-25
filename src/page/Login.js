@@ -22,6 +22,19 @@ export const Login_page = (props) => {
     }
   }
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if(props.user !== null){
+        if (props.user.TYPE === 'STD') {
+          navigate("/วิชาเสรี");
+        }
+        if (props.user.TYPE === 'PROF') {
+          navigate("/Teacher");
+        }
+      }
+    }, 10);
+    return () => clearInterval(interval);
+  }, [props.user]);
 
   const Login = async (e) => {
     e.preventDefault();
@@ -29,8 +42,7 @@ export const Login_page = (props) => {
     let passw = e.target.form.password.value;
     let alt = e.target.form.alert;
 
-    const success = await checkLogin(username, passw);
-    console.log(success)
+    const success = await checkLogin(username, passw, props.users)
 
     if (success[0]) {
       props.updateIsLoggedIn(true);
@@ -43,12 +55,6 @@ export const Login_page = (props) => {
     if (props.isLoggedIn) {
       e.target.form.username.value = "";
       e.target.form.password.value = "";
-      if (props.user.TYPE === 'STD') {
-        navigate("/วิชาเสรี");
-      }
-      if (props.user.TYPE === 'PROF') {
-        navigate("/Teacher");
-      }
     }
   }
 
