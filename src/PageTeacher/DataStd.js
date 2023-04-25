@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
+
 function DataStd(props) {
   const dataStd = Object.values(props.users);
 
@@ -16,7 +17,16 @@ function DataStd(props) {
     setClass(parseInt(event.target.value));
   };
 
-
+    const [isOpen, setIsOpen] = useState(false);
+  
+    const toggleDropdown = () => {
+      setIsOpen(!isOpen);
+    };
+  
+    const handleItemClick = (Class) => {
+      console.log(`You clicked on ${Class}`);
+      setIsOpen(false);
+    };
 
   let dataStdlst = []
   for (let i = 0; i < dataStd.length; i++) {
@@ -43,19 +53,19 @@ function DataStd(props) {
   console.log(filteredRoomStr)
 
   const combinedArray = [...filteredRoomStr, ...filteredRoomInt];
-  
+
   // Filter array to exclude elements with STD_ROOM equal to ""
-  const arr = combinedArray.filter(item => item.STD_ROOM !== ""); 
+  const array = combinedArray.filter(item => item.STD_ROOM !== "");
 
   //เก็บค่า เลขห้อง
-  const uniqueValues = [...new Set(arr.map(item => item.STD_ROOM))]; // EP , 1 , 2 , 3 , 4 , 5 , 6 .........
+  const uniqueValues = [...new Set(array.map(item => item.STD_ROOM))]; // EP , 1 , 2 , 3 , 4 , 5 , 6 .........
   console.log(uniqueValues)
 
   // const filterClassRoomDropDown = arr.filter(dataStdlst => {
   //   return dataStdlst.STD_ROOM === Room && dataStdlst.STD_CLASS === Class;
   // });
 
-  
+
   function checkArray(arr) {
     if (arr.length === 0) {
       return <div>ยังไม่ได้ลงทะเบียน</div>;
@@ -108,7 +118,34 @@ function DataStd(props) {
             <label className="text-l font-semibold leading-tight">
               ชั้นมัธยมศึกษาปีที่ :
             </label>
-            <input className="bg-gray-200 px-2 w-20 rounded-md" text="Room" type="number" placeholder={Class} value={Class} onChange={handleInputChangeClass} />
+
+
+
+
+            <div className="dropdown">
+              <div className="dropdown__toggle bg-slate-500 px-2 py-1 " onClick={toggleDropdown}>
+                  Dropdown
+              </div>
+              {isOpen && (
+                <div className="dropdown__menu">
+                  {array.map((Class, index) => (
+                    <div
+                      key={index}
+                      className="dropdown__item"
+                      onClick={() => handleItemClick(Class)}
+                    >
+                      {Class}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+
+
+
+
+            {/* <input className="bg-gray-200 px-2 w-20 rounded-md" text="Room" type="number" placeholder={Class} value={Class} onChange={handleInputChangeClass} /> */}
             <label className="text-l font-semibold leading-tight">
               ห้อง :
             </label>
