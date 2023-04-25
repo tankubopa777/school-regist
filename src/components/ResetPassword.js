@@ -1,6 +1,4 @@
 import bcrypt from 'bcryptjs';
-export default function ResetPassword(props) {
-
 
 export default function Block_DetailStd(props) {
     console.log(props.user)
@@ -20,7 +18,7 @@ export default function Block_DetailStd(props) {
                     if (newPassword === confirmPassword) {
                         console.log("success")
                         newPassword = bcrypt.hashSync(newPassword, 10);
-                        editPassword({cellidx:props.user.CELLIDX,newpass:newPassword})
+                        props.editPassword({cellidx:props.user.CELLIDX,newpass:newPassword})
                         alert("เปลี่ยนรหัสผ่านสำเร็จ")
                     } else {
                         console.log("not match")
@@ -31,7 +29,7 @@ export default function Block_DetailStd(props) {
                         if (newPassword === confirmPassword) {
                             console.log("password match")
                             newPassword = bcrypt.hashSync(newPassword, 10);
-                            editPassword({cellidx:props.user.CELLIDX,newpass:newPassword})
+                            props.editPassword({cellidx:props.user.CELLIDX,newpass:newPassword})
                             alert("เปลี่ยนรหัสผ่านสำเร็จ")
                         } else {
                             console.log("password not match")

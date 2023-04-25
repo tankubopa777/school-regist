@@ -16,6 +16,5 @@ export default function Home_page(props) {
             </div>
 
         </div >
-
     );
 }

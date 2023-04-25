@@ -2,25 +2,25 @@
 import bcrypt from 'bcryptjs';
 const url = "https://script.google.com/macros/s/AKfycbwCrGWAkb7TE3Xt_7biJVewNbyIMO5MZIOyEo2B8dgbkkjDwlQwhR-funKsQbC20izSaw/exec"
 
-// export async function editAvailability(data) {
-//     // { this is how parameter should look like
-//     //     "cellidx":2,
-//     //     "avail": false/true
-//     // }
-//     const action = 'editAvailability';
-//     const urlwithaction = url + '?action=' + action;
-//     const res = await fetch(urlwithaction,
-//         {
-//             method: "POST",
-//             mode: 'cors',
-//             body: JSON.stringify(data),
-//             headers: {
-//                 'Content-Type': 'text/plain',
-//             }
-//         }
-//     )
-//     return res;
-// }
+export async function editAvailability(data) {
+    // { this is how parameter should look like
+    //     "cellidx":2,
+    //     "avail": false/true
+    // }
+    const action = 'editAvailability';
+    const urlwithaction = url + '?action=' + action;
+    const res = await fetch(urlwithaction,
+        {
+            method: "POST",
+            mode: 'cors',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'text/plain',
+            }
+        }
+    )
+    return res;
+}
 
 
 export async function hookUsers() {
@@ -258,22 +258,6 @@ export async function fetchUsers() {
 // }
 
 
-export function checkLogin(username, passw) {
-    return new Promise((resolve, reject) => {
-        callUser().then((response) => {
-            bcrypt.compare(passw, response[username].PASSW, function (err, result) {
-                if (result) {
-                    resolve([true, response[username]]);
-                } else {
-                    if (!(username in response) || response[username].PASSW != passw || passw.length >= 60) {
-                        resolve(false);
-                    } else {
-                        resolve([true, response[username]]);
-                    }
-                }
-            });
-        }).catch((err) => {
-
 // export function checkLogin(username, passw) {
 //     return new Promise((resolve, reject) => {
 //         callUser().then((response) => {
@@ -294,6 +278,11 @@ export function checkLogin(username, passw) {
 //     });
 // }
 
+export async function checkLogin(username, passw, response) {
+    try {
+      const result = await new Promise((resolve, reject) => {
+        bcrypt.compare(passw, response[username].PASSW, function (err, result) {
+          if (err) {
             reject(err);
           } else {
             resolve(result);
