@@ -1,13 +1,16 @@
 import bcrypt from 'bcryptjs';
 export default function ResetPassword(props) {
 
+
+export default function Block_DetailStd(props) {
+    console.log(props.user)
     const changePassword = async (e) => {
         e.preventDefault();
         let password = String(props.user.PASSW);
         let currentPassword = e.target.form.currentPassword.value;
         let newPassword = e.target.form.NewPassword.value;
         let confirmPassword = e.target.form.ConfirmPassword.value;
-
+        
         if (currentPassword === "" || newPassword === "" || confirmPassword === "") {
             console.log("empty")
             alert("กรุณากรอกข้อมูลให้ครบ")
@@ -17,7 +20,7 @@ export default function ResetPassword(props) {
                     if (newPassword === confirmPassword) {
                         console.log("success")
                         newPassword = bcrypt.hashSync(newPassword, 10);
-                        console.log(newPassword)
+                        editPassword({cellidx:props.user.CELLIDX,newpass:newPassword})
                         alert("เปลี่ยนรหัสผ่านสำเร็จ")
                     } else {
                         console.log("not match")
@@ -28,7 +31,7 @@ export default function ResetPassword(props) {
                         if (newPassword === confirmPassword) {
                             console.log("password match")
                             newPassword = bcrypt.hashSync(newPassword, 10);
-                            console.log(newPassword)
+                            editPassword({cellidx:props.user.CELLIDX,newpass:newPassword})
                             alert("เปลี่ยนรหัสผ่านสำเร็จ")
                         } else {
                             console.log("password not match")
@@ -46,12 +49,41 @@ export default function ResetPassword(props) {
     return (
         <div className="w-max h-max tablet:w-[700px] absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-1/2">
             <div className="hidden tablet:flex flex-wrap flex-col rounded-lg bg-white shadow-lg border-2 m-2 p-2">
-                <div className="mx-5">
+
+                {props.user.TYPE === 'STD' ? (
+                    <div className="mx-5 className1">
+                        <h1 className="font-bold flex flex-row justify-center">ข้อมูลนักเรียน</h1>
+                        <div className="my-2">เลขประจำตัว: {props.user.ID}</div>
+                        <div className="my-2">
+                            ชื่อ - นามสกุล: {props.user.FNAME} {props.user.LNAME}
+                        </div>
+                        <div className="my-2">
+                            ชั้น: ม. {props.user.STD_CLASS}.{props.user.STD_ROOM}
+                        </div>
+                    {console.log(props.user.TYPE === 'STD')}
+                    </div>
+                ) : (
+                    <div className="mx-5 className2">
+                        <h1 className="font-bold flex flex-row justify-center">ข้อมูลอาจารย์</h1>
+                        <div className="my-2">
+                            ชื่อ - นามสกุล: {props.user.FNAME} {props.user.LNAME}
+                        </div>
+                        {console.log(props.user.TYPE === 'PROF')}
+                    </div>
+                )}
+
+
+                {/* <div className1="mx-5 ">
                     <h1 className="font-bold flex flex-row justify-center" > ข้อมูลนักเรียน  </h1>
                     <div className="my-2" >เลขประจำตัว : {props.user.ID}</div>
                     <div className="my-2" >ชื่อ - นามสกุล :  {props.user.FNAME} {props.user.LNAME}</div>
                     <div className="my-2" >ชั้น : ม. {props.user.STD_CLASS}.{props.user.STD_ROOM}</div>
                 </div>
+
+                <div className2="mx-5">
+                    <h1 className="font-bold flex flex-row justify-center" > ข้อมูลอาจารย์  </h1>
+                    <div className="my-2" >ชื่อ - นามสกุล :  {props.user.FNAME} {props.user.LNAME}</div>
+                </div> */}
             </div>
             <form>
                 <div className="flex flex-wrap flex-col rounded-lg bg-white shadow-lg border-2 m-2 p-2">
