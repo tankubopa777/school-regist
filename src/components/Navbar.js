@@ -37,7 +37,7 @@ function Navbar_component(props) {
   return (
 
     <nav id="nav">
-      <div className="fixed top-0 left-0 z-50 w-full shadow-2xl text-white">
+      <div className="fixed top-0 left-0 z-50 w-full text-white">
         <div className="flex justify-between bg-green-600">
 
           <div className="flex">

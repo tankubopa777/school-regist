@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import SummarizeDetail from "./SummarizeDetail";
 import {addSubIntoSTD,stdJoin} from "../dataFetch"
 
-export default function ElectiveDetail(props) {
+export default function Summarize(props) {
     const user = Object.values(props)[0];
     let subject = [];
     const [submitState,setSubmitState] = useState("enable")
@@ -38,9 +38,8 @@ export default function ElectiveDetail(props) {
     return (
         <div>
          {subject.map((subject, index) => (
-          <div>
+          <div key={index}>
           <SummarizeDetail
-            key={index}
             item={subject}
             user={props.user}
             updateUser={props.updateUser}

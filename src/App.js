@@ -3,7 +3,7 @@ import Login_page from './page/Login.js';
 import Teacher from './page/Teacher';
 import React from "react";
 import Summarize from './page/Summarize';
-import ElectiveSubject from './page/FreeSubject';
+import FreeSubject from './page/FreeSubject';
 import GroupSubject from './page/ChumSubject';
 import ResetPassword from './page/ResetPassword';
 import PageNotFound from './page/PageNotFound';
@@ -123,7 +123,7 @@ export default function App() {
             isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
             page={page} updatePage={updatePage}
             subjects={subjects} updateSubjects={updateSubjects} />} />
-          <Route path="/วิชาเสรี" element={<ElectiveSubject
+          <Route path="/วิชาเสรี" element={<FreeSubject
             user={user} updateUser={updateUser}
             isLoggedIn={isLoggedIn} updateIsLoggedIn={updateIsLoggedIn}
             page={page} updatePage={updatePage}

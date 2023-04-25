@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
-import { editPassword } from '../dataFetch';
+export default function ResetPassword(props) {
+
 
 export default function Block_DetailStd(props) {
     console.log(props.user)

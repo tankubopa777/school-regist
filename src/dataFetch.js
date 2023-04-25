@@ -257,6 +257,23 @@ export async function fetchUsers() {
 //     });
 // }
 
+
+export function checkLogin(username, passw) {
+    return new Promise((resolve, reject) => {
+        callUser().then((response) => {
+            bcrypt.compare(passw, response[username].PASSW, function (err, result) {
+                if (result) {
+                    resolve([true, response[username]]);
+                } else {
+                    if (!(username in response) || response[username].PASSW != passw || passw.length >= 60) {
+                        resolve(false);
+                    } else {
+                        resolve([true, response[username]]);
+                    }
+                }
+            });
+        }).catch((err) => {
+
 // export function checkLogin(username, passw) {
 //     return new Promise((resolve, reject) => {
 //         callUser().then((response) => {
@@ -277,12 +294,6 @@ export async function fetchUsers() {
 //     });
 // }
 
-
-export async function checkLogin(username, passw, response) {
-    try {
-      const result = await new Promise((resolve, reject) => {
-        bcrypt.compare(passw, response[username].PASSW, function (err, result) {
-          if (err) {
             reject(err);
           } else {
             resolve(result);
