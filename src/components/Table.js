@@ -71,7 +71,7 @@ function Table(props) {
 
                 <div className="py-4 ">
                     <div>
-                        <table className="rounded-lg shadow-md w-full">
+                        <table className="rounded-lg shadow-md w-full mx-auto sm:mx-4 md:mx-8 lg:mx-16">
                             <thead >
                                 <tr className="rounded-lg shadow-md">
                                     <th 
@@ -115,7 +115,7 @@ function Table(props) {
                             <tbody >
                                 {filterTYPE.map((subjectsType, index) => (
                                     <tr key={index} className="bg-red w-max cursor-pointer" onClick={() => handleClick(subjectsType)}>
-                                        <td className=" p-4 w-20 border-b border-gray-200 bg-white text-sm text-center">
+                                        <td className=" p-4 w-20 border-b border-gray-200 text-sm text-center">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {Status(subjectsType.AVAILABILITY)}
                                             </p>
@@ -127,32 +127,32 @@ function Table(props) {
                                             </p>
                                         </td>
 
-                                        <td className="border-b border-gray-200 bg-white text-sm text-center">
+                                        <td className="border-b border-gray-200 text-sm text-center">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {subjectsType.SUB_NAME}
                                             </p>
                                         </td>
 
-                                        <td className=" border-b border-gray-200 bg-white text-sm text-center">
+                                        <td className=" border-b border-gray-200 text-sm text-center">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {subjectsType.SUB_ADDR}
                                             </p>
                                         </td>
 
-                                        <td className=" border-b border-gray-200 bg-white text-sm text-center">
+                                        <td className=" border-b border-gray-200 text-sm text-center">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {subjectsType.SUB_PROF[0]}  {subjectsType.SUB_PROF[1]}
                                             </p>
                                         </td>
 
-                                        <td className="  border-b border-gray-200 bg-white text-sm text-center">
+                                        <td className="  border-b border-gray-200 text-sm text-center">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {subjectsType.STD.length}/{subjectsType.SUB_CAP}
                                             </p>
                                         </td>
 
                                         <td
-                                            className=" border-b border-gray-200 bg-white text-sm text-center"
+                                            className=" border-b border-gray-200 text-sm text-center"
                                         >
                                             <button onClick={() => handleClick(subjectsType) } className="underline">เพิ่มเติม</button>
                                         </td>
