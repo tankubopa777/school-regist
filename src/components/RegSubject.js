@@ -130,7 +130,7 @@ function Register_subject(props) {
 
     if (props.subjectselect === null) {
         return (
-            <div className="flex justify-center">
+            <div className="relative top-28 flex justify-center text-xs tablet:text-sm">
                 <div className="inline-block rounded-lg t bg-gray-200 m-4 ">
     
                     <div className="block rounded-lg p-4 bg-neutral-400">
@@ -140,7 +140,7 @@ function Register_subject(props) {
                     </div>
 
                     <form >
-                        <div className="grid grid-cols-2 gap-4 p-4">
+                        <div className="grid grid-cols-2 gap-4 p-4 justify-center">
 
                             <label className="p-2 m-2">
                                 รหัสวิชา :
@@ -228,9 +228,9 @@ function Register_subject(props) {
                             </label>
 
 
-                            <div className="grid grid-cols-2 ">
+                            <div className="flex flex-row">
                                 <label className="p-2 m-2">
-                                    ภาคชุมนุม :
+                                    ภาคชุมนุม : &nbsp;
                                     <input
                                         required
                                         className="m-2 p-2"
@@ -245,7 +245,7 @@ function Register_subject(props) {
                                 </label>
 
                                 <label className="p-2 m-2">
-                                    ภาคเสรี :
+                                    ภาคเสรี : &nbsp;
                                     <input
                                         required
                                         className="m-2 p-2"
@@ -268,7 +268,7 @@ function Register_subject(props) {
                     <form className="m-2 px-4 pt-2" >
                         <div className="grid grid-cols-3">
                             <label>
-                                มัธยมศึกษาปีที่ 1 :
+                                มัธยมศึกษาปีที่ 1 : &nbsp;
                                 <input
                                     type="checkbox"
                                     name="1"
@@ -280,7 +280,7 @@ function Register_subject(props) {
                             </label>
 
                             <label >
-                                มัธยมศึกษาปีที่ 2 :
+                                มัธยมศึกษาปีที่ 2 : &nbsp;
                                 <input
                                     type="checkbox"
                                     name="2"
@@ -291,7 +291,7 @@ function Register_subject(props) {
                             </label>
 
                             <label>
-                                มัธยมศึกษาปีที่ 3 :
+                                มัธยมศึกษาปีที่ 3 : &nbsp;
                                 <input
                                     type="checkbox"
                                     name="3"
@@ -302,7 +302,7 @@ function Register_subject(props) {
                             </label>
 
                             <label>
-                                มัธยมศึกษาปีที่ 4 :
+                                มัธยมศึกษาปีที่ 4 : &nbsp;
                                 <input
                                     type="checkbox"
                                     name="4"
@@ -312,7 +312,7 @@ function Register_subject(props) {
                                 />
                             </label>
                             <label>
-                                มัธยมศึกษาปีที่ 5 :
+                                มัธยมศึกษาปีที่ 5 : &nbsp;
                                 <input
                                     type="checkbox"
                                     name="5"
@@ -323,7 +323,7 @@ function Register_subject(props) {
                             </label>
 
                             <label>
-                                มัธยมศึกษาปีที่ 6 :
+                                มัธยมศึกษาปีที่ 6 : &nbsp;
                                 <input
                                     type="checkbox"
                                     name="6"

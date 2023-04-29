@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 function Table(props) {
     const subjects = Object.values(props.subjects);
-    for(let i=0;i<subjects.length;i++){
-        subjects[i].cell_idx = i+2;
+    for (let i = 0; i < subjects.length; i++) {
+        subjects[i].cell_idx = i + 2;
     }
 
     const [open, setopen] = useState(false);
@@ -24,7 +24,7 @@ function Table(props) {
         props.updateTablePage('Register_subject');
     }
 
-    const filterTYPE = subjects.filter(subjectlst => { 
+    const filterTYPE = subjects.filter(subjectlst => {
         if (subjectlst.SUB_TYPE === SubType) {
             return true;
         }
@@ -41,17 +41,17 @@ function Table(props) {
     }
     console.log(filterTYPE);
 
-    
+
     return (
 
-        <div className="relative top-28 container mx-auto px-4 sm:px-8 rounded-lg">
-            <div className="py-8">
+        <div className="relative top-28 mx-auto rounded-lg">
+            <div className="py-2">
                 <div>
-                    <label className="text-2xl font-semibold leading-tight">
-                        วิชาชุมนุม
+                    <label className="text-2xl font-semibold leading-tight m-4">
+                        {SubType === 'CHUM' ? 'วิชาชุมนุม' : 'วิชาเสรี'}
                     </label>
                     <button
-                        className="inline-block px-3 py-2 m-3 shadow-md rounded-lg  bg-gray-300 font-bold hover:text-gray-700"
+                        className="inline-block px-3 py-2 m-3 shadow-md rounded-lg bg-gray-300 font-bold hover:text-gray-700"
                         onClick={() => setopen(!open)}>
                         Sort
                     </button>
@@ -59,8 +59,8 @@ function Table(props) {
                     {open && (
                         <div className="block bg-white shadow-md rounded px-5 pt-4 pb-5 mb-4">
                             <ul>
-                                <div onClick={()=>sortType('CHUM')} className="hover:bg-slate-300 font-serif text-left p-3"> วิชาชุมนุม</div>
-                                <div onClick={()=>sortType('FREE')} className="hover:bg-slate-300 font-serif text-left p-3"> วิชาเสรี</div>
+                                <div onClick={() => sortType('CHUM')} className="hover:bg-slate-300 font-serif text-left p-3"> วิชาชุมนุม</div>
+                                <div onClick={() => sortType('FREE')} className="hover:bg-slate-300 font-serif text-left p-3"> วิชาเสรี</div>
                             </ul>
 
                         </div>
@@ -71,15 +71,15 @@ function Table(props) {
 
                 <div className="py-4 ">
                     <div>
-                        <table className="rounded-lg shadow-md w-full mx-auto sm:mx-4 md:mx-8 lg:mx-16">
+                        <table className="rounded-lg shadow-md w-11/12 mx-auto">
                             <thead >
                                 <tr className="rounded-lg shadow-md">
-                                    <th 
+                                    <th
                                         className="border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         Status
                                     </th>
-                                    <th 
+                                    <th
                                         className="border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         รหัสวิชา
@@ -154,7 +154,7 @@ function Table(props) {
                                         <td
                                             className=" border-b border-gray-200 text-sm text-center"
                                         >
-                                            <button onClick={() => handleClick(subjectsType) } className="underline">เพิ่มเติม</button>
+                                            <button onClick={() => handleClick(subjectsType)} className="underline">เพิ่มเติม</button>
                                         </td>
                                     </tr>
                                 ))}
@@ -163,7 +163,9 @@ function Table(props) {
                     </div>
                 </div>
             </div>
-            <button className="bg-green-600 text-center text-white px-2 py-1 rounded-lg float-right" onClick={() => toAddSubject()}>AddSubject</button>
+            <div className="flex flex-row justify-center">
+                <button className="bg-green-600 text-center text-white px-2 py-1 my-5 rounded-lg justify-center" onClick={() => toAddSubject()}>AddSubject</button>
+        </div>
         </div>
     );
 }

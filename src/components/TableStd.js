@@ -40,19 +40,19 @@ function TableStd(props) {
 
     return (
 
-        <div className="container px-4 sm:px-8">
-            <div className="py-8">
+        <div className="">
+            <div className="flex flex-col items-center py-3">
                 <div>
                     <label className="text-2xl font-semibold leading-tight">
                         รายชื่อนักเรียนวิชา : {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}
                     </label>
 
                 </div>
-                <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                <div className="">
                     <div
-                        className="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
+                        className="laptop:w-max shadow-md rounded-lg"
                     >
-                        <table id="table-to-print" className="gird grid-cols-5 min-w-full leading-normal">
+                        <table id="table-to-print" className="gird grid-cols-5 min-w-full leading-normal break-words">
                             <thead className="">
                                 <tr className="w-auto">
                                     <th
@@ -82,7 +82,7 @@ function TableStd(props) {
                                 {selected[7].map((each, index) => (
                                     <tr>
 
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
                                             <div className="flex">
                                                 <div>
                                                     <p className="text-gray-900 whitespace-no-wrap">
@@ -92,19 +92,19 @@ function TableStd(props) {
                                             </div>
                                         </td>
 
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs mobile:text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {each.FNAME} {each.LNAME}
                                             </p>
                                         </td>
 
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs mobile:text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {each.CLASS}.{each.ROOM}
                                             </p>
                                         </td>
 
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs mobile:text-sm">
                                             <label className="text-gray-900 whitespace-no-wrap hover:bg-neutral-700">
                                                 {editingRow === index ? (
                                                     <input
