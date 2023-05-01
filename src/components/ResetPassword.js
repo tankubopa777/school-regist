@@ -1,5 +1,3 @@
-import bcrypt from 'bcryptjs';
-
 export default function Block_DetailStd(props) {
     console.log(props.user)
     const changePassword = async (e) => {
@@ -8,41 +6,29 @@ export default function Block_DetailStd(props) {
         let currentPassword = e.target.form.currentPassword.value;
         let newPassword = e.target.form.NewPassword.value;
         let confirmPassword = e.target.form.ConfirmPassword.value;
-        
+
         if (currentPassword === "" || newPassword === "" || confirmPassword === "") {
             console.log("empty")
             alert("กรุณากรอกข้อมูลให้ครบ")
         } else {
-            bcrypt.compare(currentPassword, password, function (err, result) {
-                if (result) {
-                    if (newPassword === confirmPassword) {
-                        console.log("success")
-                        newPassword = bcrypt.hashSync(newPassword, 10);
-                        props.editPassword({cellidx:props.user.CELLIDX,newpass:newPassword})
-                        alert("เปลี่ยนรหัสผ่านสำเร็จ")
-                    } else {
-                        console.log("not match")
-                        alert("รหัสผ่านใหม่ไม่ตรงกัน")
-                    }
+
+            if (currentPassword === password) {
+                if (newPassword === confirmPassword) {
+                    console.log("password match")
+                    props.editPassword({ cellidx: props.user.CELLIDX, newpass: newPassword })
+                    alert("เปลี่ยนรหัสผ่านสำเร็จ")
                 } else {
-                    if (currentPassword === password) {
-                        if (newPassword === confirmPassword) {
-                            console.log("password match")
-                            newPassword = bcrypt.hashSync(newPassword, 10);
-                            props.editPassword({cellidx:props.user.CELLIDX,newpass:newPassword})
-                            alert("เปลี่ยนรหัสผ่านสำเร็จ")
-                        } else {
-                            console.log("password not match")
-                            alert("รหัสผ่านไม่ตรงกัน")
-                        }
-                    } else {
-                        console.log("current password not match")
-                        alert("รหัสผ่านปัจจุบันไม่ถูกต้อง")
-                    }
+                    console.log("password not match")
+                    alert("รหัสผ่านไม่ตรงกัน")
                 }
-            });
+            } else {
+                console.log("current password not match")
+                alert("รหัสผ่านปัจจุบันไม่ถูกต้อง")
+            }
+
         }
     }
+
 
     return (
         <div className="w-max h-max tablet:w-[700px] absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-1/2">
@@ -58,7 +44,7 @@ export default function Block_DetailStd(props) {
                         <div className="my-2">
                             ชั้น: ม. {props.user.STD_CLASS}.{props.user.STD_ROOM}
                         </div>
-                    {console.log(props.user.TYPE === 'STD')}
+                        {console.log(props.user.TYPE === 'STD')}
                     </div>
                 ) : (
                     <div className="mx-5 className2">

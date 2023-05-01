@@ -50,18 +50,18 @@ function Edit(props) {
 
 
   return (
-    <div className="relative top-28">
-      <div className="grid grid-cols-4">
-        <div className="m-4 col-span-3">
+    <div className="relative top-28 flex flex-col flex-wrap items-center">
+      <div className="flex flex-wrap-reverse laptop:flex-nowrap laptop:flex-row laptop:items-center">
+        <div className="m-4 mt-5 w-screen laptop:w-max">
           <TableStd subjectselect={props.subjectselect}
             updatesubjectselect={props.updatesubjectselect} />
         </div>
-        <div className="m-4 mt-5 col-span-1">
+        <div className="mt-5 w-screen laptop:w-max">
           <Card_Edit subjectselect={props.subjectselect} updateTablePage={props.updateTablePage}
             TablePage={props.TablePage} />
         </div>
       </div>
-      <div className="block float-right mx-5">
+      <div className="flex flex-row-reverse">
         <button onClick={DownloadPDF} className="bg-green-600 rounded-md px-2 py-1 mx-5 my-3 text-slate-50 hover:bg-lime-700">
           Export
         </button>

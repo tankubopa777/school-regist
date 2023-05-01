@@ -109,7 +109,7 @@ function DataStd(props) {
 
   return (
     <div >
-      <div className="container relative top-28 mx-auto px-4 sm:px-8 rounded-lg justify-center">
+      <div className="px-4 sm:px-8 rounded-lg justify-center">
         <div className="py-8">
           <div>
             <label className="text-2xl font-semibold leading-tight">
