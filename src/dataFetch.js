@@ -246,14 +246,14 @@ export async function fetchUsers() {
     return response;
 }
 
-export async function checkLogin(username, passw) {
-    return callUser().then((response) => {
-        if (!(username in response) || response[username].PASSW != passw) {
-            return false;
-        } else {
-            return [true, response[username]];
-        }
-    });
+export async function checkLogin(username, passw, response) {
+
+    if (!(username in response) || response[username].PASSW != passw) {
+        return false;
+    } else {
+        return [true, response[username]];
+    }
+
 }
 
 
