@@ -1,6 +1,5 @@
 import React from 'react';
 import Profile from '../assets/profile.png';
-import { Link } from 'react-router-dom';
 import { redirect, useNavigate, useHistory } from 'react-router-dom';
 
 function NavbarAJ(props) {
@@ -19,9 +18,11 @@ function NavbarAJ(props) {
   const DataStdClick = () => {
     props.updateTablePage('Data_student');
   }
+
   const resetPasswd = () => {
-    props.updateTablePage('/แก้ไขรหัส');
+    props.updateTablePage('ResetPassword');
   }
+
 
   function navToggle() {
     document.getElementById('mobile-nav').classList.toggle('hidden');
@@ -68,7 +69,7 @@ function NavbarAJ(props) {
                 </p>
               </div>
               <div className="relative">
-                <div className="w-10 relative ml-2 hover:opacity-50 cursor-pointer" onClick={resetPasswd}>
+                <div className="w-10 relative ml-2 hover:opacity-50 cursor-pointer" onClick={() => resetPasswd()}>
                   <img src={Profile} className="" />
                 </div>
               </div>

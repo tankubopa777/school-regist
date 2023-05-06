@@ -40,8 +40,8 @@ function TableStd(props) {
 
     return (
 
-        <div className="">
-            <div className="flex flex-col items-center py-3">
+        <div>
+            <div className="flex flex-col items-center py-3 top-28">
                 <div>
                     <label className="text-2xl font-semibold leading-tight">
                         รายชื่อนักเรียนวิชา : {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}

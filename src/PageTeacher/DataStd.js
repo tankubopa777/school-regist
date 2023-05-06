@@ -4,29 +4,21 @@ import html2canvas from 'html2canvas';
 
 
 function DataStd(props) {
+
+  const arrayClass = [1, 2, 3, 4, 5, 6]
+
   const dataStd = Object.values(props.users);
 
   const [Room, setRoom] = useState(1)
   const [Class, setClass] = useState(1)
 
-  const handleInputChangeRoom = (event) => {
-    setRoom(parseInt(event.target.value));
+  const handleSelectChangeRoom = (event) => {
+    setRoom(event.target.value);
   };
 
-  const handleInputChangeClass = (event) => {
-    setClass(parseInt(event.target.value));
+  const handleSelectChangeClass = (event) => {
+    setClass(event.target.value);
   };
-
-    const [isOpen, setIsOpen] = useState(false);
-  
-    const toggleDropdown = () => {
-      setIsOpen(!isOpen);
-    };
-  
-    const handleItemClick = (Class) => {
-      console.log(`You clicked on ${Class}`);
-      setIsOpen(false);
-    };
 
   let dataStdlst = []
   for (let i = 0; i < dataStd.length; i++) {
@@ -42,7 +34,7 @@ function DataStd(props) {
 
   //Sort ห้องเรียน
   const filterSTD = sortedDataStdlst.filter(dataStdlst => {
-    return dataStdlst.STD_ROOM === Room && dataStdlst.STD_CLASS === Class;
+    return dataStdlst.STD_ROOM == Room && dataStdlst.STD_CLASS == Class;
   });
 
   const filteredRoomInt = dataStdlstRoom.filter(item => Number.isInteger(item.STD_ROOM)); //Array Int : 1 2 3 4 5 6
@@ -56,15 +48,33 @@ function DataStd(props) {
 
   // Filter array to exclude elements with STD_ROOM equal to ""
   const array = combinedArray.filter(item => item.STD_ROOM !== "");
+  console.log(array)
 
   //เก็บค่า เลขห้อง
-  const uniqueValues = [...new Set(array.map(item => item.STD_ROOM))]; // EP , 1 , 2 , 3 , 4 , 5 , 6 .........
-  console.log(uniqueValues)
+  const uniqueValues = [...new Set(array.map(item => item.STD_ROOM))];
 
-  // const filterClassRoomDropDown = arr.filter(dataStdlst => {
-  //   return dataStdlst.STD_ROOM === Room && dataStdlst.STD_CLASS === Class;
-  // });
+  //เก็บค่า ชั้น
+  const customSort = (a, b) => {
+    if (typeof a === 'string' && typeof b === 'string') {
+      if (!isNaN(a) && !isNaN(b)) {
+        return Number(a) - Number(b);
+      }
+      return a.localeCompare(b);
+    }
 
+    if (typeof a === 'number' && typeof b === 'number') {
+      return a - b;
+    }
+
+    if (typeof a === 'string') {
+      return -1;
+    }
+
+    return 1;
+  };
+
+  const sorteduniqueValues = uniqueValues.sort(customSort); // EP , 1 , 2 , 3 , 4 , 5 , 6 .........
+  console.log(sorteduniqueValues)
 
   function checkArray(arr) {
     if (arr.length === 0) {
@@ -107,50 +117,43 @@ function DataStd(props) {
     });
   }
 
+  console.log(sortedDataStdlst)
+  console.log(filterSTD)
+  console.log(Room)
+
   return (
     <div >
-      <div className="px-4 sm:px-8 rounded-lg justify-center">
+      <div className="relative px-4 sm:px-8 rounded-lg justify-center top-28">
         <div className="py-8">
           <div>
             <label className="text-2xl font-semibold leading-tight">
               รายชื่อนักเรียน <br />
             </label>
-            <label className="text-l font-semibold leading-tight">
+            <label className="text-l font-semibold leading-tight mr-2">
               ชั้นมัธยมศึกษาปีที่ :
             </label>
 
+            <select value={Class} onChange={handleSelectChangeClass}>
+              <option >Select an Class</option>
+              {arrayClass.map((item, index) => (
+                <option key={index} value={item}>{item}</option>
+              ))}
+            </select>
 
-
-
-            <div className="dropdown">
-              <div className="dropdown__toggle bg-slate-500 px-2 py-1 " onClick={toggleDropdown}>
-                  Dropdown
-              </div>
-              {isOpen && (
-                <div className="dropdown__menu">
-                  {array.map((Class, index) => (
-                    <div
-                      key={index}
-                      className="dropdown__item"
-                      onClick={() => handleItemClick(Class)}
-                    >
-                      {Class}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-
-
-
-
-            {/* <input className="bg-gray-200 px-2 w-20 rounded-md" text="Room" type="number" placeholder={Class} value={Class} onChange={handleInputChangeClass} /> */}
-            <label className="text-l font-semibold leading-tight">
+            <label className="text-l font-semibold leading-tight mr-2">
               ห้อง :
             </label>
-            <input className="bg-gray-200 px-2 w-20 rounded-md" text="Class" type="number" placeholder={Room} value={Room} onChange={handleInputChangeRoom} />
+
+            <select value={Room} onChange={handleSelectChangeRoom}>
+              <option >Select an Room</option>
+              {sorteduniqueValues.map((item, index) => (
+                <option key={index} value={item}>{item}</option>
+              ))}
+            </select>
+
           </div>
+
+
 
           <div className="py-4 ">
             <div id="table-to-print" className="m-5">

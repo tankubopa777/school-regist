@@ -5,7 +5,8 @@ import RegSubject from "../components/RegSubject";
 import { useState, useEffect } from 'react'
 import Edit from "../PageTeacher/Edit";
 import DataStd from "../PageTeacher/DataStd";
-import Home_page from "./ResetPassword";
+import Block_DetailStd from "../components/ResetPassword";
+
 
 // List ที่ต้องทำ
 // ทำปุ่มเพิ่มวิชา <Table />
@@ -35,34 +36,34 @@ function Teacher_page(props) {
       <div>
         <NavbarAJ
           user={props.user} updateUser={props.updateUser}
-          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} 
-          updateTablePage={updateTablePage} 
-          TablePage={TablePage}/>
-        <Table updateTablePage={updateTablePage} 
-                TablePage={TablePage} 
-                updatesubjectselect={updatesubjectselect} 
-                subjectselect={subjectselect} 
-                subjects={props.subjects} />
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn}
+          updateTablePage={updateTablePage}
+          TablePage={TablePage} />
+        <Table updateTablePage={updateTablePage}
+          TablePage={TablePage}
+          updatesubjectselect={updatesubjectselect}
+          subjectselect={subjectselect}
+          subjects={props.subjects} />
       </div>
     );
-  } 
+  }
   else if (TablePage === 'Edit') {
     return (
       <div>
         <NavbarAJ
           user={props.user} updateUser={props.updateUser}
-          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} 
-          updateTablePage={updateTablePage} 
-          TablePage={TablePage}/>
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn}
+          updateTablePage={updateTablePage}
+          TablePage={TablePage} />
 
-        <Edit subjectselect={subjectselect} 
-              updatesubjectselect={updatesubjectselect}
-              updateTablePage={updateTablePage} 
-              subjects={props.subjects}
-              TablePage={TablePage} 
-              updateStatus={updateStatus}
-              Status={Status}
-              />
+        <Edit subjectselect={subjectselect}
+          updatesubjectselect={updatesubjectselect}
+          updateTablePage={updateTablePage}
+          subjects={props.subjects}
+          TablePage={TablePage}
+          updateStatus={updateStatus}
+          Status={Status}
+        />
       </div>
     );
   }
@@ -71,16 +72,16 @@ function Teacher_page(props) {
       <div>
         <NavbarAJ
           user={props.user} updateUser={props.updateUser}
-          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} 
-          updateTablePage={updateTablePage} 
-          TablePage={TablePage}/>
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn}
+          updateTablePage={updateTablePage}
+          TablePage={TablePage} />
 
         <RegSubject users={props.users}
-                    updateusers={props.updateusers}
-                    subjectselect={subjectselect}  
-                    updateTablePage={updateTablePage} 
-                    TablePage={TablePage} 
-                    subjects={props.subjects}/>
+          updateusers={props.updateusers}
+          subjectselect={subjectselect}
+          updateTablePage={updateTablePage}
+          TablePage={TablePage}
+          subjects={props.subjects} />
       </div>
     );
   }
@@ -90,37 +91,43 @@ function Teacher_page(props) {
       <div>
         <NavbarAJ
           user={props.user} updateUser={props.updateUser}
-          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} 
-          updateTablePage={updateTablePage} 
-          TablePage={TablePage}/>
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn}
+          updateTablePage={updateTablePage}
+          TablePage={TablePage} />
 
         <DataStd users={props.users}
-                 updateusers={props.updateusers}
-                 subjectselect={subjectselect}  
-                 updateTablePage={updateTablePage} 
-                 TablePage={TablePage} />
+          updateusers={props.updateusers}
+          subjectselect={subjectselect}
+          updateTablePage={updateTablePage}
+          TablePage={TablePage} />
       </div>
     );
   }
   else if (TablePage === 'ResetPassword') {
     return (
+      
       <div>
+        {console.log("ResetPassword")}
         <NavbarAJ
           user={props.user} updateUser={props.updateUser}
-          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} 
-          updateTablePage={updateTablePage} 
-          TablePage={TablePage}/>
+          isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn}
+          updateTablePage={updateTablePage}
+          TablePage={TablePage} />
 
-        <Home_page users={props.users}
-                    updateusers={props.updateusers}
-                    subjectselect={subjectselect}  
-                    updateTablePage={updateTablePage} 
-                    TablePage={TablePage} 
-                    subjects={props.subjects}/>
+        <Block_DetailStd user={props.user}
+                         subjectselect={subjectselect}
+                         updatesubjectselect={updatesubjectselect}
+                         updateTablePage={updateTablePage}
+                         subjects={props.subjects}
+                         TablePage={TablePage}
+                         updateStatus={updateStatus}
+                         Status={Status}
+        />
+        
       </div>
     );
   }
-  
+
 
 
 }

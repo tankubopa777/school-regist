@@ -1,3 +1,5 @@
+import { editPassword } from '../dataFetch.js'
+
 export default function Block_DetailStd(props) {
     console.log(props.user)
     const changePassword = async (e) => {
@@ -15,7 +17,7 @@ export default function Block_DetailStd(props) {
             if (currentPassword === password) {
                 if (newPassword === confirmPassword) {
                     console.log("password match")
-                    props.editPassword({ cellidx: props.user.CELLIDX, newpass: newPassword })
+                    editPassword({ cellidx: props.user.CELLIDX, newpass: newPassword })
                     alert("เปลี่ยนรหัสผ่านสำเร็จ")
                 } else {
                     console.log("password not match")
