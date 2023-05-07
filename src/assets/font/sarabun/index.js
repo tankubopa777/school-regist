@@ -1,2 +1,2 @@
-export {regular} from './sarabun-regular';
-export {bold} from './sarabun-bold';
+export {regular} from './THsarabun-regular';
+export {bold} from './THsarabun-bold';
