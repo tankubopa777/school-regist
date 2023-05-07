@@ -105,7 +105,7 @@ function NavbarAJ(props) {
           <div id="mobile-nav" className="hidden flex-col justify-center m-3 tablet:hidden">
             <div className="flex flex-col justify-center ">
               <div className="flex flex-row justify-center m-3">
-                <a onClick={() => DataStdClick()} className="hover:text-white hover:font-bold cursor-pointer">
+                <a onClick={() => MainClick()} className="hover:text-white hover:font-bold cursor-pointer">
                   หน้าหลัก
                 </a>
               </div>
