@@ -114,6 +114,13 @@ function NavbarAJ(props) {
                   รายชื่อนักเรียน
                 </a>
               </div>
+
+              <div className="flex flex-row justify-center m-3">
+                <a onClick={() => resetPasswd()} className="hover:text-white hover:font-bold cursor-pointer">
+                  เปลี่ยนรหัสผ่าน
+                </a>
+              </div>
+              
               <div className="flex flex-row justify-center m-3">
                 <button onClick={logout} className="hover:text-white hover:font-bold cursor-pointer">
                   ออกจากระบบ

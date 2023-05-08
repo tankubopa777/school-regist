@@ -5,7 +5,15 @@ import html2canvas from 'html2canvas';
 
 function DataStd(props) {
 
-  const arrayClass = [1, 2, 3, 4, 5, 6]
+  //Key ชั้นมัธยมศึกษา Value ห้องเรียน
+  const arrayRoom = {
+    1 : [],
+    2 : [],
+    3 : [],
+    4 : [],
+    5 : [],
+    6 : [],
+  }
 
   const dataStd = Object.values(props.users);
 
@@ -15,9 +23,9 @@ function DataStd(props) {
   const handleSelectChangeRoom = (event) => {
     setRoom(event.target.value);
   };
-
   const handleSelectChangeClass = (event) => {
     setClass(event.target.value);
+    setRoom(1)
   };
 
   let dataStdlst = []
@@ -25,10 +33,6 @@ function DataStd(props) {
     dataStdlst.push(dataStd[i])
   }
 
-  let dataStdlstRoom = []
-  for (let i = 0; i < dataStdlst.length; i++) {
-    dataStdlstRoom.push(dataStdlst[i])
-  }
   //Sort เลขที่
   const sortedDataStdlst = dataStdlst.sort((a, b) => a.STD_ORD - b.STD_ORD);
 
@@ -37,44 +41,28 @@ function DataStd(props) {
     return dataStdlst.STD_ROOM == Room && dataStdlst.STD_CLASS == Class;
   });
 
-  const filteredRoomInt = dataStdlstRoom.filter(item => Number.isInteger(item.STD_ROOM)); //Array Int : 1 2 3 4 5 6
-  const filteredRoomStr = dataStdlstRoom.filter(obj => typeof obj.STD_ROOM === 'string'); //Array String : EP IEP CP
-
-  // Sort the filtered array by STD_ROOM
-  filteredRoomInt.sort((a, b) => a.STD_ROOM - b.STD_ROOM);
-  console.log(filteredRoomStr)
-
-  const combinedArray = [...filteredRoomStr, ...filteredRoomInt];
-
-  // Filter array to exclude elements with STD_ROOM equal to ""
-  const array = combinedArray.filter(item => item.STD_ROOM !== "");
-  console.log(array)
-
-  //เก็บค่า เลขห้อง
-  const uniqueValues = [...new Set(array.map(item => item.STD_ROOM))];
-
-  //เก็บค่า ชั้น
-  const customSort = (a, b) => {
-    if (typeof a === 'string' && typeof b === 'string') {
-      if (!isNaN(a) && !isNaN(b)) {
-        return Number(a) - Number(b);
-      }
-      return a.localeCompare(b);
+  //เก็บค่า เลขห้อง ถ้าซ้ำจะไม่เก็บ และเรียงจากน้อยไปมาก
+  dataStdlst.forEach(item => {
+    const { STD_CLASS, STD_ROOM } = item;
+    if (arrayRoom.hasOwnProperty(STD_CLASS)) {
+      arrayRoom[STD_CLASS].push(STD_ROOM);
     }
-
-    if (typeof a === 'number' && typeof b === 'number') {
-      return a - b;
+    arrayRoom[STD_CLASS] = [...new Set(arrayRoom[STD_CLASS])];
+    
+    for (const key in arrayRoom) {
+      arrayRoom[key].sort((a, b) => {
+        if (!isNaN(a) && !isNaN(b)) {
+          return Number(a) - Number(b);
+        } else if (!isNaN(a)) {
+          return -1;
+        } else if (!isNaN(b)) {
+          return 1;
+        } else {
+          return a.localeCompare(b);
+        }
+      });
     }
-
-    if (typeof a === 'string') {
-      return -1;
-    }
-
-    return 1;
-  };
-
-  const sorteduniqueValues = uniqueValues.sort(customSort); // EP , 1 , 2 , 3 , 4 , 5 , 6 .........
-  console.log(sorteduniqueValues)
+  });
 
   function checkArray(arr) {
     if (arr.length === 0) {
@@ -83,43 +71,6 @@ function DataStd(props) {
       return arr[0].SUB_NAME;
     }
   }
-
-  function DownloadPDF() {
-    const input = document.getElementById('table-to-print');
-    html2canvas(input).then((canvas) => {
-      const pdf = new jsPDF();
-      const imgData = canvas.toDataURL('image/png');
-      const pageWidth = pdf.internal.pageSize.getWidth();
-      const imgWidth = pageWidth - 20; // subtract 20 to leave some margin
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      const pageHeight = pdf.internal.pageSize.getHeight(); // get page height
-      let heightLeft = imgHeight;
-      let position = 0;
-
-      pdf.addImage(imgData, 'PNG', 10, position + 10, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
-
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight + 30; // add some extra space to position
-        pdf.addPage();
-        if (position > 0) {
-          // set top margin for all pages except the first
-          pdf.setPage(pdf.getPage() + 1);
-          pdf.addImage(imgData, 'PNG', 10, position + 20, imgWidth, imgHeight);
-        } else {
-          // first page, no top margin needed
-          pdf.addImage(imgData, 'PNG', 10, position + 10, imgWidth, imgHeight);
-        }
-        heightLeft -= pageHeight;
-      }
-
-      pdf.save('table.pdf');
-    });
-  }
-
-  console.log(sortedDataStdlst)
-  console.log(filterSTD)
-  console.log(Room)
 
   return (
     <div >
@@ -134,9 +85,8 @@ function DataStd(props) {
             </label>
 
             <select value={Class} onChange={handleSelectChangeClass}>
-              <option >Select an Class</option>
-              {arrayClass.map((item, index) => (
-                <option key={index} value={item}>{item}</option>
+              {Object.keys(arrayRoom).map((key) => (
+                <option key={key} value={key}>{key}</option>
               ))}
             </select>
 
@@ -145,9 +95,8 @@ function DataStd(props) {
             </label>
 
             <select value={Room} onChange={handleSelectChangeRoom}>
-              <option >Select an Room</option>
-              {sorteduniqueValues.map((item, index) => (
-                <option key={index} value={item}>{item}</option>
+              {arrayRoom[Class].map((value) => (
+                <option value={value}>{value}</option>
               ))}
             </select>
 
@@ -236,7 +185,7 @@ function DataStd(props) {
               </table>
             </div>
             <div className="flex justify-end mr-10 mt-3">
-              <button onClick={DownloadPDF} className="bg-green-600 font-semibold text-white px-3 py-1 m-3 rounded-md shadow-md">
+              <button className="bg-green-600 font-semibold text-white px-3 py-1 m-3 rounded-md shadow-md">
                 Export
               </button>
             </div>
