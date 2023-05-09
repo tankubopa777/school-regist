@@ -5,6 +5,7 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { editStdGrade } from "../dataFetch";
 import { useEffect } from "react";
+import * as sarabun from '../assets/font/sarabun'
 
 
 function Edit(props) {
@@ -15,29 +16,119 @@ function Edit(props) {
   }
 
   function DownloadPDF() {
-    const input = document.getElementById('table-to-print');
-    html2canvas(input)
-      .then((canvas) => {
-        const pdf = new jsPDF();
-        const imgData = canvas.toDataURL('image/png');
-        const imgWidth = 210; // mm
-        const pageHeight = 297; // mm
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        let heightLeft = imgHeight;
-        let position = 0;
+    const pdf = new jsPDF();
 
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
+    pdf.addFileToVFS("Sarabun-Regular.ttf", sarabun.regular);
+    pdf.addFileToVFS("Sarabun-Bold.ttf", sarabun.bold);
 
-        while (heightLeft >= 0) {
-          position = heightLeft - imgHeight;
-          pdf.addPage();
-          pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-          heightLeft -= pageHeight;
-        }
+    pdf.addFont("Sarabun-Regular.ttf", "Sarabun", "normal");
+    pdf.addFont("Sarabun-Bold.ttf", "Sarabun", "bold");
 
-        pdf.save('table.pdf');
-      });
+    const PDF_HEIGHT = +pdf.internal.pageSize.getHeight().toFixed(0); // 297 cm ?
+    const PDF_WIDTH = +pdf.internal.pageSize.getWidth().toFixed(0); // 210 cm ?
+
+    const PaddingX = 10;
+    const PaddingY = 10;
+    const LineHight = 7;
+
+    let cursorYStartLeft = PaddingY;
+    let cursorYStartRight = PaddingY;
+
+    /* หัวกระดาษ */
+
+    let topicHeader = "รายชื่อนักเรียนวิชา " + props.subjectselect.SUB_ID + " " + props.subjectselect.SUB_NAME;
+    let School = "โรงเรียนเพชรพิทยาคม อำเภอเมือง จังหวัดเพชรบูรณ์"
+
+    pdf.setFontSize(16);
+    pdf.setFont('Sarabun', 'bold');
+
+    pdf.text(topicHeader, PDF_WIDTH / 2, cursorYStartLeft, { align: 'center' });
+
+    cursorYStartLeft += LineHight;
+    cursorYStartRight += LineHight;
+
+    pdf.text(School, PDF_WIDTH / 2, cursorYStartLeft, { align: 'center' });
+
+    cursorYStartLeft += LineHight;
+    cursorYStartRight += LineHight;
+
+    pdf.line(PaddingX, cursorYStartLeft, PDF_WIDTH - PaddingX, cursorYStartRight);
+
+    cursorYStartLeft += LineHight;
+    cursorYStartRight += LineHight;
+
+    /* หัวตาราง */
+    pdf.setFontSize(14);
+    let headerTbID = "เลขประจำตัวนักเรียน";
+    let headerTbName = "ชื่อ";
+    let headerTbClass = "ชั้นมัธยมศึกษา";
+    let grade = "ผลการเรียน";
+
+    pdf.text(headerTbID, PaddingX + 5, cursorYStartLeft, { align: 'left' });
+    pdf.text(headerTbName, PaddingX + 50, cursorYStartLeft, { align: 'left' });
+    pdf.text(headerTbClass, PaddingX + 130, cursorYStartLeft, { align: 'left' });
+    pdf.text(grade, PaddingX + 160, cursorYStartLeft, { align: 'left' });
+    
+    //set optional cursor
+    cursorYStartLeft += 2;
+    cursorYStartRight += 2;
+
+    pdf.line(PaddingX, cursorYStartLeft, PDF_WIDTH - PaddingX, cursorYStartRight);
+
+    //reset cursor
+    cursorYStartLeft += 5;
+    cursorYStartRight += 5;
+
+    pdf.setFont('Sarabun', 'normal');
+
+    /* ตาราง */
+    let std = props.subjectselect.STD;
+    let stdLength = std.length;
+    let stdPerPage = 20;
+    let page = Math.ceil(stdLength / stdPerPage);
+
+    let stdIndex = 0;
+    let stdIndexStart = 0;
+    let stdIndexEnd = 0;
+
+    for (let i = 0; i < page; i++) {
+      stdIndexStart = stdIndex;
+      stdIndexEnd = stdIndex + stdPerPage;
+
+      if (stdIndexEnd > stdLength) {
+        stdIndexEnd = stdLength;
+      }
+
+      for (let j = stdIndexStart; j < stdIndexEnd; j++) {
+        let stdID = std[j].ID.toString();
+        let stdName = std[j].FNAME + " " + std[j].LNAME;
+        let stdClass = "ม. " + std[j].CLASS.toString() + "." + std[j].ROOM.toString();
+        let stdGrade = std[j].GRADE.toString();
+
+        pdf.text(stdID, PaddingX + 5, cursorYStartLeft, { align: 'left' });
+        pdf.text(stdName, PaddingX + 50, cursorYStartLeft, { align: 'left' });
+        pdf.text(stdClass, PaddingX + 130, cursorYStartLeft, { align: 'left' });
+        pdf.text(stdGrade, PaddingX + 160, cursorYStartLeft, { align: 'left' })
+
+        cursorYStartLeft += LineHight;
+        cursorYStartRight += LineHight;
+      }
+
+      stdIndex += stdPerPage;
+
+      if (i < page - 1) {
+        pdf.addPage();
+        cursorYStartLeft = PaddingY;
+        cursorYStartRight = PaddingY;
+      }
+    }
+    
+    const pdfDataUri = pdf.output('datauristring');
+
+    const previewWindow = window.open();
+    previewWindow?.document.write(
+      `<iframe src="${pdfDataUri}" width="100%" height="100%"></iframe>`,
+    );
   }
 
   useEffect(() => {
