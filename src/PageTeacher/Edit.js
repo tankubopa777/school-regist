@@ -11,7 +11,7 @@ import * as sarabun from '../assets/font/sarabun'
 function Edit(props) {
 
   function onSubmitGrade() {
-    editStdGrade({"cellidx":props.subjectselect.cell_idx,"std":props.subjectselect.STD})
+    editStdGrade({ "cellidx": props.subjectselect.cell_idx, "std": props.subjectselect.STD })
     alert("แก้ไขเกรดนักเรียนเสร็จสิ้น")
   }
 
@@ -68,7 +68,7 @@ function Edit(props) {
     pdf.text(headerTbName, PaddingX + 50, cursorYStartLeft, { align: 'left' });
     pdf.text(headerTbClass, PaddingX + 130, cursorYStartLeft, { align: 'left' });
     pdf.text(grade, PaddingX + 160, cursorYStartLeft, { align: 'left' });
-    
+
     //set optional cursor
     cursorYStartLeft += 2;
     cursorYStartRight += 2;
@@ -122,7 +122,7 @@ function Edit(props) {
         cursorYStartRight = PaddingY;
       }
     }
-    
+
     const pdfDataUri = pdf.output('datauristring');
 
     const previewWindow = window.open();
@@ -133,7 +133,7 @@ function Edit(props) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      props.updatesubjectselect({... props.subjects[props.subjectselect.SUB_ID],cell_idx:props.subjectselect.cell_idx});
+      props.updatesubjectselect({ ...props.subjects[props.subjectselect.SUB_ID], cell_idx: props.subjectselect.cell_idx });
     }, 500);
 
     return () => clearInterval(interval);
@@ -147,20 +147,19 @@ function Edit(props) {
           <TableStd subjectselect={props.subjectselect}
             updatesubjectselect={props.updatesubjectselect} />
         </div>
-        <div className="mt-5 w-screen laptop:w-max">
+        <div className="flex flex-col mt-5 w-screen laptop:w-max">
           <Card_Edit subjectselect={props.subjectselect} updateTablePage={props.updateTablePage}
             TablePage={props.TablePage} />
+          <div className="flex flex-row justify-center">
+            <button onClick={onSubmitGrade} className="bg-green-600 rounded-md px-2 py-1 mx-5 my-3 text-slate-50 hover:bg-lime-700 ">
+              Submit
+            </button>
+
+            <button onClick={DownloadPDF} className="bg-green-600 rounded-md px-2 py-1 mx-5 my-3 text-slate-50 hover:bg-lime-700">
+              Export
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-row-reverse">
-        <button onClick={DownloadPDF} className="bg-green-600 rounded-md px-2 py-1 mx-5 my-3 text-slate-50 hover:bg-lime-700">
-          Export
-        </button>
-
-        <button onClick={onSubmitGrade} className="bg-green-600 rounded-md px-2 py-1 mx-5 my-3 text-slate-50 hover:bg-lime-700 ">
-          Submit
-        </button>
-
       </div>
     </div>
   );
