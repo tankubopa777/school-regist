@@ -44,7 +44,7 @@ function Table(props) {
 
     return (
 
-        <div className="relative top-28 mx-auto rounded-lg">
+        <div className="relative px-4 sm:px-8 rounded-lg justify-center top-28">
             <div className="py-2">
                 <div>
                     <label className="text-xl tablet:text-4xl font-semibold leading-tight m-10">
@@ -69,7 +69,7 @@ function Table(props) {
                     }
                 </div>
 
-                <div className="p-5 ">
+                <div className="p-5">
                     <div className="m-auto tablet:m-5">
                         <table className="rounded-lg shadow-md w-full m-auto tablet:m-5">
                             <thead >
@@ -165,8 +165,9 @@ function Table(props) {
             </div>
             <div className="flex flex-row justify-center">
                 <button className="bg-green-600 text-center text-white px-2 py-1 my-5 rounded-lg justify-center" onClick={() => toAddSubject()}>AddSubject</button>
+            </div>
         </div>
-        </div>
+
     );
 }
 export default Table;
