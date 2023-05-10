@@ -35,15 +35,15 @@ export default function FreeDetail(props) {
     }
 
     return (
-        <div className="w-5/6 tablet:w-1/2 m-auto tablet:ml-10">
+        <div className="w-11/12 laptop:w-3/5 m-auto laptop:ml-10">
             <table className="w-full">
                 <tbody>
                     <tr className="flex justify-evenly rounded-lg bg-white shadow-lg border-2 m-2 p-2">
-                        <td className="w-2/12 text-[0.7rem] p-0 tablet:text-xs font-bold break-all tablet:p-1 flex flex-col justify-center">{subject.SUB_ID}</td>
-                        <td className="w-1/3 text-[0.5rem] p-0 tablet:text-xs tablet:p-1 break-all flex flex-col justify-center">{subject.SUB_NAME}</td>
-                        <td className="w-2/12 text-[0.5rem] p-0 tablet:text-xs tablet:p-1 break-all flex flex-col justify-center">{subject.STD.length}/{subject.SUB_CAP}</td>
-                        <td><button className="text-[0.5rem] p-0 tablet:text-xs tablet:p-1 font-bold hover:text-green-700 flex flex-col justify-center" onClick={() => setShow(!show)}>เพิ่มเติม</button></td>
-                        <td><button className="text-[0.5rem] p-0 tablet:text-xs tablet:p-1 font-bold hover:text-green-700 flex flex-col justify-center" onClick={() => handleClick(subject)}>ลงทะเบียน</button></td>
+                        <td className="w-2/12 text-sm tablet:text-xl p-0 font-bold break-all tablet:p-1 flex flex-col justify-center">{subject.SUB_ID}</td>
+                        <td className="w-1/3 text-sm tablet:text-xl p-0 tablet:p-1 break-all flex flex-col justify-center">{subject.SUB_NAME}</td>
+                        <td className="w-2/12 text-sm tablet:text-xl p-0 tablet:p-1 break-all flex flex-col justify-center">{subject.STD.length}/{subject.SUB_CAP}</td>
+                        <td><button className="text-sm tablet:text-xl p-0 tablet:p-1 font-bold hover:text-green-700 flex flex-col justify-center" onClick={() => setShow(!show)}>เพิ่มเติม</button></td>
+                        <td><button className="text-sm tablet:text-xl p-0 tablet:p-1 font-bold hover:text-green-700 flex flex-col justify-center" onClick={() => handleClick(subject)}>ลงทะเบียน</button></td>
                     </tr>
                     {show && <tr id="detail">
 
@@ -51,25 +51,24 @@ export default function FreeDetail(props) {
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td className="text-xs font-bold break-all p-2">ชื่อวิชาเสรี : </td>
-                                        <td className="text-xs p-2 break-all">{subject.SUB_NAME}</td>
+                                        <td className="text-sm tablet:text-xl font-bold break-all p-2">ชื่อวิชาเสรี : </td>
+                                        <td className="text-sm tablet:text-xl p-2 break-all">{subject.SUB_NAME}</td>
                                     </tr>
 
                                     <tr>
-                                        <td className="text-xs font-bold break-all p-2">ผู้สอน : </td>
-                                        <td className="text-xs p-2 break-all">{subject.SUB_PROF[0]} {subject.SUB_PROF[1]} {subject.SUB_PROF[2]}</td>
+                                        <td className="text-sm tablet:text-xl font-bold break-all p-2">ผู้สอน : </td>
+                                        <td className="text-sm tablet:text-xl p-2 break-all">{subject.SUB_PROF[0]} {subject.SUB_PROF[1]} {subject.SUB_PROF[2]}</td>
                                     </tr>
 
                                     <tr>
-                                        <td className="text-xs font-bold break-all p-2">ห้องเรียน : </td>
-
-                                        <td className="text-xs p-2 break-all">{subject.SUB_ADDR}</td>
+                                        <td className="text-sm tablet:text-xl font-bold break-all p-2">ห้องเรียน : </td>
+                                        <td className="text-sm tablet:text-xl p-2 break-all">{subject.SUB_ADDR}</td>
                                     </tr>
 
                                     <tr>
-                                        <td className="text-xs font-bold break-all p-2">ชั้นปีที่ลงทะเบียนได้ : </td>
+                                        <td className="text-sm tablet:text-xl font-bold break-all p-2">ชั้นปีที่ลงทะเบียนได้ : </td>
 
-                                        <td className="text-xs p-2 break-all">ม.{subject.SUB_PERM[0]} {subject.SUB_PERM[1]} {subject.SUB_PERM[2]} {subject.SUB_PERM[3]} {subject.SUB_PERM[4]} {subject.SUB_PERM[5]}</td>
+                                        <td className="text-sm tablet:text-xl p-2 break-all">ม.{subject.SUB_PERM[0]} {subject.SUB_PERM[1]} {subject.SUB_PERM[2]} {subject.SUB_PERM[3]} {subject.SUB_PERM[4]} {subject.SUB_PERM[5]}</td>
                                     </tr>
                                 </tbody>
                             </table>

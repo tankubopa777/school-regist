@@ -15,7 +15,7 @@ export default function ElectiveSubjectPage(props) {
                 isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
 
             <div className="relative top-28">
-                <div className="hidden tablet:block fixed right-0">
+                <div className="hidden laptop:block fixed right-0">
                     <Block_DetailStd user={props.user} />
                 </div>
                 <div id="home" className="relative">

@@ -84,7 +84,7 @@ function Edit(props) {
     /* ตาราง */
     let std = props.subjectselect.STD;
     let stdLength = std.length;
-    let stdPerPage = 20;
+    let stdPerPage = 30;
     let page = Math.ceil(stdLength / stdPerPage);
 
     let stdIndex = 0;

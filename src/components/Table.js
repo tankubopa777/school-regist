@@ -44,10 +44,10 @@ function Table(props) {
 
     return (
 
-        <div className="relative top-28 mx-auto rounded-lg">
+        <div className="relative px-4 sm:px-8 rounded-lg justify-center top-28">
             <div className="py-2">
                 <div>
-                    <label className="text-2xl font-semibold leading-tight m-4">
+                    <label className="text-xl tablet:text-4xl font-semibold leading-tight m-10">
                         {SubType === 'CHUM' ? 'วิชาชุมนุม' : 'วิชาเสรี'}
                     </label>
                     <button
@@ -69,43 +69,43 @@ function Table(props) {
                     }
                 </div>
 
-                <div className="py-4 ">
-                    <div>
-                        <table className="rounded-lg shadow-md w-11/12 mx-auto">
+                <div className="p-5">
+                    <div className="m-auto tablet:m-5">
+                        <table className="rounded-lg shadow-md w-full m-auto tablet:m-5">
                             <thead >
                                 <tr className="rounded-lg shadow-md">
                                     <th
-                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-sm tablet:text-base laptop:text-xl p-5 font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         Status
                                     </th>
                                     <th
-                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-sm tablet:text-base laptop:text-xl p-5 font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         รหัสวิชา
                                     </th>
                                     <th
-                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-sm tablet:text-base laptop:text-xl p-5 font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         ชื่อวิชา
                                     </th>
                                     <th
-                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-sm tablet:text-base laptop:text-xl p-5 font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         ห้องเรียน
                                     </th>
                                     <th
-                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-sm tablet:text-base laptop:text-xl p-5 font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         ชื่ออาจารย์
                                     </th>
                                     <th
-                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-sm tablet:text-base laptop:text-xl p-5 font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         จำนวนนักเรียน
                                     </th>
                                     <th
-                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="border-b-2 border-gray-200 bg-gray-100 text-center text-sm tablet:text-base laptop:text-xl p-5 font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         เพิ่มเติม
                                     </th>
@@ -115,46 +115,46 @@ function Table(props) {
                             <tbody >
                                 {filterTYPE.map((subjectsType, index) => (
                                     <tr key={index} className="bg-red w-max cursor-pointer hover:bg-lime-50" onClick={() => handleClick(subjectsType)}>
-                                        <td className=" p-4 w-20 border-b border-gray-200 text-sm text-center">
-                                            <p className="text-gray-900 whitespace-no-wrap">
+                                        <td className=" p-4 w-20 border-b border-gray-200 text-center">
+                                            <p className="text-gray-900 whitespace-no-wrap text-sm tablet:text-base laptop:text-xl">
                                                 {Status(subjectsType.AVAILABILITY)}
                                             </p>
                                         </td>
 
-                                        <td className=" p-4 border-b border-gray-200 text-sm text-center">
-                                            <p className="text-gray-900 whitespace-no-wrap">
+                                        <td className=" p-4 border-b border-gray-200 text-center">
+                                            <p className="text-gray-900 whitespace-no-wrap text-sm tablet:text-base laptop:text-xl">
                                                 {subjectsType.SUB_ID}
                                             </p>
                                         </td>
 
-                                        <td className="border-b border-gray-200 text-sm text-center">
-                                            <p className="text-gray-900 whitespace-no-wrap">
+                                        <td className="border-b border-gray-200 text-center">
+                                            <p className="text-gray-900 whitespace-no-wrap text-sm tablet:text-base laptop:text-xl">
                                                 {subjectsType.SUB_NAME}
                                             </p>
                                         </td>
 
-                                        <td className=" border-b border-gray-200 text-sm text-center">
-                                            <p className="text-gray-900 whitespace-no-wrap">
+                                        <td className=" border-b border-gray-200 text-center">
+                                            <p className="text-gray-900 whitespace-no-wrap text-sm tablet:text-base laptop:text-xl">
                                                 {subjectsType.SUB_ADDR}
                                             </p>
                                         </td>
 
-                                        <td className=" border-b border-gray-200 text-sm text-center">
-                                            <p className="text-gray-900 whitespace-no-wrap">
+                                        <td className=" border-b border-gray-200 text-center">
+                                            <p className="text-gray-900 whitespace-no-wrap text-sm tablet:text-base laptop:text-xl">
                                                 {subjectsType.SUB_PROF[0]}, {subjectsType.SUB_PROF[1]}
                                             </p>
                                         </td>
 
-                                        <td className="  border-b border-gray-200 text-sm text-center">
-                                            <p className="text-gray-900 whitespace-no-wrap">
+                                        <td className="  border-b border-gray-200 text-center">
+                                            <p className="text-gray-900 whitespace-no-wrap text-sm tablet:text-base laptop:text-xl">
                                                 {subjectsType.STD.length}/{subjectsType.SUB_CAP}
                                             </p>
                                         </td>
 
                                         <td
-                                            className=" border-b border-gray-200 text-sm text-center"
+                                            className=" border-b border-gray-200 text-center"
                                         >
-                                            <button onClick={() => handleClick(subjectsType)} className="underline">เพิ่มเติม</button>
+                                            <button onClick={() => handleClick(subjectsType)} className="underline text-sm tablet:text-base laptop:text-xl">เพิ่มเติม</button>
                                         </td>
                                     </tr>
                                 ))}
@@ -165,8 +165,9 @@ function Table(props) {
             </div>
             <div className="flex flex-row justify-center">
                 <button className="bg-green-600 text-center text-white px-2 py-1 my-5 rounded-lg justify-center" onClick={() => toAddSubject()}>AddSubject</button>
+            </div>
         </div>
-        </div>
+
     );
 }
 export default Table;
