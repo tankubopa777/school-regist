@@ -44,15 +44,15 @@ function Navbar_component(props) {
             <div>
               <img src={Logo} className="w-20" />
             </div>
-            <div className="hidden tablet:flex flex-col justify-center m-3">
+            <div className="hidden laptop:flex flex-col justify-center m-3">
               <p className="">โรงเรียนเพชรพิทยาคม</p>
             </div>
 
-            <div className="flex tablet:hidden flex-col justify-center m-3">
+            <div className="flex laptop:hidden flex-col justify-center m-3">
               <p className="">{props.user.ID} <br /> {props.user.FNAME}</p>
             </div>
 
-            <div className="hidden tablet:flex flex-row justify-center ">
+            <div className="hidden laptop:flex flex-row justify-center ">
               <div className="flex flex-col justify-center m-1">
                 <a onClick={std1} className="hover:underline cursor-pointer">
                   วิชาเสรี
@@ -72,7 +72,7 @@ function Navbar_component(props) {
           </div>
 
           <div className="flex flex-col justify-center m-1">
-            <div className="hidden tablet:flex flex-row justify-center">
+            <div className="hidden laptop:flex flex-row justify-center">
               <div className="flex flex-row justify-center items-center m-1">
                 <p className="">
                   {props.user.ID} {props.user.FNAME}
@@ -90,7 +90,7 @@ function Navbar_component(props) {
               </div>
             </div>
             <div>
-              <div className="flex tablet:hidden">
+              <div className="flex laptop:hidden">
                 <button id="btn" onClick={navToggle} className="hidden flex-row justify-center m-3">
                   <div className="fixed">
                     <div className="h-4 w-4 border-r-4 ml-1 -rotate-45" />
@@ -112,7 +112,7 @@ function Navbar_component(props) {
         </div>
 
         <div className="flex justify-center bg-green-600">
-          <div id="mobile-nav" className="hidden flex-col justify-center m-3 tablet:hidden">
+          <div id="mobile-nav" className="hidden flex-col justify-center m-3 laptop:hidden">
             <div className="flex flex-col justify-center ">
               <div className="flex flex-row justify-center m-3">
                 <a onClick={std1} className="hover:text-white hover:font-bold cursor-pointer">
