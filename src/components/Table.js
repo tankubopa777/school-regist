@@ -44,10 +44,10 @@ function Table(props) {
 
     return (
 
-        <div className="relative px-4 sm:px-8 rounded-lg justify-center top-28">
+        <div className="w-screen relative px-4 sm:px-8 rounded-lg justify-center top-28">
             <div className="py-2">
                 <div>
-                    <label className="text-xl tablet:text-4xl font-semibold leading-tight m-10">
+                    <label className="text-2xl tablet:text-4xl font-semibold leading-tight m-10">
                         {SubType === 'CHUM' ? 'วิชาชุมนุม' : 'วิชาเสรี'}
                     </label>
                     <button
@@ -70,8 +70,11 @@ function Table(props) {
                 </div>
 
                 <div className="p-5">
+                    <div className="relative tablet:translate-x-10">
+                        <button className="bg-green-600 text-center text-white px-5 py-2 rounded-lg justify-center" onClick={() => toAddSubject()}>AddSubject</button>
+                    </div>
                     <div className="m-auto tablet:m-5">
-                        <table className="rounded-lg shadow-md w-full m-auto tablet:m-5">
+                        <table className="rounded-lg shadow-md w-full m-auto my-5 tablet:m-5">
                             <thead >
                                 <tr className="rounded-lg shadow-md">
                                     <th
@@ -162,9 +165,6 @@ function Table(props) {
                         </table>
                     </div>
                 </div>
-            </div>
-            <div className="flex flex-row justify-center">
-                <button className="bg-green-600 text-center text-white px-2 py-1 my-5 rounded-lg justify-center" onClick={() => toAddSubject()}>AddSubject</button>
             </div>
         </div>
 
