@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { memo, useState, useEffect, useRef } from "react";
 
-function TableStd(props) {
+const TableStd = memo((props) => {
     const selected = Object.values(props.subjectselect);
 
     const [editingRow, setEditingRow] = useState(null);
@@ -141,5 +141,5 @@ function TableStd(props) {
             </div>
         </div>
     );
-}
+});
 export default TableStd;
