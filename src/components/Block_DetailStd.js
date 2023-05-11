@@ -1,6 +1,6 @@
 function Block_DetailStd(props) {
     return (
-        <div className="">
+        <div>
             <div className="flex flex-wrap flex-col rounded-lg bg-gray-200 m-4 p-4">
                 <h1 className="font-bold flex flex-row justify-center" > ข้อมูลนักเรียน  </h1>
                 <div className="" >เลขประจำตัว : {props.user.ID}</div>
