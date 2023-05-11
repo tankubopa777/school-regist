@@ -144,8 +144,10 @@ function Edit(props) {
     <div className="relative top-28 flex flex-col flex-wrap items-center">
       <div className="flex flex-wrap-reverse laptop:flex-nowrap laptop:flex-row laptop:items-center">
         <div className="m-4 mt-5 w-screen laptop:w-max">
-          <TableStd subjectselect={props.subjectselect}
-            updatesubjectselect={props.updatesubjectselect} />
+          <TableStd 
+            subjectselect={props.subjectselect}
+            updatesubjectselect={props.updatesubjectselect}
+            />
         </div>
         <div className="flex flex-col mt-5 w-screen laptop:w-max">
           <Card_Edit subjectselect={props.subjectselect} updateTablePage={props.updateTablePage}
