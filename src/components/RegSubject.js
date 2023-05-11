@@ -133,7 +133,7 @@ function Register_subject(props) {
             <div className="relative top-28 flex justify-center text-xs tablet:text-sm">
                 <div className="inline-block rounded-lg t bg-gray-200 m-4 ">
     
-                    <div className="block rounded-lg p-4 bg-neutral-400">
+                    <div className="block rounded-lg p-4 bg-neutral-400 text-white">
                         <h1 className="text-center font-bold" >
                             เพิ่มวิชาเรียนใหม่
                         </h1>
@@ -146,7 +146,7 @@ function Register_subject(props) {
                                 รหัสวิชา :
                                 <input
                                     required
-                                    className="ml-2"
+                                    className="ml-2 px-2"
                                     type="text"
                                     id="SUB_ID"
                                     value={formData.SUB_ID}
@@ -156,11 +156,11 @@ function Register_subject(props) {
                                 />
                             </label>
 
-                            <label className="p-2 m-2">
+                            <label className="p-2 m-2 ">
                                 ชื่อวิชา :
                                 <input
                                     required
-                                    className="ml-2"
+                                    className="ml-2 px-2"
                                     type="text"
                                     id="SUB_NAME"
                                     value={formData.SUB_NAME}
@@ -174,7 +174,7 @@ function Register_subject(props) {
                                 ผู้สอน 1 :
                                 <input
                                     required
-                                    className="ml-2"
+                                    className="ml-2 px-2"
                                     type="text"
                                     id="SUB_PROF1"
                                     value={formData.SUB_PROF1}
@@ -188,7 +188,7 @@ function Register_subject(props) {
                                 ผู้สอน 2 :
                                 <input
                                     required
-                                    className="ml-2"
+                                    className="ml-2 px-2"
                                     type="text"
                                     id="SUB_PROF2"
                                     value={formData.SUB_PROF2}
@@ -203,7 +203,7 @@ function Register_subject(props) {
                                 Quota :
                                 <input
                                     required
-                                    className="ml-2"
+                                    className="ml-2 px-2"
                                     type="text"
                                     id="SUB_CAP"
                                     value={formData.SUB_CAP}
@@ -217,7 +217,7 @@ function Register_subject(props) {
                                 ห้องเรียน :
                                 <input
                                     required
-                                    className="ml-2"
+                                    className="ml-2 px-2"
                                     type="text"
                                     id="SUB_ADDR"
                                     value={formData.SUB_ADDR}

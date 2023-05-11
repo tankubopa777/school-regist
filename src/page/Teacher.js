@@ -107,13 +107,13 @@ function Teacher_page(props) {
     return (
       
       <div>
-        {console.log("ResetPassword")}
         <NavbarAJ
           user={props.user} updateUser={props.updateUser}
           isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn}
           updateTablePage={updateTablePage}
           TablePage={TablePage} />
 
+        <div>
         <Block_DetailStd user={props.user}
                          subjectselect={subjectselect}
                          updatesubjectselect={updatesubjectselect}
@@ -122,7 +122,7 @@ function Teacher_page(props) {
                          TablePage={TablePage}
                          updateStatus={updateStatus}
                          Status={Status}
-        />
+        /></div>
         
       </div>
     );
