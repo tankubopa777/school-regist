@@ -12,7 +12,7 @@ export default function SummarizeDetail(props) {
     return (
         <div className="w-5/6 tablet:w-1/2 m-auto tablet:ml-10">
             <div>
-                <h1 className="text-2xl font-bold text-center">{subject.SUB_TYPE === "CHUM" ? "วิชาชุมนุม" : "วิชาเลือก"}</h1>
+                <h1 className="text-2xl font-bold text-center">{subject.SUB_TYPE === "CHUM" ? "วิชาชุมนุม" : "วิชาเลือกเสรี"}</h1>
             </div>
             <table className="w-full">
                 <tbody>

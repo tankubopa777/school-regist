@@ -133,7 +133,7 @@ function Edit(props) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      props.updatesubjectselect({ ...props.subjects[props.subjectselect.SUB_ID], cell_idx: props.subjectselect.cell_idx });
+      props.updatesubjectselect({ ...props.subjectselect, cell_idx: props.subjectselect.cell_idx });
     }, 500);
 
     return () => clearInterval(interval);

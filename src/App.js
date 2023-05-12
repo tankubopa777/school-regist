@@ -70,6 +70,7 @@ export default function App() {
       fetchSubjects()
         .then(response => {
           setSubjects(response);
+          console.log("fS");
         })
         .catch(error => {
           console.log(error);
@@ -78,12 +79,13 @@ export default function App() {
       fetchUsers()
         .then(response => {
           setUsers(response);
+          console.log("fu");
         })
         .catch(error => {
           console.log(error);
         });
 
-    }, 1000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [subjects,users]); // to realtime reload component when state change

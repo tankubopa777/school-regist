@@ -13,14 +13,17 @@ function NavbarAJ(props) {
 
   const MainClick = () => {
     props.updateTablePage('Table');
+    navToggle();
   }
 
   const DataStdClick = () => {
     props.updateTablePage('Data_student');
+    navToggle();
   }
 
   const resetPasswd = () => {
     props.updateTablePage('ResetPassword');
+    navToggle();
   }
 
 

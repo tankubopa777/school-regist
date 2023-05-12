@@ -69,7 +69,7 @@ function Register_subject(props) {
 
     const editSubjectBtn = (e) => {
         e.preventDefault();
-        if (temp_subsel.SUB_ID == '' || temp_subsel.SUB_NAME == '' || temp_subsel.SUB_CAP == '' || temp_subsel.SUB_TYPE == '' || temp_subsel.PERM == []) {
+        if (temp_subsel.SUB_ID == '' || temp_subsel.SUB_NAME == '' || temp_subsel.SUB_CAP == '' || temp_subsel.SUB_TYPE == '' || temp_subsel.PERM == [] || temp_subsel.TYPE == "" ) {
             alert('ไม่สามารถเว้นช่องว่างได้')
         }
         else if(checkIfSubIdExists(temp_subsel.SUB_ID)) {
@@ -86,7 +86,7 @@ function Register_subject(props) {
     const addSubjectBtn = (e) => {
         e.preventDefault();
 
-        if (formData.SUB_ID == '' || formData.SUB_NAME == '' || formData.SUB_CAP == '' || formData.SUB_TYPE == '' || formData.PERM == []) {
+        if (formData.SUB_ID == '' || formData.SUB_NAME == '' || formData.SUB_CAP == '' || formData.SUB_TYPE == '' || formData.PERM == [] || formData.TYPE == "" ) {
             alert('ไม่สามารถเว้นช่องว่างได้')
         }
         else if (formData.SUB_ID in props.subjects) {

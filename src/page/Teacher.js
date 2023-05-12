@@ -114,7 +114,8 @@ function Teacher_page(props) {
           TablePage={TablePage} />
 
         <div>
-        <Block_DetailStd user={props.user}
+        <Block_DetailStd
+                         user={props.user}
                          subjectselect={subjectselect}
                          updatesubjectselect={updatesubjectselect}
                          updateTablePage={updateTablePage}

@@ -33,30 +33,29 @@ export default function Block_DetailStd(props) {
 
 
     return (
-        <div className="w-max h-max tablet:w-[700px] absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-1/2">
-            <div className="hidden tablet:flex flex-wrap flex-col rounded-lg bg-white shadow-lg border-2 m-2 p-2">
-
-                {props.user.TYPE === 'STD' ? (
-                    <div className="mx-5 className1">
-                        <h1 className="font-bold flex flex-row justify-center">ข้อมูลนักเรียน</h1>
-                        <div className="my-2">เลขประจำตัว: {props.user.ID}</div>
-                        <div className="my-2">
-                            ชื่อ - นามสกุล: {props.user.FNAME} {props.user.LNAME}
-                        </div>
-                        <div className="my-2">
-                            ชั้น: ม. {props.user.STD_CLASS}.{props.user.STD_ROOM}
-                        </div>
-                        {console.log(props.user.TYPE === 'STD')}
-                    </div>
-                ) : (
-                    <div className="mx-5 className2">
-                        <h1 className="font-bold flex flex-row justify-center">ข้อมูลอาจารย์</h1>
-                        <div className="my-2">
-                            ชื่อ - นามสกุล: {props.user.FNAME} {props.user.LNAME}
-                        </div>
-                        {console.log(props.user.TYPE === 'PROF')}
-                    </div>
-                )}
+        <div className="w-max h-max tablet:w-[700px] absolute top-28 left-1/2 -translate-x-1/2">
+    <div className="hidden tablet:flex flex-wrap flex-col rounded-lg bg-white shadow-lg border-2 m-2 p-2">
+        {props.user.TYPE === 'STD' ? (
+            <div className="mx-5 className1">
+                <h1 className="font-bold flex flex-row justify-center">ข้อมูลนักเรียน</h1>
+                <div className="my-2">เลขประจำตัว: {props.user.ID}</div>
+                <div className="my-2">
+                    ชื่อ - นามสกุล: {props.user.FNAME} {props.user.LNAME}
+                </div>
+                <div className="my-2">
+                    ชั้น: ม. {props.user.STD_CLASS}.{props.user.STD_ROOM}
+                </div>
+                {console.log(props.user.TYPE === 'STD')}
+            </div>
+        ) : (
+            <div className="mx-5 top-1/2">
+                <h1 className="font-bold flex flex-row justify-center">ข้อมูลอาจารย์</h1>
+                <div className="my-2">
+                    ชื่อ - นามสกุล: {props.user.FNAME} {props.user.LNAME}
+                </div>
+                {console.log(props.user.TYPE === 'PROF')}
+            </div>
+        )}
 
 
                 {/* <div className1="mx-5 ">
