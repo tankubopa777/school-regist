@@ -15,6 +15,8 @@ function DataStd(props) {
   }
 
   const dataStd = Object.values(props.users);
+  const subject = Object.values(props.subjects);
+
   const grade = Object.values(props.subjectselect);
   console.log(grade)
 
@@ -117,28 +119,31 @@ function DataStd(props) {
     /* หัวตาราง */
     pdf.setFontSize(14);
     let headerTbNumber = "เลขที่";
-    let headerTbID = "เลขประจำตัวนักเรียน";
+    let headerTbID = "เลขประจำตัว\nนักเรียน";
     let headerTbName = "ชื่อ";
-    let headerTbClass = "ชั้นมัธยมศึกษา";
+    let headerTbClass = "ชั้นมัธยม\nศึกษาปีที่";
     let headerTbChum = "วิชาชุมนุม";
+    let HeaderGradeChum = "ผลการเรียน";
     let headerTbFree = "วิชาเสรี";
+    let HeaderGradeFree = "ผลการเรียน";
 
     pdf.text(headerTbNumber, PaddingX + 5, cursorYStartLeft, { align: 'left' });
-    pdf.text(headerTbID, PaddingX + 20, cursorYStartLeft, { align: 'left' });
-    pdf.text(headerTbName, PaddingX + 50, cursorYStartLeft, { align: 'left' });
-    pdf.text(headerTbClass, PaddingX + 90, cursorYStartLeft, { align: 'left' });
-    pdf.text(headerTbChum, PaddingX + 120, cursorYStartLeft, { align: 'left' });
-    pdf.text(headerTbFree, PaddingX + 160, cursorYStartLeft, { align: 'left' });
+    pdf.text(headerTbID, PaddingX + 25, cursorYStartLeft, { align: 'center' });
+    pdf.text(headerTbName, PaddingX + 40, cursorYStartLeft, { align: 'left' });
+    pdf.text(headerTbClass, PaddingX + 85, cursorYStartLeft, { align: 'center' });
+    pdf.text(headerTbChum, PaddingX + 95, cursorYStartLeft, { align: 'left' });
+    pdf.text(HeaderGradeChum, PaddingX + 125, cursorYStartLeft, { align: 'center' });
+    pdf.text(headerTbFree, PaddingX + 140, cursorYStartLeft, { align: 'left' });
+    pdf.text(HeaderGradeFree, PaddingX + 170, cursorYStartLeft, { align: 'center' });
 
     //set optional cursor
-    cursorYStartLeft += 2;
-    cursorYStartRight += 2;
+    cursorYStartLeft += LineHight + 2;
+    cursorYStartRight += LineHight + 2;
 
     pdf.line(PaddingX, cursorYStartLeft, PDF_WIDTH - PaddingX, cursorYStartRight);
 
-    //reset cursor
-    cursorYStartLeft += 5;
-    cursorYStartRight += 5;
+    cursorYStartLeft += LineHight;
+    cursorYStartRight += LineHight;
 
     pdf.setFont('Sarabun', 'normal');
 
@@ -152,19 +157,36 @@ function DataStd(props) {
       let STD_CLASS = filterSTD[i].STD_CLASS.toString();
       let STD_ROOM = filterSTD[i].STD_ROOM.toString();
       let CHUM = checkArray(filterSTD[i].CHUM);
+
+      let CHUM_GRADE = ""
+      if (filterSTD[i].CHUM.length === 0) {
+        CHUM_GRADE = " - "
+      } else {
+        CHUM_GRADE = (subject.filter(subjectlst => subjectlst.SUB_ID === filterSTD[i].CHUM[0].SUB_ID)[0].STD[0].GRADE).toString()
+      }
+
       let FREE = checkArray(filterSTD[i].FREE);
+
+      let FREE_GRADE = ""
+      if (filterSTD[i].FREE.length === 0) {
+        FREE_GRADE = " - "
+      } else {
+        FREE_GRADE = (subject.filter(subjectlst => subjectlst.SUB_ID === filterSTD[i].FREE[0].SUB_ID)[0].STD[0].GRADE).toString()
+      }
 
       pdf.setFontSize(12);
 
       pdf.text(STD_ORD, PaddingX + 8, cursorYStartLeft, { align: 'left' });
       pdf.text(ID, PaddingX + 20, cursorYStartLeft, { align: 'left' });
       pdf.setFontSize(10);
-      pdf.text(FNAME + " " + LNAME, PaddingX + 50, cursorYStartLeft, { align: 'left' });
+      pdf.text(FNAME + " " + LNAME, PaddingX + 40, cursorYStartLeft, { align: 'left' });
       pdf.setFontSize(12);
-      pdf.text("ม." + STD_CLASS + "." + STD_ROOM, PaddingX + 90, cursorYStartLeft, { align: 'left' });
+      pdf.text("ม." + STD_CLASS + "." + STD_ROOM, PaddingX + 80, cursorYStartLeft, { align: 'left' });
       pdf.setFontSize(10);
-      pdf.text(CHUM, PaddingX + 120, cursorYStartLeft, { align: 'left' });
-      pdf.text(FREE, PaddingX + 160, cursorYStartLeft, { align: 'left' });
+      pdf.text(CHUM, PaddingX + 95, cursorYStartLeft, { align: 'left' });
+      pdf.text(CHUM_GRADE, PaddingX + 125, cursorYStartLeft, { align: 'left' });
+      pdf.text(FREE, PaddingX + 140, cursorYStartLeft, { align: 'left' });
+      pdf.text(FREE_GRADE, PaddingX + 170, cursorYStartLeft, { align: 'left' });
 
       cursorYStartLeft += LineHight;
       cursorYStartRight += LineHight;
@@ -183,7 +205,6 @@ function DataStd(props) {
       `<iframe src="${pdfDataUri}" width="100%" height="100%"></iframe>`,
     );
   };
-
 
   return (
     <div >
