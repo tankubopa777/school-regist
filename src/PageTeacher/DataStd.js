@@ -17,7 +17,7 @@ function DataStd(props) {
   const dataStd = Object.values(props.users);
   const subject = Object.values(props.subjects);
 
-  const grade = Object.values(props.subjectselect);
+  const grade = Object.values(props.subjects);
   console.log(grade)
 
   const [Room, setRoom] = useState(1)
