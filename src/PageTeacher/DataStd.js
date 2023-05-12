@@ -263,11 +263,11 @@ function DataStd(props) {
                       >
                         ชุมนุม
                       </th>
-                      <th
+                      {/* <th
                         className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
                       >
                         ผลการเรียน
-                      </th>
+                      </th> */}
                     </tr>
                   </thead>
 
@@ -310,12 +310,12 @@ function DataStd(props) {
                           </p>
                         </td>
 
-                        <td className=" w-1/6 border-b border-gray-200 bg-white">
+                        {/* <td className=" w-1/6 border-b border-gray-200 bg-white">
                           <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
                             GRADE
                           </p>
                         </td>
-                      {console.log(student)}
+                      {console.log(student)} */}
                         
                       </tr>
                     ))}
