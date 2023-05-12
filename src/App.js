@@ -19,12 +19,13 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCGqelfpqihqu3HhIqKQUWx5AX_oT8wnU8",
-  authDomain: "register-pks.firebaseapp.com",
-  projectId: "register-pks",
-  storageBucket: "register-pks.appspot.com",
-  messagingSenderId: "1034227295574",
-  appId: "1:1034227295574:web:57c7b4a35924f128aa62f7"
+  apiKey: "AIzaSyDsoOoA846r8_4opK16JowVzv8N3lcFgKM",
+  authDomain: "pks-reg.firebaseapp.com",
+  projectId: "pks-reg",
+  storageBucket: "pks-reg.appspot.com",
+  messagingSenderId: "905703944162",
+  appId: "1:905703944162:web:53f9fe170121284f3693bb",
+  measurementId: "G-DW4XC10V2K"
 };
 
 // Initialize Firebase

@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "pksr-test",
+    "site": "pks-reg",
     "public": "build",
     "ignore": [
       "firebase.json",

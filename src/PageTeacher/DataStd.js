@@ -15,6 +15,8 @@ function DataStd(props) {
   }
 
   const dataStd = Object.values(props.users);
+  const grade = Object.values(props.subjectselect);
+  console.log(grade)
 
   const [Room, setRoom] = useState(1)
   const [Class, setClass] = useState(1)
@@ -182,9 +184,7 @@ function DataStd(props) {
     );
   };
 
-  console.log(sortedDataStdlst)
-  console.log(filterSTD)
-  console.log(Room)
+
   return (
     <div >
       <div className="relative px-4 sm:px-8 rounded-lg justify-center top-28">
@@ -257,12 +257,16 @@ function DataStd(props) {
                       <th
                         className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
                       >
+                        เสรี
+                      </th><th
+                        className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
+                      >
                         ชุมนุม
                       </th>
                       <th
                         className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
                       >
-                        เสรี
+                        ผลการเรียน
                       </th>
                     </tr>
                   </thead>
@@ -295,15 +299,24 @@ function DataStd(props) {
 
                         <td className=" w-1/6 border-b border-gray-200 bg-white">
                           <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
+                            {checkArray(student.FREE)}
+                          </p>
+
+                        </td> 
+                        
+                        <td className=" w-1/6 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
                             {checkArray(student.CHUM)}
                           </p>
                         </td>
 
                         <td className=" w-1/6 border-b border-gray-200 bg-white">
                           <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
-                            {checkArray(student.FREE)}
+                            GRADE
                           </p>
                         </td>
+                      {console.log(student)}
+                        
                       </tr>
                     ))}
                   </tbody>
