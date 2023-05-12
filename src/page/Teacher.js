@@ -31,6 +31,14 @@ function Teacher_page(props) {
     setStatus(newValue);
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      updatesubjectselect({ ...subjectselect, cell_idx: subjectselect.cell_idx });
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, [props.subjectselect]);
+
   if (TablePage === 'Table') {
     return (
       <div>
@@ -115,7 +123,8 @@ function Teacher_page(props) {
           TablePage={TablePage} />
 
         <div>
-        <Block_DetailStd user={props.user}
+        <Block_DetailStd
+                         user={props.user}
                          subjectselect={subjectselect}
                          updatesubjectselect={updatesubjectselect}
                          updateTablePage={updateTablePage}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addSubject , editSubject} from "../dataFetch";
+import { addSubject, editSubject } from "../dataFetch";
 
 function Register_subject(props) {
     //Register Subject
@@ -65,28 +65,28 @@ function Register_subject(props) {
         const subIds = Object.values(props.subjects).map(sub => sub.SUB_ID);
         const filteredSubIds = subIds.filter(subId => subId !== temp_subsel.SUB_ID);
         return filteredSubIds.includes(temp_subsel.SUB_ID);
-      }
+    }
 
     const editSubjectBtn = (e) => {
         e.preventDefault();
-        if (temp_subsel.SUB_ID == '' || temp_subsel.SUB_NAME == '' || temp_subsel.SUB_CAP == '' || temp_subsel.SUB_TYPE == '' || temp_subsel.PERM == []) {
+        if (temp_subsel.SUB_ID == '' || temp_subsel.SUB_NAME == '' || temp_subsel.SUB_CAP == '' || temp_subsel.SUB_TYPE == '' || temp_subsel.PERM == [] || temp_subsel.TYPE == "") {
             alert('ไม่สามารถเว้นช่องว่างได้')
         }
-        else if(checkIfSubIdExists(temp_subsel.SUB_ID)) {
+        else if (checkIfSubIdExists(temp_subsel.SUB_ID)) {
             alert('มีรหัสวิชานี้ถูกลงทะเบียนไว้แล้ว')
         }
-        else{
+        else {
             editSubject(temp_subsel);
             alert('แก้ไขเสร็จสิ้น')
             props.updateTablePage("Edit")
         }
-        
+
     };
 
     const addSubjectBtn = (e) => {
         e.preventDefault();
 
-        if (formData.SUB_ID == '' || formData.SUB_NAME == '' || formData.SUB_CAP == '' || formData.SUB_TYPE == '' || formData.PERM == []) {
+        if (formData.SUB_ID == '' || formData.SUB_NAME == '' || formData.SUB_CAP == '' || formData.SUB_TYPE == '' || formData.PERM == [] || formData.TYPE == "") {
             alert('ไม่สามารถเว้นช่องว่างได้')
         }
         else if (formData.SUB_ID in props.subjects) {
@@ -121,7 +121,7 @@ function Register_subject(props) {
                 SUB_ADDR: ""
             })
 
-            
+
             props.updateTablePage("Table")
         }
 
@@ -132,7 +132,7 @@ function Register_subject(props) {
         return (
             <div className="relative top-28 flex justify-center text-xs tablet:text-sm">
                 <div className="inline-block rounded-lg t bg-gray-200 m-4 ">
-    
+
                     <div className="block rounded-lg p-4 bg-neutral-400 text-white">
                         <h1 className="text-center font-bold" >
                             เพิ่มวิชาเรียนใหม่
@@ -198,7 +198,7 @@ function Register_subject(props) {
                                 />
                             </label>
 
-                            
+
                             <label className="p-2 m-2">
                                 Quota :
                                 <input
@@ -235,12 +235,10 @@ function Register_subject(props) {
                                         required
                                         className="m-2 p-2"
                                         type="radio"
-                                        id="TYPE"
+                                        id="TYPE_CHUM"
                                         value="CHUM"
                                         checked={formData.TYPE === "CHUM"}
-                                        onChange={(e) =>
-                                            setFormData({ ...formData, TYPE: e.target.value })
-                                        }
+                                        onChange={(e) => setFormData({ ...formData, TYPE: e.target.value })}
                                     />
                                 </label>
 
@@ -250,15 +248,14 @@ function Register_subject(props) {
                                         required
                                         className="m-2 p-2"
                                         type="radio"
-                                        id="TYPE"
+                                        id="TYPE_FREE"
                                         value="FREE"
                                         checked={formData.TYPE === "FREE"}
-                                        onChange={(e) =>
-                                            setFormData({ ...formData, TYPE: e.target.value })
-                                        }
+                                        onChange={(e) => setFormData({ ...formData, TYPE: e.target.value })}
                                     />
                                 </label>
                             </div>
+
                         </div>
 
                     </form>
@@ -353,7 +350,7 @@ function Register_subject(props) {
         return (
             <div className="flex justify-center">
                 <div className="inline-block rounded-lg t bg-gray-200 m-4 ">
-    
+
                     <div className="block rounded-lg p-4 bg-neutral-400">
                         <h1 className="text-center font-bold" >
                             แก้ไขข้อมูลรายวิชา {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}

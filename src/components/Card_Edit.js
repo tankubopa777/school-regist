@@ -44,11 +44,6 @@ function Card_Edit(props) {
 
                 <div className="flex justify-end">
 
-                    <button className="bg-red-600 px-2.5 py-0.5 mx-2 rounded-md text-center text-slate-100 hover:bg-red-800">
-                        Delete
-
-                    </button>
-
                     <button onClick={() => handleClick()} className="bg-green-600 px-2.5 mx-2 py-0.5 rounded-md text-center text-slate-100 hover:bg-green-800">
                         Edit
                     </button>

@@ -15,7 +15,7 @@ export default function ChumDetail(props) {
         } else if (user.CHUM.length == 1) {
             alert("คุณได้ลงทะเบียนไปแล้ว");
         } else if (!(user.STD_CLASS == subject.SUB_PERM[0]) || (user.STD_CLASS == subject.SUB_PERM[1]) || (user.STD_CLASS == subject.SUB_PERM[2]) || (user.STD_CLASS == subject.SUB_PERM[3]) || (user.STD_CLASS == subject.SUB_PERM[4]) || (user.STD_CLASS == subject.SUB_PERM[5])) {
-            alert("ไม่สามารถลงทะเบียนได้");
+            alert("ไม่สามารถลงทะเบียนได้ โปรดดูมัธยมที่เปิดรับ");
         } else if(!subject.AVAILABILITY){
                 alert("วิชานี้ปิดลงทะเบียน");  
         } else {

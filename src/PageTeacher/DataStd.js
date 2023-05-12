@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import * as sarabun from '../assets/font/sarabun'
 
 function DataStd(props) {
 
   //Key ชั้นมัธยมศึกษา Value ห้องเรียน
   const arrayRoom = {
-    1 : [],
-    2 : [],
-    3 : [],
-    4 : [],
-    5 : [],
-    6 : [],
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: [],
+    6: [],
   }
 
   const dataStd = Object.values(props.users);
   const subject = Object.values(props.subjects);
+
+  const grade = Object.values(props.subjectselect);
+  console.log(grade)
 
   const [Room, setRoom] = useState(1)
   const [Class, setClass] = useState(1)
@@ -49,7 +51,7 @@ function DataStd(props) {
       arrayRoom[STD_CLASS].push(STD_ROOM);
     }
     arrayRoom[STD_CLASS] = [...new Set(arrayRoom[STD_CLASS])];
-    
+
     for (const key in arrayRoom) {
       arrayRoom[key].sort((a, b) => {
         if (!isNaN(a) && !isNaN(b)) {
@@ -173,7 +175,7 @@ function DataStd(props) {
       }
 
       pdf.setFontSize(12);
-      
+
       pdf.text(STD_ORD, PaddingX + 8, cursorYStartLeft, { align: 'left' });
       pdf.text(ID, PaddingX + 20, cursorYStartLeft, { align: 'left' });
       pdf.setFontSize(10);
@@ -204,9 +206,6 @@ function DataStd(props) {
     );
   };
 
-  // console.log(sortedDataStdlst)
-  // console.log(filterSTD)
-  // console.log(Room)
   return (
     <div >
       <div className="relative px-4 sm:px-8 rounded-lg justify-center top-28">
@@ -215,120 +214,145 @@ function DataStd(props) {
             <label className="text-xl tablet:text-4xl font-semibold leading-tight mx-5">
               รายชื่อนักเรียน <br />
             </label>
-            <label className="text-sm tablet:text-2xl font-semibold leading-tight mx-5">
-              ชั้นมัธยมศึกษาปีที่ :
-            </label>
 
-            <select value={Class} onChange={handleSelectChangeClass} className="text-sm tablet:text-2xl">
-              {Object.keys(arrayRoom).map((key) => (
-                <option key={key} value={key}>{key}</option>
-              ))}
-            </select>
+            <div className="flex items-center">
+              <label className="text-sm tablet:text-2xl font-semibold leading-tight mx-5 pt-2">
+                ชั้นมัธยมศึกษาปีที่ :
+              </label>
 
-            <label className="text-xl font-semibold leading-tight mr-2">
-              ห้อง :
-            </label>
+              <select
+                value={Class}
+                onChange={handleSelectChangeClass}
+                className="text-sm tablet:text-2xl"
+              >
+                {Object.keys(arrayRoom).map((key) => (
+                  <option key={key} value={key}>
+                    {key}
+                  </option>
+                ))}
+              </select>
 
-            <select value={Room} onChange={handleSelectChangeRoom} className="text-sm tablet:text-2xl">
-              {arrayRoom[Class].map((value) => (
-                <option value={value}>{value}</option>
-              ))}
-            </select>
+              <label className="text-xl font-semibold leading-tight ml-2">ห้อง :</label>
 
-          </div>
-
-
-
-          <div className="p-5">
-            <div id="table-to-print" className="m-auto tablet:m-5">
-              <table className="rounded-lg shadow-md m-auto tablet:m-5 w-full">
-                <thead >
-                  <tr className="rounded-lg shadow-md py-5">
-                    <th
-                      className="border-b-2 border-gray-200 bg-gray-100 text-left py-5 pl-5 text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
-                    >
-                      เลขที่
-                    </th>
-                    <th
-                      className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-xl  font-semibold text-gray-700 uppercase tracking-wider"
-                    >
-                      เลขประจำตัวนักเรียน
-                    </th>
-                    <th
-                      className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
-                    >
-                      ชื่อ
-                    </th>
-                    <th
-                      className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
-                    >
-                      ชั้นมัธยมศึกษา
-                    </th>
-                    <th
-                      className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
-                    >
-                      ชุมนุม
-                    </th>
-                    <th
-                      className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
-                    >
-                      เสรี
-                    </th>
-                  </tr>
-                </thead>
-
-                <tbody >
-                  {filterSTD.map((student, index) => (
-                    <tr key={index} className="w-max ">
-                      <td className=" p-4 w-1/6 border-b border-gray-200 bg-white">
-                        <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
-                          {student.STD_ORD}
-                        </p>
-                      </td>
-                      <td className=" p-4 w-1/6 border-b border-gray-200 bg-white">
-                        <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
-                          {student.ID}
-                        </p>
-                      </td>
-
-                      <td className=" w-1/6 pr-5 border-b border-gray-200 bg-white">
-                        <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-sm laptop:text-l break-words">
-                          {student.FNAME} {student.LNAME}
-                        </p>
-                      </td>
-
-                      <td className=" w-1/6 border-b border-gray-200 bg-white">
-                        <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
-                          ม.{student.STD_CLASS}.{student.STD_ROOM}
-                        </p>
-                      </td>
-
-                      <td className=" w-1/6 border-b border-gray-200 bg-white">
-                        <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
-                          {checkArray(student.CHUM)}
-                        </p>
-                      </td>
-
-                      <td className=" w-1/6 border-b border-gray-200 bg-white">
-                        <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
-                          {checkArray(student.FREE)}
-                        </p>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <select
+                value={Room}
+                onChange={handleSelectChangeRoom}
+                className="text-sm tablet:text-2xl"
+              >
+                {arrayRoom[Class].map((value) => (
+                  <option key={value} value={value}>
+                    {value}
+                  </option>
+                ))}
+              </select>
+              </div>
             </div>
-            <div className="flex justify-end mt-3">
-              <button onClick={DownloadPDF} className="bg-green-600 font-semibold text-white px-3 py-1 m-3 rounded-md shadow-md">
-                Export
-              </button>
+
+
+
+            <div className="p-4">
+              <div id="table-to-print" className="m-auto tablet:m-5">
+                <table className="rounded-lg shadow-md m-auto tablet:m-5 w-full">
+                  <thead >
+                    <tr className="rounded-lg shadow-md py-5">
+                      <th
+                        className="border-b-2 border-gray-200 bg-gray-100 text-left py-5 pl-5 text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
+                      >
+                        เลขที่
+                      </th>
+                      <th
+                        className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-xl  font-semibold text-gray-700 uppercase tracking-wider"
+                      >
+                        เลขประจำตัวนักเรียน
+                      </th>
+                      <th
+                        className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
+                      >
+                        ชื่อ
+                      </th>
+                      <th
+                        className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
+                      >
+                        ชั้นมัธยมศึกษา
+                      </th>
+                      <th
+                        className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
+                      >
+                        เสรี
+                      </th><th
+                        className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
+                      >
+                        ชุมนุม
+                      </th>
+                      {/* <th
+                        className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-base laptop:text-xl font-semibold text-gray-700 uppercase tracking-wider"
+                      >
+                        ผลการเรียน
+                      </th> */}
+                    </tr>
+                  </thead>
+
+                  <tbody >
+                    {filterSTD.map((student, index) => (
+                      <tr key={index} className="w-max ">
+                        <td className=" p-4 w-1/6 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
+                            {student.STD_ORD}
+                          </p>
+                        </td>
+                        <td className=" p-4 w-1/6 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
+                            {student.ID}
+                          </p>
+                        </td>
+
+                        <td className=" w-1/6 pr-5 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-sm laptop:text-l break-words">
+                            {student.FNAME} {student.LNAME}
+                          </p>
+                        </td>
+
+                        <td className=" w-1/6 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
+                            ม.{student.STD_CLASS}.{student.STD_ROOM}
+                          </p>
+                        </td>
+
+                        <td className=" w-1/6 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
+                            {checkArray(student.FREE)}
+                          </p>
+
+                        </td> 
+                        
+                        <td className=" w-1/6 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
+                            {checkArray(student.CHUM)}
+                          </p>
+                        </td>
+
+                        {/* <td className=" w-1/6 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
+                            GRADE
+                          </p>
+                        </td>
+                      {console.log(student)} */}
+                        
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="flex justify-end mt-3">
+                <button onClick={DownloadPDF} className="bg-green-600 font-semibold text-white px-3 py-1 m-3 rounded-md shadow-md">
+                  Export
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+      );
 };
 
-export default DataStd;
+      export default DataStd;

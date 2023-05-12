@@ -51,7 +51,7 @@ function Table(props) {
                         {SubType === 'CHUM' ? 'วิชาชุมนุม' : 'วิชาเสรี'}
                     </label>
                     <button
-                        className="inline-block px-3 py-2 m-3 shadow-md rounded-lg bg-gray-300 font-bold hover:text-gray-700"
+                        className="inline-block px-3 py-2 m-3 shadow-md rounded-lg bg-slate-50 font-bold hover:text-gray-700"
                         onClick={() => setopen(!open)}>
                         Sort
                     </button>
