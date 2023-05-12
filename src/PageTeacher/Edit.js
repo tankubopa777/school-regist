@@ -131,14 +131,6 @@ function Edit(props) {
     );
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      props.updatesubjectselect({ ...props.subjectselect, cell_idx: props.subjectselect.cell_idx });
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, [props.subjectselect]);
-
 
   return (
     <div className="relative top-28 flex flex-col flex-wrap items-center">
