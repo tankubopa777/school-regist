@@ -39,9 +39,9 @@ export default function FreeDetail(props) {
             <table className="w-full">
                 <tbody>
                     <tr className="flex justify-evenly rounded-lg bg-white shadow-lg border-2 m-2 p-2">
-                        <td className="w-2/12 text-sm tablet:text-xl p-0 font-bold break-all tablet:p-1 flex flex-col justify-center">{subject.SUB_ID}</td>
-                        <td className="w-1/3 text-sm tablet:text-xl p-0 tablet:p-1 break-all flex flex-col justify-center">{subject.SUB_NAME}</td>
-                        <td className="w-2/12 text-sm tablet:text-xl p-0 tablet:p-1 break-all flex flex-col justify-center">{subject.STD.length}/{subject.SUB_CAP}</td>
+                        <td className="w-2/14 text-sm tablet:text-xl p-0 font-bold break-all tablet:p-1 flex flex-col justify-center">{subject.SUB_ID}</td>
+                        <td className="w-1/3 text-sm tablet:text-xl p-0 tablet:p-1 break-all flex flex-col justify-center truncate max-w-[10rem]">{subject.SUB_NAME}</td>
+                        <td className="w-1/6 text-sm tablet:text-xl p-0 tablet:p-1 break-all flex flex-col justify-center pl-2">{subject.STD.length}/{subject.SUB_CAP}</td>
                         <td><button className="text-sm tablet:text-xl p-0 tablet:p-1 font-bold hover:text-green-700 flex flex-col justify-center" onClick={() => setShow(!show)}>เพิ่มเติม</button></td>
                         <td><button className="text-sm tablet:text-xl p-0 tablet:p-1 font-bold hover:text-green-700 flex flex-col justify-center" onClick={() => handleClick(subject)}>ลงทะเบียน</button></td>
                     </tr>

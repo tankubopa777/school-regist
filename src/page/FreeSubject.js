@@ -15,10 +15,16 @@ export default function ElectiveSubjectPage(props) {
                 isLoggedIn={props.isLoggedIn} updateIsLoggedIn={props.updateIsLoggedIn} />
 
             <div className="relative top-28">
-                <div className="hidden laptop:block fixed right-0">
+            <label className='laptop:text-3xl
+                 tablet:text-2xl
+                 mobile:text-xl
+                 px-5 font-bold text-gray-700 uppercase tracking-wide'>
+                    รายชื่อวิชาเลือกเสรี
+                </label>
+                <div className="hidden laptop:block fixed right-0 pt-2">
                     <Block_DetailStd user={props.user} />
                 </div>
-                <div id="home" className="relative">
+                <div id="home" className="relative top-5">
                         <ElectiveDetail 
                         subjects={props.subjects} user={props.user} updateUser={props.updateUser} />   
                 </div>
