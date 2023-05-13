@@ -9,7 +9,8 @@ export default function FreeSubject(props) {
     for (let i = 0; i < subjects.length; i++) {
         if (subjects[i].SUB_TYPE === "FREE" && subjects[i].AVAILABILITY) {
           subjects[i]["CELLIDX"] = subjects.indexOf(subjects[i])
-          freeSubject.push(subjects[i]);
+          
+          
         }
     }
 
