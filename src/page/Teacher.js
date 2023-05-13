@@ -31,14 +31,6 @@ function Teacher_page(props) {
     setStatus(newValue);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      updatesubjectselect({ ...subjectselect, cell_idx: subjectselect.cell_idx });
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, [props.subjectselect]);
-
   if (TablePage === 'Table') {
     return (
       <div>

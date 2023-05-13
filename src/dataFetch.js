@@ -1,5 +1,5 @@
 
-const url = "https://script.google.com/macros/s/AKfycbwCrGWAkb7TE3Xt_7biJVewNbyIMO5MZIOyEo2B8dgbkkjDwlQwhR-funKsQbC20izSaw/exec"
+const url = "https://script.google.com/macros/s/AKfycbwq1XnWAv0OYWuxbgfkgmW4UvE5Pqmmo0Bpi43tI0f3SJ-k0WVyf3QAi-Y7rNMth8mRwA/exec"
 
 export async function editAvailability(data) {
     // { this is how parameter should look like

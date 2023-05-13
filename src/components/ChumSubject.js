@@ -9,7 +9,12 @@ export default function ChumSubject(props) {
     for (let i = 0; i < subjects.length; i++) {
         if (subjects[i].SUB_TYPE === "CHUM" && subjects[i].AVAILABILITY) {
           subjects[i]["CELLIDX"] = subjects.indexOf(subjects[i])
-          chumSubject.push(subjects[i]);
+          if (!(props.user.STD_CLASS == subjects[i].SUB_PERM[0]) || (props.user.STD_CLASS == subjects[i].SUB_PERM[1]) || (props.user.STD_CLASS == subjects[i].SUB_PERM[2]) || (props.user.STD_CLASS == subjects[i].SUB_PERM[3]) || (props.user.STD_CLASS == subjects[i].SUB_PERM[4]) || (props.user.STD_CLASS == subjects[i].SUB_PERM[5])) {
+            continue;
+          }
+          else{
+            chumSubject.push(subjects[i]);
+          }
         }
     }
 

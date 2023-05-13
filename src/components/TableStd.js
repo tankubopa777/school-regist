@@ -13,6 +13,14 @@ const TableStd = memo((props) => {
         }
       }, [editingRow]);
 
+      
+    useEffect(() => {
+    const interval = setInterval(() => {
+        props.updatesubjectselect({ ...props.subjectselect, cell_idx: props.subjectselect.cell_idx });
+    }, 500);
+
+    return () => clearInterval(interval);
+    }, [props.subjectselect]);
 
     function handleClickRow(index) {
       setEditingRow(index);
