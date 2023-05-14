@@ -56,7 +56,7 @@ const TableStd = memo((props) => {
                     </label>
 
                 </div>
-                <div className="">
+                <div className="pt-4">
                     <div
                         className="laptop:w-max shadow-md rounded-lg"
                     >
@@ -93,7 +93,7 @@ const TableStd = memo((props) => {
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
                                             <div className="flex">
                                                 <div>
-                                                    <p className="text-gray-900 whitespace-no-wrap">
+                                                    <p className="text-gray-900 whitespace-no-wrap text-xs mobile:text-sm">
                                                         {each.ID}
                                                     </p>
                                                 </div>
@@ -101,7 +101,7 @@ const TableStd = memo((props) => {
                                         </td>
 
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs mobile:text-sm">
-                                            <p className="text-gray-900 whitespace-no-wrap">
+                                            <p className="text-gray-900 whitespace-no-wrap whitespace-nowrap overflow-ellipsis">
                                                 {each.FNAME} {each.LNAME}
                                             </p>
                                         </td>

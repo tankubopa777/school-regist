@@ -452,7 +452,7 @@ function DataStd(props) {
           </td>
 
           <td className="w-1/8 border-b border-gray-200 bg-white">
-            <p className="text-gray-900 whitespace-no-              wrap text-xs tablet:text-base laptop:text-xl">
+            <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
               ม.{student.STD_CLASS}.{student.STD_ROOM}
             </p>
           </td>
