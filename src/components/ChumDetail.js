@@ -67,7 +67,7 @@ export default function ChumDetail(props) {
 
                                     <tr>
                                         <td className="text-sm tablet:text-xl font-bold break-all p-2">ชั้นปีที่ลงทะเบียนได้ : </td>
-                                        <td className="text-sm tablet:text-xl p-2 break-all">ม.{subject.SUB_PERM[0]} {subject.SUB_PERM[1]} {subject.SUB_PERM[2]} {subject.SUB_PERM[3]} {subject.SUB_PERM[4]} {subject.SUB_PERM[5]}</td>
+                                        <td className="text-sm tablet:text-xl p-2 break-all">ม.{subject.SUB_PERM[0]} {subject.SUB_PERM[1]} {subject.SUB_PERM[2]} {subject.SUB_PERM[3]} {subject.SUB_PERM[4]} {subject.SUB_PERM[5]} {text}</td>
                                     </tr>
                                 </tbody>
                             </table>
