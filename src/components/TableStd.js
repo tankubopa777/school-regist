@@ -57,11 +57,9 @@ const TableStd = memo((props) => {
 
                 </div>
                 <div className="">
-                    <div
-                        className="laptop:w-max shadow-md rounded-lg"
-                    >
+                    <div className="overflow-scroll h-[70vh] scrollbar-hide laptop:w-max shadow-md rounded-lg">
                         <table id="table-to-print" className="gird grid-cols-5 min-w-full leading-normal break-words">
-                            <thead className="">
+                            <thead className="sticky top-0">
                                 <tr className="w-auto">
                                     <th
                                         className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"

@@ -11,7 +11,7 @@
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   margin: 0;
-  pading: 0;
+  padding: 0;
 }
 
 :global(body)::-webkit-scrollbar {
@@ -24,6 +24,18 @@
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
+
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 code {

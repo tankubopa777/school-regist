@@ -53,7 +53,7 @@ function Table(props) {
                     <button
                         className="inline-block px-3 py-2 m-3 shadow-md rounded-lg bg-slate-50 font-bold hover:text-gray-700"
                         onClick={() => setopen(!open)}>
-                        Sort
+                        category
                     </button>
 
                     {open && (
@@ -69,13 +69,10 @@ function Table(props) {
                     }
                 </div>
 
-                <div className="p-5">
-                    <div className="relative tablet:translate-x-10">
-                        <button className="bg-green-600 text-center text-white px-5 py-2 rounded-lg justify-center" onClick={() => toAddSubject()}>AddSubject</button>
-                    </div>
-                    <div className="m-auto tablet:m-5">
-                        <table className="rounded-lg shadow-md w-full m-auto my-5 tablet:m-5">
-                            <thead >
+                <div className="">
+                    <div className="px-8 overflow-scroll h-[70vh] scrollbar-hide">
+                        <table className="w-full">
+                            <thead className="sticky top-0">
                                 <tr className="rounded-lg shadow-md">
                                     <th
                                         className="border-b-2 border-gray-200 bg-gray-100 text-center text-sm tablet:text-base laptop:text-xl p-5 font-semibold text-gray-700 uppercase tracking-wider"
@@ -114,8 +111,7 @@ function Table(props) {
                                     </th>
                                 </tr>
                             </thead>
-
-                            <tbody >
+                            <tbody className="border-black">
                                 {filterTYPE.map((subjectsType, index) => (
                                     <tr key={index} className="bg-red w-max cursor-pointer hover:bg-lime-50" onClick={() => handleClick(subjectsType)}>
                                         <td className=" p-4 w-20 border-b border-gray-200 text-center">
@@ -164,6 +160,11 @@ function Table(props) {
                             </tbody>
                         </table>
                     </div>
+
+                    <div className="py-4 translate-x-[175vh] w-min">
+                        <button className="bg-green-600 text-center text-white px-5 py-2 rounded-lg justify-center" onClick={() => toAddSubject()}>AddSubject</button>
+                    </div>
+                    
                 </div>
             </div>
         </div>
