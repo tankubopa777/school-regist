@@ -400,91 +400,91 @@ function DataStd(props) {
 
 
 
-<div className="w-full overflow-x-auto">
-  <table className="rounded-lg shadow-md m-auto w-full">
-    <thead>
-      <tr className="rounded-lg shadow-md py-5">
-        <th className="border-b-2 border-gray-200 bg-gray-100 text-left py-5 pl-3 text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
-          เลขที่
-        </th>
-        <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
-          เลขประจำตัวนักเรียน
-        </th>
-        <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
-          ชื่อ
-        </th>
-        <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
-          ชั้นมัธยมศึกษา
-        </th>
-        <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
-          ชุมนุม
-        </th>
-        <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
-          ผลการเรียน (ชุมนุม)
-        </th>
-        <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
-          เสรี
-        </th>
-        <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
-          ผลการเรียน (เสรี)
-        </th>
-      </tr>
-    </thead>
+              <div className="w-full overflow-x-auto">
+                <table className="rounded-lg shadow-md m-auto w-full">
+                  <thead>
+                    <tr className="rounded-lg shadow-md py-5">
+                      <th className="border-b-2 border-gray-200 bg-gray-100 text-left py-5 pl-3 text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
+                        เลขที่
+                      </th>
+                      <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
+                        เลขประจำตัวนักเรียน
+                      </th>
+                      <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
+                        ชื่อ
+                      </th>
+                      <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
+                        ชั้นมัธยมศึกษา
+                      </th>
+                      <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
+                        ชุมนุม
+                      </th>
+                      <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
+                        ผลการเรียน (ชุมนุม)
+                      </th>
+                      <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
+                        เสรี
+                      </th>
+                      <th className="border-b-2 border-gray-200 bg-gray-100 text-left text-xs tablet:text-sm laptop:text-lg font-semibold text-gray-700 uppercase tracking-wider">
+                        ผลการเรียน (เสรี)
+                      </th>
+                    </tr>
+                  </thead>
 
-    <tbody>
-      {filterSTD.map((student, index) => (
-        <tr key={index} className="w-max">
-          <td className="p-4 w-1/8 border-b border-gray-200 bg-white">
-            <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
-              {student.STD_ORD}
-            </p>
-          </td>
-          <td className="p-4 w-1/8 border-b border-gray-200 bg-white">
-            <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
-              {student.ID}
-            </p>
-          </td>
+                  <tbody>
+                    {filterSTD.map((student, index) => (
+                      <tr key={index} className="w-max">
+                        <td className="p-4 w-1/8 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
+                            {student.STD_ORD}
+                          </p>
+                        </td>
+                        <td className="p-4 w-1/8 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
+                            {student.ID}
+                          </p>
+                        </td>
 
-          <td className="w-1/8 pr-5 border-b border-gray-200 bg-white">
-            <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-sm laptop:text-l break-words">
-              {student.FNAME} {student.LNAME}
-            </p>
-          </td>
+                        <td className="w-1/8 pr-5 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
+                            {student.FNAME} {student.LNAME}
+                          </p>
+                        </td>
 
-          <td className="w-1/8 border-b border-gray-200 bg-white">
-            <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
-              ม.{student.STD_CLASS}.{student.STD_ROOM}
-            </p>
-          </td>
+                        <td className="w-1/8 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl">
+                            ม.{student.STD_CLASS}.{student.STD_ROOM}
+                          </p>
+                        </td>
 
-          <td className="w-1/8 border-b border-gray-200 bg-white">
-            <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
-              {checkArray(student.CHUM)}
-            </p>
-          </td>
+                        <td className="w-1/8 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
+                            {checkArray(student.CHUM)}
+                          </p>
+                        </td>
 
-          <td className="w-1/8 border-b border-gray-200 bg-white">
-            <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l laptop:pl-7 tablet:pl-2 mobile:pl-2">
-              {dictGradeChum[student.ID]}
-            </p>
-          </td>
+                        <td className="w-1/8 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l laptop:pl-7 tablet:pl-2 mobile:pl-2">
+                            {dictGradeChum[student.ID]}
+                          </p>
+                        </td>
 
-          <td className="w-1/8 border-b border-gray-200 bg-white">
-            <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
-              {checkArray(student.FREE)}
-            </p>
-          </td>
+                        <td className="w-1/8 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l">
+                            {checkArray(student.FREE)}
+                          </p>
+                        </td>
 
-          <td className="w-1/8 border-b border-gray-200 bg-white">
-            <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l laptop:pl-7 tablet:pl-2 mobile:pl-2">
-              {dictGradeFree[student.ID]}
-            </p>
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
+                        <td className="w-1/8 border-b border-gray-200 bg-white">
+                          <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-l laptop:pl-7 tablet:pl-2 mobile:pl-2">
+                            {dictGradeFree[student.ID]}
+                          </p>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
 
 
 
