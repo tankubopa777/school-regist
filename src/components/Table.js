@@ -143,8 +143,12 @@ function Table(props) {
 
                                                 <td className=" border-b border-gray-200 text-center">
                                                     <p className="text-gray-900 whitespace-no-wrap text-xs tablet:text-base laptop:text-xl whitespace-nowrap overflow-ellipsis">
-                                                        {subjectsType.SUB_PROF[0]}, <br />
-                                                        {subjectsType.SUB_PROF[1]}
+                                                        {subjectsType.SUB_PROF.map((prof, index) => (
+                                                            <div key={index}>
+                                                                {index == subjectsType.SUB_PROF - 1 ? <> {prof} <br /> </> : prof}
+                                                            </div>
+
+                                                        ))}
 
                                                     </p>
                                                 </td>
