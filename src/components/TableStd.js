@@ -58,6 +58,7 @@ const TableStd = memo((props) => {
                 </div>
                 <div className="pt-4">
                     <div className="overflow-scroll h-[70vh] scrollbar-hide laptop:w-max shadow-md rounded-lg">
+
                         <table id="table-to-print" className="gird grid-cols-5 min-w-full leading-normal break-words">
                             <thead className="sticky top-0">
                                 <tr className="w-auto">
@@ -91,7 +92,7 @@ const TableStd = memo((props) => {
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-x">
                                             <div className="flex">
                                                 <div>
-                                                    <p className="text-gray-900 whitespace-no-wrap">
+                                                    <p className="text-gray-900 whitespace-no-wrap text-xs mobile:text-sm">
                                                         {each.ID}
                                                     </p>
                                                 </div>
@@ -100,6 +101,7 @@ const TableStd = memo((props) => {
 
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-x mobile:text-x">
                                             <p className="text-gray-900 whitespace-no-wrap">
+
                                                 {each.FNAME} {each.LNAME}
                                             </p>
                                         </td>

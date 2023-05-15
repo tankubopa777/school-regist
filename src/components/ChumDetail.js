@@ -14,10 +14,10 @@ export default function ChumDetail(props) {
             alert("วิชานี้เต็มแล้ว");
         } else if (user.CHUM.length == 1) {
             alert("คุณได้ลงทะเบียนไปแล้ว");
-        } else if (!(user.STD_CLASS == subject.SUB_PERM[0]) || (user.STD_CLASS == subject.SUB_PERM[1]) || (user.STD_CLASS == subject.SUB_PERM[2]) || (user.STD_CLASS == subject.SUB_PERM[3]) || (user.STD_CLASS == subject.SUB_PERM[4]) || (user.STD_CLASS == subject.SUB_PERM[5])) {
+        } else if (!(subject.SUB_PERM.includes(user.STD_CLASS))) {
             alert("ไม่สามารถลงทะเบียนได้ โปรดดูมัธยมที่เปิดรับ");
-        } else if(!subject.AVAILABILITY){
-                alert("วิชานี้ปิดลงทะเบียน");  
+        } else if (!subject.AVAILABILITY) {
+            alert("วิชานี้ปิดลงทะเบียน");
         } else {
             let confirm = prompt("กรุณาใส่รหัสวิชาเพื่อยืนยันการลงทะเบียน").toLowerCase();
             if (confirm == subject.SUB_ID.toLowerCase()) {
@@ -28,7 +28,7 @@ export default function ChumDetail(props) {
                 })
                 alert("ลงทะเบียนสำเร็จ")
                 navigate('/วิชาที่ลงทะเบียนเเล้ว');
-            }else{
+            } else {
                 alert("ลงทะเบียนไม่สำเร็จ")
             }
         }
@@ -57,7 +57,14 @@ export default function ChumDetail(props) {
 
                                     <tr>
                                         <td className="text-sm tablet:text-xl font-bold break-all p-2">ผู้สอน : </td>
-                                        <td className="text-sm tablet:text-xl p-2 break-all">{subject.SUB_PROF[0]} {subject.SUB_PROF[1]} {subject.SUB_PROF[2]}</td>
+                                        <td className="text-sm tablet:text-xl p-2 break-all">
+                                        {subject.SUB_PROF.map((prof, index) => (
+                                                <div key={index}>
+                                                    {index == subject.SUB_PROF-1 ?  <> {prof} <br/> </>: prof }
+                                                </div>
+                                                
+                                            ))}
+                                        </td>
                                     </tr>
 
                                     <tr>
