@@ -21,7 +21,7 @@ export default function ElectiveSubjectPage(props) {
                  px-5 font-bold text-gray-700 uppercase tracking-wide'>
                     รายชื่อวิชาเลือกเสรี
                 </label>
-                <div className="hidden laptop:block fixed right-0 pt-2">
+                <div className="hidden laptop:block fixed right-16 pt-2">
                     <Block_DetailStd user={props.user} />
                 </div>
                 <div id="home" className="relative top-5">

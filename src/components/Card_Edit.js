@@ -20,13 +20,13 @@ function Card_Edit(props) {
 
     const Status = (status) => {
         if (isButtonDisabled === true) {
-            return <div className="bg-gray-600 px-2 py-1 text-white rounded-lg cursor-progress">Loading...</div>
+            return <div className="text-x bg-gray-600 px-2 py-1 text-white rounded-lg cursor-progress">Loading...</div>
         }
         else if (status === true) {
-            return <div className="bg-green-500 px-2 py-1 text-white rounded-lg hover:bg-green-700 cursor-pointer">Open</div>
+            return <div className="text-x bg-green-500 px-2 py-1 text-white rounded-lg hover:bg-green-700 cursor-pointer">Open</div>
         }
         else {
-            return <div className="bg-red-500 px-2 py-1 text-white rounded-lg hover:bg-red-700 cursor-pointer">Close</div>
+            return <div className="text-x bg-red-500 px-2 py-1 text-white rounded-lg hover:bg-red-700 cursor-pointer">Close</div>
         }
     }
 
@@ -35,11 +35,11 @@ function Card_Edit(props) {
             <div className="w-3/4 laptop:w-max rounded-lg bg-gray-50 m-4 p-4 w-22 h-23">
                 <div className="px-2 py-2 mb-4">
                     <p onClick={editAvailabilityC} disabled={isButtonDisabled} className="text-center text-sm px-1 mb-2 cursor-pointer" >{Status(props.subjectselect.AVAILABILITY)}</p>
-                    <p className="text-start text-sm" > <label className="font-bold">รหัสวิชา :  </label>{props.subjectselect.SUB_ID}</p>
-                    <p className="text-start text-sm" > <label className="font-bold">ชื่อวิชา : </label>{props.subjectselect.SUB_NAME}</p>
-                    <p className="text-start text-sm" > <label className="font-bold">คุณครู : </label>{props.subjectselect.SUB_PROF[0]} ,{props.subjectselect.SUB_PROF[1]}</p>
-                    <p className="text-start text-sm" > <label className="font-bold">จำนวนนักเรียนที่ลงทะเบียน :  </label>{selected[7].length} / {props.subjectselect.SUB_CAP}</p>
-                    <p className="text-start text-sm" > <label className="font-bold">ห้องเรียน :  </label>{props.subjectselect.SUB_ADDR}</p>
+                    <p className="text-start text-x" > <label className="font-bold">รหัสวิชา :  </label>{props.subjectselect.SUB_ID}</p>
+                    <p className="text-start text-x" > <label className="font-bold">ชื่อวิชา : </label>{props.subjectselect.SUB_NAME}</p>
+                    <p className="text-start text-x" > <label className="font-bold">คุณครู : </label>{props.subjectselect.SUB_PROF[0]} ,{props.subjectselect.SUB_PROF[1]}</p>
+                    <p className="text-start text-x" > <label className="font-bold">จำนวนนักเรียนที่ลงทะเบียน :  </label>{selected[7].length} / {props.subjectselect.SUB_CAP}</p>
+                    <p className="text-start text-x" > <label className="font-bold">ห้องเรียน :  </label>{props.subjectselect.SUB_ADDR}</p>
                 </div>
 
                 <div className="flex justify-end">

@@ -51,35 +51,34 @@ const TableStd = memo((props) => {
         <div>
             <div className="flex flex-col items-center py-3 top-28">
                 <div>
-                    <label className="text-2xl font-semibold leading-tight">
+                    <label className="text-3xl font-semibold leading-tight">
                         รายชื่อนักเรียนวิชา : {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}
                     </label>
 
                 </div>
                 <div className="pt-4">
-                    <div
-                        className="laptop:w-max shadow-md rounded-lg"
-                    >
+                    <div className="overflow-scroll h-[70vh] scrollbar-hide laptop:w-max shadow-md rounded-lg">
+
                         <table id="table-to-print" className="gird grid-cols-5 min-w-full leading-normal break-words">
-                            <thead className="">
+                            <thead className="sticky top-0">
                                 <tr className="w-auto">
                                     <th
-                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         เลขประจำตัวนักเรียน
                                     </th>
                                     <th
-                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         ชื่อ
                                     </th>
                                     <th
-                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         มัธยมศึกษา
                                     </th>
                                     <th
-                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         ผลการเรียน
                                     </th>
@@ -90,7 +89,7 @@ const TableStd = memo((props) => {
                                 {selected[7].map((each, index) => (
                                     <tr>
 
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-x">
                                             <div className="flex">
                                                 <div>
                                                     <p className="text-gray-900 whitespace-no-wrap text-xs mobile:text-sm">
@@ -100,19 +99,20 @@ const TableStd = memo((props) => {
                                             </div>
                                         </td>
 
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs mobile:text-sm">
-                                            <p className="text-gray-900 whitespace-no-wrap whitespace-nowrap overflow-ellipsis">
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-x mobile:text-x">
+                                            <p className="text-gray-900 whitespace-no-wrap">
+
                                                 {each.FNAME} {each.LNAME}
                                             </p>
                                         </td>
 
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs mobile:text-sm">
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-x mobile:text-x">
                                             <p className="text-gray-900 whitespace-no-wrap">
                                                 {each.CLASS}.{each.ROOM}
                                             </p>
                                         </td>
 
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs mobile:text-sm">
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-x mobile:text-x">
                                             <label className="text-gray-900 whitespace-no-wrap hover:bg-neutral-700">
                                                 {editingRow === index ? (
                                                     <input

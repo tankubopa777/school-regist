@@ -348,7 +348,7 @@ function Register_subject(props) {
     //Edit Register Subject
     else {
         return (
-            <div className="flex justify-center">
+            <div className="pt-[15vh] flex justify-center">
                 <div className="inline-block rounded-lg t bg-gray-200 m-4 ">
 
                     <div className="block rounded-lg p-4 bg-neutral-400">
