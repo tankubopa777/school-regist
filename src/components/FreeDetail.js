@@ -14,7 +14,7 @@ export default function FreeDetail(props) {
                 alert("วิชานี้เต็มแล้ว");
             } else if (user.FREE.length == 1) {
                 alert("คุณได้ลงทะเบียนไปแล้ว");
-            } else if (!(user.STD_CLASS == subject.SUB_PERM[0]) || (user.STD_CLASS == subject.SUB_PERM[1]) || (user.STD_CLASS == subject.SUB_PERM[2]) || (user.STD_CLASS == subject.SUB_PERM[3]) || (user.STD_CLASS == subject.SUB_PERM[4]) || (user.STD_CLASS == subject.SUB_PERM[5])) {
+            } else if (!(subject.SUB_PERM.includes(user.STD_CLASS))) {
                 alert("ไม่สามารถลงทะเบียนได้ โปรดดูมัธยมที่เปิดรับ");
             } else if(!subject.AVAILABILITY){
                 alert("วิชานี้ปิดลงทะเบียน");  
