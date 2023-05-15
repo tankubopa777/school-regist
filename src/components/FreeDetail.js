@@ -57,7 +57,14 @@ export default function FreeDetail(props) {
 
                                     <tr>
                                         <td className="text-sm tablet:text-xl font-bold break-all p-2">ผู้สอน : </td>
-                                        <td className="text-sm tablet:text-xl p-2 break-all">{subject.SUB_PROF[0]} {subject.SUB_PROF[1]} {subject.SUB_PROF[2]}</td>
+                                        <td className="text-sm tablet:text-xl p-2 break-all">
+                                            {subject.SUB_PROF.map((prof, index) => (
+                                                <div key={index}>
+                                                    {index == subject.SUB_PROF-1 ?  <> {prof} <br/> </>: prof }
+                                                </div>
+                                                
+                                            ))}
+                                        </td>
                                     </tr>
 
                                     <tr>
