@@ -39,7 +39,6 @@ function Table(props) {
             return <div className="bg-red-500 px-2 py-1 text-white rounded-lg">Close</div>
         }
     }
-    console.log(filterTYPE);
 
 
     return (
