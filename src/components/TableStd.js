@@ -51,7 +51,7 @@ const TableStd = memo((props) => {
         <div>
             <div className="flex flex-col items-center py-3 top-28">
                 <div>
-                    <label className="text-3xl font-semibold leading-tight">
+                    <label className="text-3xl font-semibold leading-tight mobile:text-xl">
                         รายชื่อนักเรียนวิชา : {props.subjectselect.SUB_ID} {props.subjectselect.SUB_NAME}
                     </label>
 
@@ -63,22 +63,22 @@ const TableStd = memo((props) => {
                             <thead className="sticky top-0">
                                 <tr className="w-auto">
                                     <th
-                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x mobile:text-sm font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         เลขประจำตัวนักเรียน
                                     </th>
                                     <th
-                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x mobile:text-sm font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         ชื่อ
                                     </th>
                                     <th
-                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x mobile:text-sm font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         มัธยมศึกษา
                                     </th>
                                     <th
-                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x font-semibold text-gray-700 uppercase tracking-wider"
+                                        className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-x mobile:text-sm font-semibold text-gray-700 uppercase tracking-wider"
                                     >
                                         ผลการเรียน
                                     </th>
