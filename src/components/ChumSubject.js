@@ -33,7 +33,6 @@ export default function ChumSubject(props) {
       
     }
   }
-  console.log(chumSubject)
     return (
       <div>
         {chumSubject.map((subject, index) => (

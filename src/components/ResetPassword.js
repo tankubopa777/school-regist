@@ -1,7 +1,6 @@
 import { editPassword } from '../dataFetch.js'
 
 export default function Block_DetailStd(props) {
-    console.log(props.user)
     const changePassword = async (e) => {
         e.preventDefault();
         let password = String(props.user.PASSW);
@@ -10,21 +9,17 @@ export default function Block_DetailStd(props) {
         let confirmPassword = e.target.form.ConfirmPassword.value;
 
         if (currentPassword === "" || newPassword === "" || confirmPassword === "") {
-            console.log("empty")
             alert("กรุณากรอกข้อมูลให้ครบ")
         } else {
 
             if (currentPassword === password) {
                 if (newPassword === confirmPassword) {
-                    console.log("password match")
                     editPassword({ cellidx: props.user.CELLIDX, newpass: newPassword })
                     alert("เปลี่ยนรหัสผ่านสำเร็จ")
                 } else {
-                    console.log("password not match")
                     alert("รหัสผ่านไม่ตรงกัน")
                 }
             } else {
-                console.log("current password not match")
                 alert("รหัสผ่านปัจจุบันไม่ถูกต้อง")
             }
 
@@ -45,7 +40,6 @@ export default function Block_DetailStd(props) {
                 <div className="my-2">
                     ชั้น: ม. {props.user.STD_CLASS}.{props.user.STD_ROOM}
                 </div>
-                {console.log(props.user.TYPE === 'STD')}
             </div>
         ) : (
             <div className="mx-5 top-1/2">
@@ -53,7 +47,6 @@ export default function Block_DetailStd(props) {
                 <div className="my-2">
                     ชื่อ - นามสกุล: {props.user.FNAME} {props.user.LNAME}
                 </div>
-                {console.log(props.user.TYPE === 'PROF')}
             </div>
         )}
 

@@ -18,7 +18,6 @@ function DataStd(props) {
   const subject = Object.values(props.subjects);
 
   const grade = Object.values(props.subjects);
-  console.log(grade)
 
   const [Room, setRoom] = useState(1)
   const [Class, setClass] = useState(1)
@@ -67,23 +66,20 @@ function DataStd(props) {
     }
   });
 
-  console.log(filterSTD)
-  console.log(subject)
-  console.log(filterSTD.length)
 
   const dictGradeFree = {};
   const dictGradeChum = {};
 
   for (let i = 0; i < filterSTD.length; i++) {
     let ID = filterSTD[i].ID.toString();
-    console.log(ID)
+
 
     let CHUM_GRADE = "";
     if (filterSTD[i].CHUM.length === 0) {
       CHUM_GRADE = " - ";
     } else {
       CHUM_GRADE = (subject.filter(subjectlst => subjectlst.SUB_ID === filterSTD[i].CHUM[0].SUB_ID))[0].STD[0].GRADE.toString()
-      console.log(typeof CHUM_GRADE)
+
     }
 
     let FREE_GRADE = "";
@@ -91,14 +87,13 @@ function DataStd(props) {
       FREE_GRADE = " - ";
     } else {
       FREE_GRADE = (subject.filter(subjectlst => subjectlst.SUB_ID === filterSTD[i].FREE[0].SUB_ID))[0].STD[0].GRADE.toString()
-      console.log(typeof FREE_GRADE)
+
     }
 
     dictGradeFree[ID] = FREE_GRADE;
     dictGradeChum[ID] = CHUM_GRADE;
   }
-  console.log(dictGradeFree)
-  console.log(dictGradeChum)
+
 
 
   function checkArray(arr) {

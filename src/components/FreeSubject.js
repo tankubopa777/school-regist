@@ -17,7 +17,6 @@ export default function FreeSubject(props) {
             }
         }
     }
-    console.log(subjects)
 
   return (
     <div>
